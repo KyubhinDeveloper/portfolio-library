@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Gothic&display=swap');
+
+html {
+	height: 100%;
+	line-height: 1.15;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+}
+
+div, input, textarea {
+	box-sizing: border-box;
+}
+
+li, a {
+	color: black;
+	text-decoration: none;
+}
+
+input:focus {
+	outline: none;
+}
+
+.manage-inquiry-top {
+	background: #313236;
+	color: #fff;
+	font-size: 13px;
+	padding: 8px 20px;
+}
+
+.manage-inquiry-main {
+	padding: 10px;
+}
+
+ul.nav-tabs>.nav-item>.nav-link.active {
+	color: black;
+	font-weight: bold;
+	background-color: #f8f8f8;
+}
+
+ul.nav-tabs>.nav-item>a.nav-link {
+	background-color: #f0f0f0;
+	color: #b8b8b8;
+	font-size: 12px;
+    border-radius: 0;
+}
+
+.title>h5 {
+	position: relative;
+	font-size: 14px;
+    padding-left: 6px;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+.title>h5:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 1px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #98b7e9;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.manage-inquiry-wrap {
+    width: 100%;
+    border-top: 4px solid rgb(75,68,143);
+}
+
+.content-top-wrap {
+    padding: 20px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.content-top-wrap>h5 {
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+
+.data-box {
+    font-size: 13px;
+}
+
+.data-box .title {
+    margin-right: 10px;
+}
+
+.data-box .content {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.content-main-wrap {
+    border-bottom: 1px solid #eee;
+    padding: 30px 20px 40px 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.btn-box {
+    justify-content: end;
+    margin-right: 15px;
+    gap: 5px
+}
+
+.btn-box .btn {
+    background-color: #444;
+    border: #444;
+    color: white;
+    font-size: 12px;
+}
+
+.edit-btn {
+    margin-right: 5px;
+}
+
+.list-btn-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.list-btn-box .list-btn {
+    background: #f3f5f9;
+    width: 140px;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.memo-bottom-box {
+    justify-content: center;
+}
+
+.basic-btn {
+    width: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+    padding: 6px;
+    margin-top: 6px;
+    color: #4e4e4e;
+    background-color: #fff;
+}
+
+.close-btn {
+    font-size: 10px;
+    padding: 5px;
+    color: black;
+    border-color: #717176;
+    margin-top: 20px;
+}
+
+.comment-wrap {
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    margin-bottom: 20px;
+}
+
+.comment-count{
+	background: linear-gradient(to bottom,#fff 0,#f9f9f9 100%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #cfcfda;
+}
+.comment-count>i {
+    margin-right: 7px;
+    font-size: 15px;
+}
+
+.comment-content-box {
+    padding: 10px;
+    border-bottom: 1px solid #cfcfda;
+}
+
+.comment-content-box:last-of-type {
+	border-bottom: 0;
+}
+
+.comment-content-box .content-top {
+    justify-content: space-between;
+}
+
+.comment-content-box .btn-box {
+    margin-bottom: 0;
+}
+
+.comment-content-box .btn-box .btn {
+    font-size: 11px;
+    background: white;
+    color: black;
+    border: 1px solid #cfcfda;
+}
+
+.fa-eraser, .fa-pencil {
+	margin-right: 3px;
+}
+
+.writer-box {
+    align-items: center;
+}
+
+.writer-box>h5 {
+	font-size: 15px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.comment-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.comment-comment-wrap, .comment-edit-wrap {
+    align-items: center;
+    padding: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #cfcfda;
+    display: none;
+}
+
+.comment-comment-wrap div, .comment-edit-wrap div{
+    align-items: baseline;
+    justify-content: space-between;
+}
+.close-box {
+	cursor: pointer;
+}
+
+.close-box i {
+    position: relative;
+    top: 2px;
+  	font-size: 15px;
+    margin-right: 4px;
+    color: #888;
+}
+
+.close-box p {
+	font-weight: bold;
+    font-size: 12px;
+}
+
+.comment-comment-wrap h4, .comment-edit-wrap h4 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.comment-comment-wrap textarea, .comment-edit-wrap textarea {
+    width: 100%;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid;
+    border-color: #CCC #DDD #DDD #CCC;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 4px rgb(0 0 0 / 6%);
+}
+
+.comment-write-wrap {
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 20px;
+    background-color: #f3f5f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px -1px rgb(0 0 0 / 10%);
+    align-items: center;
+    margin-bottom: 60px
+}
+
+.comment-write-wrap>h4 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.comment-content-box .content-main p {
+    padding-top: 10px;
+    font-size: 13px;
+}
+
+.comment-write-wrap textarea {
+    width: 100%;
+    padding: 10px;
+    margin-right: 5px;
+    border: 1px solid;
+    border-color: #CCC #DDD #DDD #CCC;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 4px rgb(0 0 0 / 6%);
+}
+
+.comment-btn {
+    width: 96px;
+    height: 56px;
+    font-size: 13px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom,#fff 0,#f3f3f3 100%);
+    border: 1px solid;
+    border-color: #ccc #c6c6c6 #c3c3c3 #ccc;
+}
+
+.comment-comment-wrap .comment-btn , .comment-edit-wrap .comment-btn {
+    width: 50px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.navigation {
+	margin-top: 20px;
+}
+
+.inquiry-pagination {
+    justify-content: center;
+    font-size: 13px;
+}
+
+.first a, .last a {
+	color: black;
+	font-weight: 100;
+}
+
+.number {
+    color: black;
+    width: 28px;
+    text-align: center;
+}
+
+.page-item.active .page-link {
+    background-color: #4B4DFF;
+    border-color: #4B4DFF;
+}

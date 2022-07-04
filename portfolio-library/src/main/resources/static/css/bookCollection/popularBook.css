@@ -1,0 +1,136 @@
+@import url(/css/main.css);
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>span {
+	position: relative;
+	top: 2px;
+	font-size: 14px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.main-collection-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.collection-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.collection-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.book-count-wrap {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.popular-list-count {
+	color: #4b4dff;
+	padding: 0 3px;
+}
+
+.select-count {
+    width: 68px;
+    height: 32px;
+    padding: 5px;
+    background: #fff;
+    border-color: #eeeef5;
+    font-size: 13px;
+}
+
+.book-list-box {
+    flex-wrap: wrap;
+    font-size: 13px;
+    justify-content: center;
+    gap: 70px;
+}
+
+.book-box {
+    transition: all 0.3s;
+}
+
+.book-box:hover {
+    color: black;
+    font-weight: 100;
+    transform: translateY(-10px);
+}
+
+
+.book-box img {
+    width: 168px;
+    height: 239px;
+    margin-bottom: 5px;
+}
+
+.book-box h5 {
+	width: 168px;
+	font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.writer {
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 576px) {
+   
+    .book-box {
+        margin-bottom: 40px;
+    }
+    
+    .book-list-box {
+        flex-wrap: wrap;
+    	font-size: 13px;
+    	gap: 0;
+    	justify-content: space-between;
+    }
+    
+    .book-box img {
+        width: 128px;
+        height: 179px;
+    }
+    
+    .book-box h5 {
+    	width: 128px;
+    }
+
+
+}

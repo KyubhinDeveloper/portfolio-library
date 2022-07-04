@@ -1,0 +1,264 @@
+@import url(/css/main.css);
+
+table,thead,tbody,tr,td,th {
+    border: 1px solid #eeeef5;
+}
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>span {
+	position: relative;
+	top: 2px;
+	font-size: 14px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.main-community-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.community-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.community-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.community-tab-wrap {
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    margin-bottom: 40px;
+}
+
+.community-tab-box {
+    max-width: 800px;
+    margin: auto;
+    justify-content: center;
+}
+
+.community-tab-box>.active {
+    color: #fff;
+    background-color: #4b4dff;
+    text-shadow: -1px -1px 1px rgb(255 255 255 / 20%), 1px 1px 1px rgb(0 0 0 / 60%);
+}
+
+.tab {
+    width: 220px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: center;
+    border-radius: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.inquiry-search-wrap .search-box {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 10px;
+}
+
+.search-box>div {
+    width: 100%;
+    justify-content: end;
+}
+
+.search-select {
+    border: 1px solid #eee;
+    font-size: 13px;
+    width: 75px;
+    padding: 0 7px;
+    border-right: 0;
+}
+
+.inquiry-search-wrap .book-search {
+    max-width: 230px;
+    border: 1px solid #eee;
+    padding: 7px 10px;
+    font-size: 13px;
+    border-radius: 0;
+} 
+
+.inquiry-search-wrap .search-btn {
+    border-radius: 0;
+}
+
+.inquiry-table-wrap table {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid rgb(75,68,143);
+    margin-bottom: 60px;
+}
+
+thead>tr>th {
+    padding: 8px;
+    font-size: 14px;
+    color: black;
+    font-weight: 700;
+    border: 1px solid #eeeef5;
+    background-color: #f8f9fa;
+    vertical-align: middle;
+}
+
+tbody>tr>td {
+    padding: 7px 5px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    border: 1px solid #eeeef5;
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+tbody>tr>td.title {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.icon {
+    position: relative;
+    top: -2px
+}
+
+.inquiry-pagination {
+    justify-content: center;
+    font-size: 15px;
+}
+
+.inquiry-pagination li>a {
+    color: black;
+    width: 35px;
+    text-align: center;
+}
+
+.inquiry-pagination a.prev, .inquiry-pagination a.next {
+    width: 50px;
+}
+
+.prev,.number,.next {
+    color: black;
+}
+
+.page-item.active .page-link {
+    background-color: #4B4DFF;
+    border-color: #4B4DFF;
+}
+
+.write-box {
+    text-align: end;
+}
+
+.write-btn {
+    background-color: #4B4DFF;
+    border-color: #4B4DFF;
+    border-radius: 6px;
+    padding: 10px 18px;
+    margin-top: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.write-btn:hover {
+    color:white
+}
+
+.bottom-wrap {
+    max-width: 1200px;
+    margin: 70px 0px 100px 0px;
+    padding: 20px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+}
+
+.bottom-box {
+    max-width: 450px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom-box>.item {
+    align-items: center;
+}
+
+.bottom-title>div {
+    width: 23px;
+    padding: 2px 0;
+    border-radius: 50%;
+    background: #4b448f;
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.fa-question {
+    position: relative;
+    left: 8px;
+}
+
+.bottom-title>h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4b448f;
+}
+
+.bottom-box>.item>i {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.bottom-box>.item>h5 {
+	font-size: 16px;
+}
+
+.bottom-box>.item>h5 {
+    font-size: 14px;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 576px) {
+
+    .community-tab-box {
+        flex-direction: column;
+    }
+
+    .tab {
+        width: 100%;
+    }
+
+    .bottom-wrap {
+        padding: 10px;
+    }
+
+    .bottom-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

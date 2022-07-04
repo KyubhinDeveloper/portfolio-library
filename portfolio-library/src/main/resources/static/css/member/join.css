@@ -1,0 +1,443 @@
+@import url(/css/main.css);
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>a>span {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.contents-title {
+    text-align: center;
+}
+
+.contents-title>h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.contents-title>p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #96a1ab;
+}
+
+.contents-main {
+    margin: 40px 0;  
+}
+
+.agreement {
+	font-size: 13px;
+    border: 1px solid #ddd;
+    padding: 15px 15px 10px 15px;
+    border-radius: 5px;
+    background: #f6f8f9;
+    margin-bottom: 15px;
+}
+
+.agreement>.title {
+	
+	padding: 0 0 10px 0;
+    margin: 0 0 10px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.agreement>.text {
+	
+	max-height: 200px;
+    overflow: auto;
+}
+
+.agreement>.confirm {
+	
+	padding: 10px 0 0 0;
+    margin: 10px 0 0 0;
+    border-top: 1px dotted #ccc;
+}
+
+.join-field-wrap {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    border-top: 2px solid #3f719c;
+}
+
+.field-box {
+    border-bottom: 1px solid #cfcfda;
+}
+
+.field-box label {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 150px;
+    background-color: #f3f5f9;
+    padding: 13px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.input-box {
+    width: 100%;
+    text-align: left;
+    margin: 10px 15px;
+    position: relative;
+}
+
+.input-box p {
+	font-size: 12px;
+    padding: 5px 5px 0 5px;
+}
+
+.fail {
+	color: red;
+	font-weight: bold;
+}
+
+.success {
+	color: #08a600;
+	font-weight: bold;
+}
+
+.field-input-box {
+	position: relative;
+	display: inline;
+}
+
+.field-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.field-input-box img {
+    position: absolute;
+    right: 14px;
+    top: 1.1px;
+    display: none;
+}
+
+.gender {
+    width: 100%;
+    max-width: 245px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+    cursor:pointer;
+}
+
+.input-box .active {
+    border: 1px solid #08a600;
+    color: #08a600;
+    font-weight: bold;
+}
+
+.birth-input-box, .gender-input-box {
+	flex-wrap: wrap;
+	gap: 10px
+}
+
+.birth-select {
+    display: flex;
+    width: 160px;
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.birthday-select:focus {
+    outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.email-input-box {
+	align-items: center;
+}
+
+#email-input::after {
+	content: '';
+	background: url(https://static.nid.naver.com/images/ui/myinfo/m_input_text_ok.png) no-repeat 0 0;
+    background-size: 17px 13px;
+    display: inline-block;
+    width: 17px;
+    height: 13px;
+    margin-left: 4px;
+    margin-top: -3px;
+}
+
+.email-btn {
+    font-size: 13px;
+    padding: 8.5px 20px;
+    border: 1px solid #4b4dff;
+    color: #4b4dff;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+button.email-btn:hover {
+	color: #4b4dff;
+}
+
+.check-input {
+    max-width: 255px;
+}
+
+.check-btn {
+    border: #f3f5f9;
+    background: #f3f5f9;
+    color: black;
+    border: 1px solid #eee;
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 10px;
+    padding: 0 20px;
+    width: 70px;
+}
+
+button.check-btn:hover {
+	color: black;
+}
+
+.join-btn-box {
+    margin-top: 20px;
+    justify-content: end;
+    gap: 5px;
+}
+
+.join-btn, .cancle-btn {
+    background-color: #444;
+    border: #444;
+    border-radius: 4px;
+    color: white;
+    font-size: 13px;
+}
+
+.btn:hover {
+    color: white
+}
+
+.inquiry-box {
+    max-width: 450px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-box {
+    background: #4b448f;
+    padding: 10px;
+}   
+
+.inquiry-box>.item {
+    align-items: center;
+}
+
+.inquiry-title>div {
+    width: 23px;
+    padding: 2px 0;
+    border-radius: 50%;
+    background: #4b448f;
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.fa-question {
+    position: relative;
+    left: 8px;
+}
+
+.inquiry-title>h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4b448f;
+}
+
+.inquiry-box>.item>i {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.library-foot-bg {
+    background-color: #f8f9fa;
+    color: #78848e;
+    padding: 20px 0;
+
+}
+
+.foot-box {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.library-adress {
+    font-size: 13px;
+}
+
+.library-adress p:nth-of-type(3) {
+    margin-top: 10px;
+}
+
+.sns-icon-box {
+    font-size: 0;
+    margin-left: 30px;
+}
+
+.sns-icon-img {
+    width: 25px;
+}
+
+@media screen and (max-width: 992px) {
+
+    .side-menu-bg {
+        padding: 0;
+    }
+
+    .side-menu-wrap {
+        padding: 0;
+    }
+
+    .navbar-bg div.navbar-container {
+        justify-content: center;
+    }
+
+    .search-box {
+        max-width: 800px;
+    }
+
+    nav.menu-bg {
+        background-color: white;
+        border-right: 0;
+        border-left: 0;
+    }
+
+    .menu-item-box {
+        max-width: 750px;
+        min-width: 580px;
+    }
+    
+    .menu-item {
+        padding: 8px 10px;
+    }
+
+    .hamberger-box {
+        padding-right: 0;
+    }
+
+    .hamberger {
+        border: 0px;
+    }
+
+    div.menu-item-box ul.menu-item-dropdown {
+        display: none;
+    }
+
+    .foot-box {
+        display: block;
+        text-align: center;
+    }
+
+    .sns-wrap {
+        margin-top: 20px;
+        position: relative;
+        right: 12px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    
+    .field-box label {
+    	font-size: 12px
+    }
+    
+    .input-box {
+    	flex-wrap: wrap;
+    }
+    
+    .field-input {
+    	padding: 5px
+    }
+       
+    .birth-select {
+    	width: 140px	
+    }
+    
+    .email-box div{
+    	flex-wrap: wrap;
+    	gap: 5px;
+    }
+    
+    .email-btn {
+    	padding: 0 20px;
+    }
+    
+    .email-btn, .check-btn {
+    	margin-left: 0;
+    }
+    
+    .library-adress {
+        font-size: 11px;
+    }
+
+    .inquiry-wrap {
+        padding: 10px;
+    }
+
+    .inquiry-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .login-input-box {
+        padding: 10px 20px;
+    }
+
+    .login-btn {
+        padding: 10px 20px;
+    }
+ 
+}

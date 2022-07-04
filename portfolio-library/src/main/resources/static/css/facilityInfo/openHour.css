@@ -1,0 +1,115 @@
+@import url(/css/main.css);
+
+table,thead,tbody,tr,td,th {
+    border: 2px solid #eeeef5;
+}
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>span {
+	position: relative;
+	top: 2px;
+	font-size: 14px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.main-content-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.content-title {
+    text-align: center;
+}
+
+.content-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.content-title>p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #96a1ab;
+}
+
+.content-main {
+    margin: 40px 0 80px 0;
+ 
+}
+
+.main-title {
+    padding: 20px 20px;
+    border-top: 1px solid #cfcfda;
+    border-bottom: 1px solid #cfcfda;  
+}
+
+.main-title>h3 {
+	font-size: 18px;
+    font-weight: bold;
+}
+
+.main-wrap {
+    padding: 40px 20px 20px 20px;
+    background-color: #f3f5f9;
+}
+
+.main-box table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+thead>tr>th {
+    padding: 8px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #eeeef5;
+    background-color: #4b4dff;
+    vertical-align: middle;
+}
+
+tbody>tr>td {
+    padding: 7px 5px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #555;
+    border: 1px solid #eeeef5;
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+.main-box p {
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.library-foot-bg {
+    background-color: white;
+    color: #78848e;
+    padding: 40px 0;
+    border-top: 1px solid;
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.library.mapper.MyLibraryMapper">
+	<insert id="applyBook">
+		INSERT INTO book_apply (id, title, author, publisher, pubdate, ISBN, price, remarks, apply_date)
+		VALUES (#{id}, #{title}, #{author}, #{publisher}, #{pubdate}, #{isbn}, #{price}, #{remarks}, #{applyDate})
+	</insert>
+</mapper>

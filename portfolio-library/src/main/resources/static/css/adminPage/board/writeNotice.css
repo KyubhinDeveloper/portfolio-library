@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Gothic&display=swap');
+
+html {
+	height: 100%;
+	line-height: 1.15;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+}
+
+div, input, textarea {
+	box-sizing: border-box;
+}
+
+li, a {
+	color: black;
+	text-decoration: none;
+}
+
+input:focus { outline: none; }
+
+.notice-write-background {
+	padding: 10px;
+}
+
+.title>h5 {
+    position: relative;
+    font-size: 14px;
+    padding-left: 6px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.title>h5:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 1px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #98b7e9;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.write-top-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid #cfcfda;
+    border-top: 2px solid #3f719c;
+}
+
+.tag-box {
+    border-bottom: 1px solid #cfcfda;
+}
+
+.tag-box:last-of-type {
+    border-bottom: none;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background-color: #f3f5f9;
+    padding: 13px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.title-input {
+    font-size: 13px;
+    padding: 5px 10px;
+    margin: 10px 15px;
+    width: 75%;
+    max-width: 850px;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+}
+
+.tag-box>.file-input {
+    margin: 10px 15px;
+    font-size: 12px;
+}
+
+.file-box {
+    flex-direction: column;
+}
+
+.file-input-box {
+    margin: 3px 15px;
+    align-items: center;
+    font-size: 12px;
+    gap: 10px;
+}
+
+.file-input-box:first-of-type {
+    margin-top: 10px;
+}
+
+.file-input-box:last-of-type {
+    margin-bottom: 10px;
+}
+
+
+
+::-webkit-file-upload-button {
+    margin-right: 10px;
+}
+
+.file-add-btn {
+    width: 110px;
+    font-size: 13px;
+    background-color: #3f719c;
+    border: #3f719c;
+    color: white;
+    margin-left: 15px;
+    margin-top: 10px;
+    text-shadow: 0px -2px rgb(0 0 0 / 50%);
+    box-shadow: 1px 1px rgb(0 0 0 / 50%);
+}
+
+.file-add-btn:hover {
+    color: white;
+}
+
+.fil-input-box {
+    align-items: center;
+}
+
+.fa-xmark {
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btn-box {
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-box .btn:hover {
+	color: white;
+}
+
+.close-btn {
+    background-color: #595959;
+    font-size: 13px;
+    color: white;
+}
+
+.save-btn {
+    background-color: #165ac3;
+	font-size: 13px;
+    color: white;
+}

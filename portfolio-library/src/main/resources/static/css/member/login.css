@@ -1,0 +1,293 @@
+@import url(/css/main.css);
+
+.library-main-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>a>span {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.contents-title {
+    text-align: center;
+}
+
+.contents-title>h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.contents-main {
+    margin: 40px 0;
+    
+}
+
+.login-wrap {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 450px;
+    margin: auto;
+}
+
+.login-input-box {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 14px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 8px;
+}
+
+.login-input-box h5 {
+	font-size: 15px;
+}
+
+.login-input-box>input {
+    width: 60%;
+    border: none;
+    padding-left: 10px;
+}
+
+.input-tag {
+    display: inline-block;
+    border-right: 1px solid rgb(209, 209, 209);
+    padding: 2px 40px 2px 0;
+}
+
+.password {
+    padding: 2px 27px 2px 0;
+}
+
+.login-bottom-box {
+	font-size: 13px;
+	justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.login-keep-box {
+	align-items: center;
+	gap: 5px;
+}
+
+.keep-check {
+    position: relative;
+    top: 1.5px;
+	width:20px;
+	height: 17px
+}
+
+.login-tip {
+    color: red;
+}
+
+.login-btn {
+    font-size: 17px;
+    font-weight: bold;
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #4b4dff;
+    border-color: #4b4dff;
+    border-radius: 8px;
+}
+
+.login-btn:hover {
+    background-color: #4b4dff;
+}
+
+.inquiry-wrap {
+    max-width: 1200px;
+    margin: 50px 0px 100px 0px;
+    padding: 20px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+}
+
+.inquiry-box {
+    max-width: 450px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-box {
+    background: #4b448f;
+    padding: 10px;
+}   
+
+.inquiry-box>.item {
+    align-items: center;
+}
+
+.inquiry-title>div {
+    width: 23px;
+    padding: 2px 0;
+    border-radius: 50%;
+    background: #4b448f;
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.fa-question {
+    position: relative;
+    left: 8px;
+}
+
+.inquiry-title>h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4b448f;
+}
+
+.inquiry-box>.item>i {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.library-foot-bg {
+    background-color: #f8f9fa;
+    color: #78848e;
+    padding: 20px 0;
+
+}
+
+.foot-box {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.library-adress {
+    font-size: 13px;
+}
+
+.library-adress p:nth-of-type(3) {
+    margin-top: 10px;
+}
+
+.sns-icon-box {
+    font-size: 0;
+    margin-left: 30px;
+}
+
+.sns-icon-img {
+    width: 25px;
+}
+
+.inquiry-box>.item>h5 {
+    font-size: 14px;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 992px) {
+
+    .side-menu-bg {
+        padding: 0;
+    }
+
+    .side-menu-wrap {
+        padding: 0;
+    }
+
+    .navbar-bg div.navbar-container {
+        justify-content: center;
+    }
+
+    .search-box {
+        max-width: 800px;
+    }
+
+    nav.menu-bg {
+        background-color: white;
+        border-right: 0;
+        border-left: 0;
+    }
+
+    .menu-item-box {
+        max-width: 750px;
+        min-width: 580px;
+    }
+    
+    .menu-item {
+        padding: 8px 10px;
+    }
+
+    .hamberger-box {
+        padding-right: 0;
+    }
+
+    .hamberger {
+        border: 0px;
+    }
+
+    div.menu-item-box ul.menu-item-dropdown {
+        display: none;
+    }
+
+    .foot-box {
+        display: block;
+        text-align: center;
+    }
+
+    .sns-wrap {
+        margin-top: 20px;
+        position: relative;
+        right: 12px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    
+    .library-adress {
+        font-size: 11px;
+    }
+
+    .inquiry-wrap {
+        padding: 10px;
+    }
+
+    .inquiry-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .login-input-box {
+        padding: 10px 20px;
+    }
+    
+    .login-bottom-box {
+        flex-wrap: wrap;
+    	gap: 10px;
+    }
+
+    .login-btn {
+        padding: 10px 20px;
+    }
+
+
+}

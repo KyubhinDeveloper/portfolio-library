@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Gothic&display=swap');
+@font-face {
+    font-family: "KOTRA_GOTHIC";
+    src: url("/fonts/a타이틀고딕1.ttf");
+}
+
+html {
+	height: 100%;
+	line-height: 1.15;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+}
+
+div, input, textarea {
+	box-sizing: border-box;
+}
+
+li, a {
+	color: black;
+	text-decoration: none;
+}
+
+a.library-brand:hover {
+	color: black;
+}
+
+a:hover {
+	color: #4B4DFF;
+	font-weight: bold;
+}
+
+input:focus {
+	outline: none;
+}
+
+.admin-side-menu {
+	position: relative;
+    background-image: -webkit-gradient(linear, 50% 0%, 0% 50%, from(rgb(50, 81, 137)), to(rgb(1, 192, 200)));
+	color: #fff;
+	min-width: 230px;
+    padding: 20px 10px;
+}
+
+.side-title {
+	text-align: center;
+}
+
+.side-title h3 {
+	font-size: 27px;
+	font-weight: bold;
+}
+
+.side-title>h3>span {
+	display: block;
+}
+
+.side-title>h3>span:last-child {
+	 margin-top: -5px;
+}
+
+.side-title>p {
+	position: relative;
+    top: -10px;
+	font-size: 8px;
+	margin-top: 10px;
+}
+
+.side-title>span {
+	position: relative;
+    top: -10px;
+	font-size: 18px;
+}
+
+.side-item-box {
+	font-family: 'Gowun Batang', serif;
+	position: relative;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+.side-item-box:first-of-type {
+	border-top: 0;
+	padding: 0;
+	margin-top: 30px
+}
+
+.side-item-box a {
+	color: #fff;
+	text-decoration: none;
+	margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.side-item-box a:hover {
+	color: #fff;
+}
+
+.item-box-title {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    margin: 8px 0px;
+    margin-bottom: 20px;
+}
+
+.item-box-title::before {
+	  content: "";
+	  flex-grow: 0.3;
+	  background: #fff;
+	  height: 1px;
+	  font-size: 0px;
+	  line-height: 0px;
+	  margin-right: 10px;
+}
+
+.item-box-title::after {
+	  content: "";
+	  flex-grow: 1;
+	  background: #fff;
+	  height: 1px;
+	  font-size: 0px;
+	  line-height: 0px;
+	  margin-left: 10px;
+}
+
+.side-item-box>div {
+	align-items: center;
+	gap: 2px;
+	font-size: 14px;
+}
+
+div.dashboard-box, 
+div.userManagement-box {
+	justify-content: center;
+    align-items: baseline;
+}
+
+.return-box {
+	position: absolute;
+    bottom: -10px;
+    right: 20px;
+}
+
+.return-box i {
+	font-size: 28px;
+}
+
+.fa-deezer, .fa-user-gear, .fa-book-open {
+	margin-right: 8px;
+}
+
+div.bookManagement-box, div.boardManagement-box {
+	flex-direction: column;
+	gap: 10px
+}
+
+.admin-main-wrap {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+	background-color: #f3f3f3;
+}
+
+.admin-title-box {
+	height: 50px;
+	background: #fff;
+	align-items: center;
+	padding: 15px 20px;
+}
+
+.admin-title-box>h5 {
+	position: relative;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.admin-title-box>i {
+	position: relative;
+    font-size: 15px;
+}
+
+.admin-main-content {
+	height: 100%;
+	gap: 20px;
+	padding: 30px;
+}
+
+

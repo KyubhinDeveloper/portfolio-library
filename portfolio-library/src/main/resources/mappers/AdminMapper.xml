@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.library.mapper.AdminMapper">
+	
+	<select id="getLoanRecordSearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM loan_record
+		<if test="category == 'title' and type == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'bookNum' and type == ''">
+			WHERE book_num LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id' and type == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name' and type == ''">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all' and type == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR book_num LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'title' and type != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'bookNum' and type != ''">
+			WHERE book_num LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'id' and type != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'name' and type != ''">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'all' and type != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND type = #{type} OR book_num LIKE CONCAT('%',#{search},'%') AND type = #{type} OR id LIKE CONCAT('%',#{search},'%') AND type = #{type} OR name LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+	</select>
+	
+	<select id="getOdSearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM book_loan
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "연체중" OR book_num LIKE CONCAT('%',#{search},'%') AND status = "연체중" OR id LIKE CONCAT('%',#{search},'%') AND status = "연체중" OR name LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == ''">
+			WHERE status = "연체중"
+		</if>
+	</select>
+	
+	<select id="getOdRecordSearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM overdue_record
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR book_num LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+	</select>
+	
+	<select id="getLoanRecord" resultType="loanRecordVo">
+		SELECT *
+		FROM loan_record
+		<if test="category == 'title' and type == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'bookNum' and type == ''">
+			WHERE book_num LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id' and type == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name' and type == ''">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all' and type == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR book_num LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'title' and type != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'bookNum' and type != ''">
+			WHERE book_num LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'id' and type != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'name' and type != ''">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		<if test="category == 'all' and type != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND type = #{type} OR book_num LIKE CONCAT('%',#{search},'%') AND type = #{type} OR id LIKE CONCAT('%',#{search},'%') AND type = #{type} OR name LIKE CONCAT('%',#{search},'%') AND type = #{type}
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+	
+	<select id="getOverdueList" resultType="loanBookVo">
+		SELECT *
+		FROM book_loan
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "연체중" OR book_num LIKE CONCAT('%',#{search},'%') AND status = "연체중" OR id LIKE CONCAT('%',#{search},'%') AND status = "연체중" OR name LIKE CONCAT('%',#{search},'%') AND status = "연체중"
+		</if>
+		<if test="category == ''">
+			WHERE status = "연체중"
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+		
+ 	<select id="getOverdueRecord" resultType="overdueVo">
+		SELECT *
+		FROM overdue_record
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR book_num LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select> 
+	
+	<select id="getLossSearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM book_loan
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "분실중" OR book_num LIKE CONCAT('%',#{search},'%') AND status = "분실중" OR id LIKE CONCAT('%',#{search},'%') AND status = "분실중" OR name LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == ''">
+			WHERE status = "분실중"
+		</if>
+	</select>
+	
+	<select id="getLossRecordSearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM loss_record
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR book_num LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+	</select>
+	
+	<select id="getLossList" resultType="loanBookVo">
+		SELECT *
+		FROM book_loan
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = "분실중" OR book_num LIKE CONCAT('%',#{search},'%') AND status = "분실중" OR id LIKE CONCAT('%',#{search},'%') AND status = "분실중" OR name LIKE CONCAT('%',#{search},'%') AND status = "분실중"
+		</if>
+		<if test="category == ''">
+			WHERE status = "분실중"
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+	
+ 	<select id="getLossRecord" resultType="lossRecordVo">
+		SELECT *
+		FROM loss_record
+		<if test="category == 'title'">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'bookNum'">
+			WHERE book_num LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR book_num LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select> 
+	
+	<select id="getHopeSearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM book_apply
+		<if test="category == 'title' and status == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id' and status == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all' and status == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'title' and status != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'id' and status != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'all' and status != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = #{status} OR id LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+	</select>
+	
+	<select id="getHopeList" resultType="applyBookVo">
+		SELECT *
+		FROM book_apply
+		<if test="category == 'title' and status == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id' and status == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all' and status == ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'title' and status != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'id' and status != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'all' and status != ''">
+			WHERE title LIKE CONCAT('%',#{search},'%') AND status = #{status} OR id LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+	
+	<select id="getInquirySearchCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM inquiry_forum
+		<if test="category == 'id' and status == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name' and status == ''">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'subject' and status == ''">
+			WHERE subject LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all' and status == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%') OR subject LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id' and status != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'name' and status != ''">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'subject' and status != ''">
+			WHERE subject LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'all' and status != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = #{status} OR name LIKE CONCAT('%',#{search},'%') AND status = #{status} OR subject LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+	</select>
+	
+	<select id="getInquiryList" resultType="inquiryVo">
+		SELECT *
+		FROM inquiry_forum
+		<if test="category == 'id' and status == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'name' and status == ''">
+			WHERE name LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'subject' and status == ''">
+			WHERE subject LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all' and status == ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%') OR subject LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'id' and status != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'name' and status != ''">
+			WHERE name LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'subject' and status != ''">
+			WHERE subject LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		<if test="category == 'all' and status != ''">
+			WHERE id LIKE CONCAT('%',#{search},'%') AND status = #{status} OR name LIKE CONCAT('%',#{search},'%') AND status = #{status} OR subject LIKE CONCAT('%',#{search},'%') AND status = #{status}
+		</if>
+		ORDER BY num DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+</mapper>
+

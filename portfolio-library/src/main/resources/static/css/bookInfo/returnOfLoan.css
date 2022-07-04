@@ -1,0 +1,207 @@
+@import url(/css/main.css);
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+}
+
+.top-box>a:last-child>span {
+    font-weight: bold;
+}
+
+.main-bookInfo-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.bookInfo-title {
+    text-align: center;
+}
+
+.bookInfo-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.bookInfo-main {
+    margin: 40px 0 80px 0;
+}
+
+.info-title {
+    padding: 20px;
+    border-bottom: 1px solid #cfcfda;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.info-title>h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.info-title>i {
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.i-active {
+    transform: rotate(180deg);
+}
+
+.info-content {
+    background: #f3f5f9;
+    padding: 20px;
+    padding-bottom: 10px;
+    display: none;
+}
+
+.info-box .active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+thead>tr>th {
+    padding: 8px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 700;
+    border: 1px solid #eeeef5;
+    background-color: #4b4dff;
+    vertical-align: middle;
+}
+
+tbody>tr>td {
+    padding: 7px 5px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #555;
+    border: 1px solid #eeeef5;
+    background-color: #fff;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.info-item-box {
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.info-item-box>h5 {
+    position: relative;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    z-index: 3;
+}
+
+.info-item-box>h5::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -10px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #d6e3f8;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.info-item-box>ul {
+    font-size: 14px;
+}
+ 
+.inquiry-wrap {
+    max-width: 1200px;
+    margin: 50px 0px 100px 0px;
+    padding: 20px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+}
+
+.inquiry-box {
+    max-width: 450px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-box {
+    background: #4b448f;
+    padding: 10px;
+}   
+
+.inquiry-box>.item {
+    align-items: center;
+}
+
+.inquiry-title>div {
+    width: 23px;
+    padding: 2px 0;
+    border-radius: 50%;
+    background: #4b448f;
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.fa-question {
+    position: relative;
+    left: 8px;
+}
+
+.inquiry-title>h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4b448f;
+}
+
+.inquiry-box>.item>i {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.inquiry-box>.item>h5 {
+    font-size: 14px;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 576px) {
+
+    .inquiry-wrap {
+        padding: 10px;
+    }
+
+    .inquiry-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

@@ -1,0 +1,255 @@
+@import url(/css/main.css);
+
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>span {
+	position: relative;
+	top: 2px;
+	font-size: 14px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.main-community-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.community-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.community-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.community-tab-wrap {
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    margin-bottom: 40px;
+}
+
+.community-tab-box {
+    max-width: 800px;
+    margin: auto;
+    justify-content: center;
+}
+
+.community-tab-box>.active {
+    color: #fff;
+    background-color: #4b4dff;
+    text-shadow: -1px -1px 1px rgb(255 255 255 / 20%), 1px 1px 1px rgb(0 0 0 / 60%);
+}
+
+.tab {
+    width: 220px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: center;
+    border-radius: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.notice-search-wrap .search-box {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 10px;
+}
+
+.search-box>div {
+    width: 100%;
+    justify-content: end;
+}
+
+.search-select {
+    border: 1px solid #eee;
+    font-size: 14px;
+    width: 75px;
+    padding: 0 7px;
+    border-right: 0;
+}
+
+.notice-search-wrap .book-search {
+    max-width: 230px;
+    border: 1px solid #eee;
+    padding: 7px 10px;
+    font-size: 14px;
+    border-radius: 0;
+} 
+
+.notice-search-wrap .search-btn {
+    border-radius: 0;
+}
+
+.notice-list-wrap {
+    width: 100%;
+    border-top: 4px solid rgb(75,68,143);
+    margin-bottom: 60px;
+}
+
+.notice-box {
+    padding: 20px 10px;
+    align-items: center;
+    border-bottom: 1px solid #e6ebed;
+}
+
+.notice-box:hover {
+    background-color: #f8f9fa;
+}
+
+.thumbnail img {
+    width: 82px;
+    height: 110px;
+    border: 1px solid #e6ebed;
+    margin-right: 30px;
+}
+
+.notice-info-box {
+    font-size: 14px;
+}
+
+.notice-info-box>a {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.notice-info-box>a:hover {
+	color:black;
+}
+
+.notice-text-box {
+	font-size: 14px;
+}
+
+.notice-text-box p>span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.notice-text-box p {
+    margin-right: 5px;
+}
+
+.notice-text-box p::after {
+    display: inline-block;
+    content: "/";
+    width: 1em;
+    text-align: center;
+    font-weight: 100;
+}
+
+.notice-text-box p:last-of-type::after {
+    display: none;
+} 
+
+.new-icon {
+    position: relative;
+    top: -3.5px;
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 11.8px;
+    background: #ff4b5c;
+    width: 19px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+}
+
+.notice-pagination {
+    justify-content: center;
+    font-size: 15px;
+}
+
+.notice-pagination li>a {
+    color: black;
+    width: 35px;
+    text-align: center;
+}
+
+.notice-pagination a.prev, .notice-pagination a.next {
+    width: 50px;
+}
+
+.notice-pagination a.first, .notice-pagination a.last {
+	width: 60px;
+}
+
+.prev,.number,.next {
+    color: black;
+}
+
+.page-item.active .page-link {
+    background-color: #4B4DFF;
+    border-color: #4B4DFF;
+}
+
+.write-box {
+    text-align: end;
+}
+
+.write-btn {
+    background-color: #4B4DFF;
+    border-color: #4B4DFF;
+    border-radius: 6px;
+    padding: 10px 18px;
+    margin-top: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.write-btn:hover {
+    color:white
+}
+
+
+@media screen and (max-width: 576px) {
+
+    .community-tab-box {
+        flex-direction: column;
+    }
+
+    .tab {
+    	font-size: 14px;
+        width: 100%;
+    }
+
+    .notice-text-box {
+        flex-direction: column;
+        font-size: 12px;
+        gap: 2px;
+    }
+    
+    .notice-info-box>a {
+    	font-size: 17px;
+    }
+}
+

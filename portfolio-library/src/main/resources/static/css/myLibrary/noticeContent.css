@@ -1,0 +1,310 @@
+@import url(/css/main.css);
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+}
+
+.top-box>a:first-of-type>span {
+	font-weight: bold;
+}
+
+.page-now {
+    font-weight: bold;
+    color: black;
+}
+
+.main-myLibrary-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.myLibrary-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.myLibrary-title>h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.main-wrap {
+    border: 1px solid #cfcfda;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.myLibrary-box {
+    align-items: baseline;
+    padding: 20px 0;
+    
+}
+
+.myLibrary-box:first-child {
+    border-bottom: 1px dashed #CFCFDA;
+    padding-top: 0;
+}
+
+.myLibrary-box:last-child {
+    padding-bottom: 10px;
+}
+
+.myLibrary-box>h4 {
+	font-size:16px;
+    font-weight: bold;
+    margin-right: 40px;
+    width: 116px;
+}
+
+.item-box {
+    gap: 10px;
+    font-size: 14px;
+    flex-wrap: wrap;
+}
+
+.item-box .active {
+    color: #4b4dff;
+    font-weight: bold;
+}
+
+.notice-content-wrap {
+	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 100%;
+    border-top: 4px solid rgba(116,107,205,1);
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.content-top-wrap {
+    padding: 20px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.content-top-wrap>h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    font-size: 14px;
+}
+
+.info-box .title {
+    margin-right: 10px;
+}
+
+.info-box .content {
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.content-main-wrap {
+    border-bottom: 1px solid #eee;
+    padding: 30px 20px 40px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.content-box {
+	width: 100%;
+    max-width: 800px;
+	margin: auto;	
+	border: 1px solid #eee;
+    border-top: 3px solid rgba(116,107,205,1);
+}
+
+.content-box .top-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.top-text-box h2, .top-text-box span{
+	color: #005a9e;
+}
+
+.top-text-box h1 {
+	color: #747373;
+}
+
+.content-box .main-box {
+	
+	margin: 30px 0 30px 0;
+	padding: 40px 0 30px 0;
+	text-align: center;
+    background-color: #f5f5f5;
+    border: 2px solid #a7b5b6;
+}
+
+.main-box h2 {
+	font-size: 24px;
+    color: #41525c;
+    margin-bottom: 30px;
+}
+
+.main-box p {
+	padding: 0 45px;
+	font-size: 14px;
+	color: #666;
+}
+
+.main-box p span {
+	color: #333;
+    font-size: 18px;
+}
+
+.main-box table {
+	position: relative;
+	width: 90%;
+	margin: auto;
+	margin-top: 30px;
+	background: white;
+    border-bottom: 2px solid #bbb;
+}
+
+.main-box table::before {
+	content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(0deg, rgba(75,68,143,1) 0%, rgba(116,107,205,1) 50%, rgba(75,68,143,1) 100%);
+    z-index: 1;
+}
+
+table, thead, tbody, tr, td, th {
+	border: 0;
+}
+
+.main-box table thead {
+	border: 0;
+}
+
+.main-box table thead tr {
+	height: 24px;
+}
+
+.main-box table tbody tr:last-child {
+	height: 24px;
+}
+
+.main-box table tr .title {
+	width: 15%;
+    padding: 5px;
+    text-align: right;
+    font-size: 14px;
+    color: #888;
+}
+
+.main-box table tr .content {
+	color: #333;
+	padding: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.main-box table tr .end-date {
+	color: red;
+}
+
+.bottom-box {
+	margin-top:30px;
+}
+
+.home-btn {
+	font-size: 14px;
+    padding: 10px 10px;
+    background: #005a9e;
+    color: #FFF;
+	border-radius: 0;
+	margin-bottom: 20px;
+}
+
+.home-btn:hover {
+	color: #FFF;
+}
+
+.bottom-box p {
+    font-size: 12px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.content-box-text {
+	text-align: center;
+    color: #888;
+    vertical-align: middle;
+    font-size: 11px;
+    margin-bottom: 20px;
+}
+
+.btn-box {
+    justify-content: end;
+    margin-bottom: 50px;
+    margin-right: 15px;
+    gap: 5px
+}
+
+.btn-box .btn {
+    background-color: #444;
+    border: #444;
+    color: white;
+    font-size: 13px;
+}
+
+.edit-btn {
+    margin-right: 5px;
+}
+
+.list-btn-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.list-btn-box .list-btn {
+    background: #f3f5f9;
+    width: 140px;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+	
+	.content-data-box {
+		flex-direction: column;
+	}
+	
+	.main-box tr .title {
+		width: auto;
+	}
+	
+    .loan-date {
+        display: none;
+    }
+}

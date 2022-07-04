@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Gothic&display=swap');
+
+html {
+	height: 100%;
+	line-height: 1.15;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0;
+}
+
+div, input, textarea {
+	box-sizing: border-box;
+}
+
+li, a {
+	color: black;
+	text-decoration: none;
+}
+
+a.library-brand:hover {
+	color: black;
+}
+
+a:hover {
+	color: #4B4DFF;
+	font-weight: bold;
+}
+
+input:focus {
+	outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.book-detail-top {
+	background: #313236;
+	color: #fff;
+	font-size: 13px;
+	padding: 8px 20px;
+}
+
+.book-detail-bg {
+	width: 650px;
+    padding: 20px;
+}
+
+.title>h5 {
+	position: relative;
+	font-size: 14px;
+    padding-left: 6px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.title>h5:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 1px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #98b7e9;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.book-info-wrap {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.book-info-wrap>img {
+    width: 170px;
+    height: 197px; 
+}
+
+.book-info-box {
+    width: 100%;
+ 	border: 1px solid #cfcfda;
+}
+
+.book-info-item {
+    border-bottom: 1px solid #cfcfda;
+}
+
+.book-info-item:last-of-type {
+	border-bottom: 0;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background-color: #f3f5f9;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.info-item-box {
+	width: 70%;
+	align-items: center;
+}
+
+.info-text {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    font-size: 12px;
+}
+
+.basic-btn {
+	width: 50px;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+    padding: 4px 6px 3px;
+    color: #4e4e4e;
+    background-color: #fff;
+}
+
+.stop-btn {
+	width: 60px;
+	margin-right: 5px;
+}
+
+.book-status-bg table {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.book-status-bg table tr {
+	border: 1px solid #cfcfda;
+}
+
+.book-status-bg table th, .book-status-bg table td{
+	padding: 7px;
+}
+
+.book-summary-bg>.title {
+	margin-bottom: 15px;
+}
+
+.book-summary-bg>p {
+	font-size: 12px;
+}
+
+.detail-bottom-box {
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.close-btn {
+    font-size: 11px;
+    padding: 2px 10px;
+    color: black;
+    border-color: #717176;
+}

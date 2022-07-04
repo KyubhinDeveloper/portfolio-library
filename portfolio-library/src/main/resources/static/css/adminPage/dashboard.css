@@ -1,0 +1,232 @@
+@import url(/css/adminPage/adminBasic.css);
+
+.admin-page-wrap {
+	height: 100%;
+}
+
+.left-basic-box {
+	width: 1180px;
+	background-color: #fff;
+	border: 2px solid RGB(234, 234, 234);  
+	border-radius: 7px;
+	margin-top: 15px;
+}
+
+.left-basic-box:first-of-type {
+	margin-top: 0px;
+}
+
+.chart-box {
+    height: 350px;
+    padding: 10px;
+    align-items: center;
+}
+
+#daily-loanChart {
+    margin-left: 50px;
+}
+
+.total-box {
+	height: 100px;
+	padding: 15px 0;
+	justify-content: center;
+}
+
+.total-box .item-box {
+	position: relative;
+	align-items: center;
+	font-size: 14.5px;
+    font-weight: bold;
+	gap: 20px;
+	padding: 20px 30px;
+    border-right: 2px solid #f5f1f1;
+}
+
+.total-box .item-box:last-of-type {
+	border-right: 0;
+}
+
+.value {
+	color: #1793bb;;
+	font-weight: bold;
+}
+
+.item-box .value {
+	font-size: 15px;
+}
+
+.plus-box {
+    position: absolute;
+    font-size: 11px;
+    color: #56d689;
+    top: 44px;
+    right: 30px;
+}
+
+.recent-loans-list {
+	height: 300px;
+	padding: 20px
+}
+
+.recent-loans-list>h5 {
+	font-size: 14px;
+}
+
+.recent-loans-list table {
+	width: 95%;
+	margin: 30px 20px;
+	font-size: 12px;
+}
+
+.recent-loans-list table>thead>tr {
+    font-size: 13px;
+    text-align: center;
+}
+
+.recent-loans-list table>thead th {
+	padding-bottom: 20px;
+}
+
+.recent-loans-list table>tbody>tr {
+	text-align: center;
+	color: #6a6767;
+}
+
+.recent-loans-list table>tbody td {
+	padding-bottom: 15px;
+}
+
+.right-basic-box {
+	width: 430px;
+	background-color: #fff;
+	border: 2px solid RGB(234, 234, 234);  
+	border-radius: 7px;
+	margin-top: 15px;
+}
+
+.right-basic-box:first-of-type {
+	 margin-top: 0;
+}
+
+.seat-tab-box {
+	justify-content: center;
+	gap: 5px;
+	margin-top: 10px;
+	margin-bottom: 30px; 
+}
+
+.tab-btn {
+    background: #fff;
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.tab .active {
+    background-color: #4b4dff;
+    border-color: #4b4dff;
+    color: #fff;
+}
+
+.room-map-box {
+	height: 420px;
+	padding: 10px;
+	margin-top: 10px;
+	background-image: url(/img/facilityInfo/seat-background.webp);
+}
+
+.tab-status {
+	display: none;
+}
+
+.tab-status.active {
+	display: block;
+}
+
+.seat-status-box {
+    margin: auto;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+}
+
+.seat-status-item {
+    max-width: 18%;
+    flex-wrap: wrap;
+    gap: 1px;
+}
+
+.seat-status-item .item-box, .detail-item-box .item-box {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+    padding-top: 1.5px;
+    background: #1793bb;
+    border-radius: 5px;
+}
+
+.detail-item-box .item-box {
+	width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    margin-top: 3px;
+    margin-right: 4px;
+}
+
+.seat-status-item .stop, .detail-item-box .item-box-stop  {
+    background: #f33858;
+}
+
+.seat-status-item .using, .detail-item-box .item-box-using {
+	background: #7737bd;
+}
+
+.room-detail-box {
+	height: 70px;
+    padding: 15px 0;
+    justify-content: center;
+    gap: 60px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.detail-item-box {
+	font-weight: bold;
+}
+
+.recent-loss-list {
+	height: 280px;
+	padding: 20px;
+}
+
+.recent-loss-list>h5 {
+	font-size: 14px;
+	margin-bottom: 25px;
+}
+
+.recent-loss-list>table {
+	font-size: 12px;
+	text-align: center;
+	border-collapse: separate;
+ 	border-spacing: 13px 2px;
+}
+
+.recent-loss-list>table>thead th {
+	padding-bottom: 15px;
+}
+
+.recent-loss-list>table>tbody td {
+	padding-bottom: 15px;
+	color: #6a6767;
+}
+
+.book-name {
+	width: 171px;
+	display: inline-block;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.recent-loss-list>table th, .recent-loss-list>table td {
+}

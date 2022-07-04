@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.library.mapper.InquiryMapper">
+
+	<select id="getTotalCount" resultType="int">
+		SELECT count(*)
+		FROM inquiry_forum
+		<if test="category == 'subject'">
+			WHERE subject LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'content'">
+			WHERE content LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') OR content LIKE CONCAT('%',#{search},'%')
+		</if>
+	</select>
+	<select id="getSearchCount" resultType="int">
+		SELECT count(*)
+		FROM inquiry_forum
+		<if test="category == ''">
+			WHERE id = #{id}
+		</if>
+		<if test="category == 'subject'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') AND id = #{id}
+		</if>
+		<if test="category == 'content'">
+			WHERE content LIKE CONCAT('%',#{search},'%') AND id = #{id}
+		</if>
+		<if test="category == 'all'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') AND id = #{id} OR content LIKE CONCAT('%',#{search},'%') AND id = #{id}
+		</if>
+	</select>
+	
+	<insert id="insertInquiry">
+		INSERT INTO inquiry_forum(num,ip,id,name,subject,content,reg_date,secret,views)
+		VALUES (#{num},#{ip},#{id},#{name},#{subject},#{content},#{regDate},#{secret},#{views})
+	</insert>
+	
+	<select id="getInquiryList" resultType="inquiryVo">
+		SELECT *
+		FROM inquiry_forum
+		<if test="category == 'subject'">
+			WHERE subject LIKE CONCAT('%',#{search},'%')		
+		</if>
+		<if test="category == 'content'">
+			WHERE content LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') OR content LIKE CONCAT('%',#{search},'%')
+		</if>
+		ORDER BY num DESC, reg_date DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+	
+	<select id="inquiryListById" resultType="inquiryVo">
+		SELECT *
+		FROM inquiry_forum
+		<if test="category == ''">
+			WHERE id = #{id}
+		</if>
+		<if test="category == 'subject'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') AND id = #{id}		
+		</if>
+		<if test="category == 'content'">
+			WHERE content LIKE CONCAT('%',#{search},'%') AND id = #{id}
+		</if>
+		<if test="category == 'all'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') AND id = #{id} OR content LIKE CONCAT('%',#{search},'%') AND id = #{id}
+		</if>
+		ORDER BY num DESC, reg_date DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+
+</mapper>

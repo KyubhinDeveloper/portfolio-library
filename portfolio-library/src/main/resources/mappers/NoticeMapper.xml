@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.library.mapper.NoticeMapper">
+	<select id="getTotalCount" resultType="int">
+		SELECT count(*)
+		FROM notice_forum
+		<if test="category == 'subject'">
+			WHERE subject LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'content'">
+			WHERE content LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') OR content LIKE CONCAT('%',#{search},'%')
+		</if>
+	</select>
+	
+	<insert id="insertNotice">
+		INSERT INTO notice_forum(num,id,name,subject,content,reg_date,views)
+		VALUES (#{num},#{id},#{name},#{subject},#{content},#{regDate},#{views})
+	</insert>
+	
+	<select id="getNoticeList" resultMap="noticeList">
+		SELECT n.*,t.*
+		FROM notice_forum n LEFT OUTER JOIN notice_thumbnail t
+		ON n.num = t.bno
+		<if test="category == 'id'">
+			WHERE id LIKE CONCAT('%',#{search},'%')		
+		</if>
+		<if test="category == 'name'">
+			WHERE name LIKE CONCAT('%',#{search},'%')		
+		</if>
+		<if test="category == 'subject'">
+			WHERE subject LIKE CONCAT('%',#{search},'%')		
+		</if>
+		<if test="category == 'content'">
+			WHERE content LIKE CONCAT('%',#{search},'%')
+		</if>
+		<if test="category == 'all'">
+			WHERE subject LIKE CONCAT('%',#{search},'%') OR content LIKE CONCAT('%',#{search},'%') OR id LIKE CONCAT('%',#{search},'%') OR name LIKE CONCAT('%',#{search},'%')
+		</if>
+		ORDER BY n.num DESC, n.reg_date DESC
+		LIMIT #{startRow}, #{rowCount}
+	</select>
+	<resultMap id="noticeList" type="noticeVo">
+		<id column="num" property="num"/>
+		<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="subject" property="subject"/>
+		<result column="content" property="content"/>
+		<result column="reg_date" property="regDate"/>
+		<result column="views" property="views"/>
+		<collection property="thumbnail" ofType="uploadFileVo">
+			<id column="uuid" property="uuid"/>
+			<result column="bno" property="bno"/>
+			<result column="filename" property="filename"/>
+			<result column="path" property="path"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getNoticeAndThumbnailByNum" resultMap="noticeAndThumbnail">
+		SELECT n.*, t.*
+		FROM notice_forum n LEFT OUTER JOIN notice_thumbnail t
+		ON n.num = t.bno
+		WHERE n.num = #{ num };
+	</select>
+	<resultMap id="noticeAndThumbnail" type="noticeVo">
+		<id column="num" property="num"/>
+		<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="subject" property="subject"/>
+		<result column="content" property="content"/>
+		<result column="reg_date" property="regDate"/>
+		<result column="views" property="views"/>
+		<collection property="thumbnail" ofType="uploadFileVo">
+			<id column="uuid" property="uuid"/>
+			<result column="bno" property="bno"/>
+			<result column="filename" property="filename"/>
+			<result column="path" property="path"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getNoticeAndFilesByNum" resultMap="noticeAndFiles">
+		SELECT n.*, a.*
+		FROM notice_forum n LEFT OUTER JOIN notice_attachments a
+		ON n.num = a.bno
+		WHERE n.num = #{ num };
+	</select>
+	<resultMap id="noticeAndFiles" type="noticeVo">
+		<id column="num" property="num"/>
+		<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="subject" property="subject"/>
+		<result column="content" property="content"/>
+		<result column="reg_date" property="regDate"/>
+		<result column="views" property="views"/>
+		<collection property="attachments" ofType="uploadFileVo">
+			<id column="uuid" property="uuid"/>
+			<result column="bno" property="bno"/>
+			<result column="filename" property="filename"/>
+			<result column="path" property="path"/>
+		</collection>
+	</resultMap>
+</mapper>

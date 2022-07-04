@@ -1,0 +1,271 @@
+@import url(/css/main.css);
+
+table,thead,tbody,tr,td,th {
+    border: 1px solid #eeeef5;
+}
+
+.library-main-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top-box {
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.top-box>svg, .top-box>i {
+    color: #aeaeae;
+    position: relative;
+    top: 2px;
+}
+
+.top-box>span {
+	position: relative;
+	top: 2px;
+	font-size: 14px;
+}
+
+.top-box>a>span {
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.main-community-wrap {
+    margin: 60px 0 60px 0;
+}
+
+.community-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.community-title>h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.community-tab-wrap {
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    margin-bottom: 40px;
+}
+
+.community-tab-box {
+    max-width: 800px;
+    margin: auto;
+    justify-content: center;
+}
+
+.community-tab-box>.active {
+    color: #fff;
+    background-color: #4b4dff;
+    text-shadow: -1px -1px 1px rgb(255 255 255 / 20%), 1px 1px 1px rgb(0 0 0 / 60%);
+}
+
+.tab {
+    width: 220px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px;
+    text-align: center;
+    border-radius: 30px;
+    color: black;
+    cursor: pointer;
+}
+
+.write-top-box {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    border-top: 2px solid #3f719c;
+    border-bottom: 1px solid #cfcfda;
+}
+
+.tag-box {
+    border-bottom: 1px solid #cfcfda;
+}
+
+.tag-box:last-of-type {
+    border-bottom: none;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    background-color: #f3f5f9;
+    padding: 13px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.title-input {
+    font-size: 13px;
+    padding: 5px 10px;
+    margin: 10px 15px;
+    width: 75%;
+    max-width: 850px;
+    border: 1px solid #cfcfda;
+    border-radius: 3px;
+}
+
+.tag-box>.file-input {
+    margin: 10px 15px;
+    font-size: 12px;
+}
+
+.file-box {
+    flex-direction: column;
+}
+
+.file-input-box {
+    margin: 3px 15px;
+    align-items: center;
+    font-size: 12px;
+    gap: 10px;
+}
+
+.file-input-box:first-of-type {
+    margin-top: 10px;
+}
+
+.file-input-box:last-of-type {
+    margin-bottom: 10px;
+}
+
+
+
+::-webkit-file-upload-button {
+    margin-right: 10px;
+}
+
+.file-add-btn {
+    width: 110px;
+    font-size: 13px;
+    background-color: #3f719c;
+    border: #3f719c;
+    color: white;
+    margin-left: 15px;
+    margin-top: 10px;
+    text-shadow: 0px -2px rgb(0 0 0 / 50%);
+    box-shadow: 1px 1px rgb(0 0 0 / 50%);
+}
+
+.file-add-btn:hover {
+    color: white;
+}
+
+.fil-input-box {
+    align-items: center;
+}
+
+.fa-xmark {
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btn-box {
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-box .btn:hover {
+	color: white;
+}
+
+.back-btn {
+    background-color: #595959;
+    font-size: 13px;
+    color: white;
+}
+
+.save-btn {
+    background-color: #165ac3;
+	font-size: 13px;
+    color: white;
+}
+
+.bottom-wrap {
+    max-width: 1200px;
+    margin: 70px 0px 100px 0px;
+    padding: 20px;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 10px;
+}
+
+.bottom-box {
+    max-width: 450px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom-box>.item {
+    align-items: center;
+}
+
+.bottom-title>div {
+    width: 23px;
+    padding: 2px 0;
+    border-radius: 50%;
+    background: #4b448f;
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.fa-question {
+    position: relative;
+    left: 8px;
+}
+
+.bottom-title>h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4b448f;
+}
+
+.bottom-box>.item>i {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 576px) {
+
+    .community-tab-box {
+        flex-direction: column;
+    }
+
+    .tab {
+        width: 100%;
+    }
+    
+    .tag-box {
+    	flex-direction: column;
+    }
+    
+    .tag-box label {
+   		width: 100%;
+   	}
+    
+    .title-input {
+        margin: 10px;
+    	width: auto;
+    }
+    
+    
+    .bottom-wrap {
+        padding: 10px;
+    }
+
+    .bottom-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
