@@ -18,7 +18,7 @@ $("#button-send").click(function(){
 	send();
 });
 
-const websocket = new WebSocket("ws://localhost:8099/ws/chat");
+const websocket = new WebSocket("wss://localhost:8099/ws/chat");
 websocket.onmessage = onMessage;
 websocket.onopen = onOpen;
 websocket.onclose = onClose;
