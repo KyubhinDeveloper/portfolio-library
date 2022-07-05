@@ -39,15 +39,17 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		//세션에서 로그인 아이디 가져오기
 		//TextWebSocketConfig.java 에서 httpSession값을 WebSocketSession으로 복사해오도록 함.
 		String senderId = (String)session.getAttributes().get("id"); //채팅 접속자 아이디
-		log.info("채팅창 접속자 아이디: " + senderId);
+		log.info(senderId + "님이 채팅창에 접속했습니다.");
 		sessionList.add(session); //접속한 세션 세션리스트에 추가
 		userSession.put(senderId, session); //세션에 로그인 아이디 mapping
 		onlineList.add(senderId); //온라인리스트에 추가
 		
 		if(senderId.equals("admin")) { //접속자가 관리자면
+			log.info("관리자 접속 메시지 전체 발송 이벤트 작동");
 			TextMessage msg = new TextMessage("상담사와 연결되었습니다.");
-			sendToAll(msg, senderId); //회원 전체에게 관리자 접속 메시지 전송
+			sendToAll(msg, "admin"); //회원 전체에게 관리자 접속 메시지 전송
 		} else {
+			log.info("일반회원 접속 메시지 발송 이벤트 작동 (대상은 관리자)");
 			Map<String, Object> data = new HashMap<>();
 			data.put("message", "채팅 접속");
 			data.put("receiverId", "admin"); //받는사람 관리자
@@ -63,7 +65,7 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 	// 클라이언트가 웹소켓 서버로 메시지(요청)를 전송했을 때 실행 (receiverId, message 전송됨)
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		log.info("handleTextMessage() 받은 메시지 실행");
+		log.info("소켓에서 메시지 보내는 이벤트 작동");
 		Map<String, Object> dataMap = new HashMap<>();
 		
 		// 관리자 접속상태
@@ -82,9 +84,7 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		// 메시지 정보
 		String senderId = (String) session.getAttributes().get("id"); //보낸 사람 로그인 아이디
 		String payload = message.getPayload();
-		
-		log.info("받은 메시지 정보 >>> " + payload);
-		
+			
 		dataMap = jsonToMap(payload); //받은 메시지 정보를 활용해서 새로운 정보 추가
 		dataMap.put("senderId", senderId);
 		dataMap.put("time", time);
@@ -92,18 +92,16 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		dataMap.put("onlineList", onlineList);
 
 		String receiverId = (String)dataMap.get("receiverId"); //보낸 데이터에서 받는사람 아이디 가져오기
-		log.info("받는사람: " + receiverId);
-		log.info("보내는사람: " + senderId);
-
-		log.info("받은 메시지 최종 dataMap 정보 >>> " + dataMap);
+		log.info("메시지 받는사람: " + receiverId);
+		log.info("메시지 보내는사람: " + senderId);
+		log.info("보낼 메시지 최종 정보: " + dataMap);
 
 		// 데이터 정보 보내기
-		log.info("받는사람 session 정보 >>> " + userSession.get(receiverId));
 		String msg = json.writeValueAsString(dataMap);
 
-		if (userSession.get(receiverId) != null) { //만약 받는사람이 온라인일 경우
+		if (userSession.get(receiverId) != null) { //만약 받는사람이 온라인일 경우		
 			userSession.get(receiverId).sendMessage(new TextMessage(msg)); // send to receiver
-			log.info("상대에게 메시지 보내기: " + msg);
+			log.info("받는사람이 온라인이라 메시지 전송");
 		}
 
 		// 보낸 사람과 받는사람이 같지 않으면 자신에게도 메시지 보내기(관리자는 위에서 보내고 자기 자신에게 한번 더 보내지지 않는다)
@@ -111,7 +109,7 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 			dataMap.put("receiverId", senderId);
 			msg = json.writeValueAsString(dataMap);
 			session.sendMessage(new TextMessage(msg)); // send to myself
-			log.info("나에게 메시지 보내기: " + msg);
+			log.info("자신이 보낸 메시지 본인에게도 발송");
 		}
 	}
 	
@@ -146,13 +144,12 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 	
 	// 관리자 접속 전체알림
 	public void sendToAll(TextMessage message, String senderId) throws Exception {
-		
-		log.info("관리자 접속 전체발송");
-		
+				
 		Map<String, Object> dataMap = new HashMap<>();
 
 		// 관리자 접속상태
 		String adminStatus = null;
+		
 		if (userSession.containsKey("admin")) {
 			adminStatus = "online";
 		} else {
@@ -173,19 +170,15 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		dataMap.put("onlineList", onlineList);	// user online status
 		dataMap.put("connectOne", "admin");
 	
-		String receiverId = (String)dataMap.get("receiverId");
-
-		log.info("관리자 접속 전체 메시지 발송 dataMap 정보>>> " + dataMap);
-		// send a message
-		log.info("받는사람 세션 >>> " + userSession.get(receiverId));
+		log.info("관리자 접속 전체 발송 메시지 dataMap 정보: " + dataMap);
 
 		//세션에 저장되어 있는 온라인인 사람들에게 알림전송
 		for (String sessionId : userSession.keySet()) {
-			dataMap.put("receiverId", sessionId);
-			log.info("관리자 접속 메시지 발송: " + sessionId);
+			dataMap.put("receiverId", sessionId);			
 			String msg = json.writeValueAsString(dataMap);
 			//클라이언트로 dataMap 보내기
 			userSession.get(sessionId).sendMessage(new TextMessage(msg));
+			log.info(sessionId + "에게 관리자 접속 메시지 발송완료");
 		}
 	}
 	
