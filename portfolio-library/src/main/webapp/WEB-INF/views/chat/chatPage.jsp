@@ -42,6 +42,7 @@
 			<div class="d-flex chat-title">
 				<img src="/img/chat/chat-icon.png" alt="" />
 				<h5>규비개발자 상담 채팅</h5>
+				<input id="chat-target" type="hidden" value="admin"/>
 				<input id="admin-status" type="hidden" value="offline"/>
 				<i id="admin-status-icon" class="fa fa-circle offline"></i>
 			</div>
@@ -99,6 +100,9 @@
 		// 리스트 돌아가기
 		$(".btn-back-list").click(function(){
 			$('#chat-page').css('transform','translateX(1400px)');
+			let chatTarget = $('#chat-target').val();
+			$('#'+chatTarget+'').parents('.user-main').siblings('.message-count-box').find('.count').text("");
+			$('#'+chatTarget+'').parents('.user-main').siblings('.message-count-box').addClass('d-none');
 		});
 		
 	</script>

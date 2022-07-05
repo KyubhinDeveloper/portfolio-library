@@ -39,6 +39,7 @@ function send() {
 //채팅에서 나갔을 때
 function onClose(evt) {
 	console.log("채팅에서 나갔습니다.");
+	window.close();
 }
 
 //채팅에 접속했을 때
@@ -113,8 +114,6 @@ function updateadminStatus() {
 	} else {
 		console.log("관리자 상태가 변하지 않았습니다.");
 	}
-	
-	
 };
 
 // 접속유저 온라인 가져오기 (관리자 접속시)
@@ -164,7 +163,7 @@ function addStagingMessage(senderId, time, message) {
 	}
 	
 	//sessionStorage에 보낸사람 이름으로 메시지 저장
-	if (sessionStorage.getItem(senderId) != null) { //이전에 메시지를 보냈을 경우 기존 session에 내용만 추가
+	if (sessionStorage.getItem(senderId) != null) { //이전에 메시지를 보냈을 경우 기존 session에 내용만 추가		
 		container = JSON.parse(sessionStorage.getItem(senderId));
 		container.push(data);
 	} else { 
@@ -175,9 +174,10 @@ function addStagingMessage(senderId, time, message) {
 	console.log('세션에 메시지를 저장했습니다.')
 	
 	//안읽은 보낸 메시지 갯수 추가
-	if (document.getElementById(senderId) != null) {
-		var circle = $('#admin').parents('.user-main').siblings('.message-count-box');
-		var count = $('#admin').parents('.user-main').siblings('.message-count-box').find('.count');
+	if ($('#'+senderId+'') != null) {
+		console.log(senderId + '가 온라인 리스트에 있습니다. 메시지를 세션에 저장합니다.')
+		var circle = $('#'+senderId+'').parents('.user-main').siblings('.message-count-box');
+		var count = $('#'+senderId+'').parents('.user-main').siblings('.message-count-box').find('.count');
 		var n = count.text();
 		
 		if (n == "") {
@@ -187,7 +187,7 @@ function addStagingMessage(senderId, time, message) {
 		n++;
 		circle.removeClass('d-none');
 		count.text(n);
-		console.log('안 읽은 보낸 메시지 갯수를 추가했습니다.')
+		console.log('안 읽은 메시지 갯수를 추가했습니다.')
 	} //if()
 }
 
@@ -196,7 +196,7 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 	var chatContent = $("#chat-content");
 	
 	if (loginId == senderId) {
-		console.log('자신이 보낸 메시지를 추가합니다.' + message);
+		console.log('자신이 보낸 메시지를 채팅에 추가합니다.' + message);
 		if(message == '채팅 접속') {
 			let str;
 			str = `<li class="d-flex opponent-message-wrap">
@@ -255,16 +255,19 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 
 // 유저 아이콘 클릭
 function activeToggle(element) { //insertOnlineList()
-	console.log("activeToggle()")
+	console.log("채팅방을 클릭했습니다.")
 		
 	var preReceiverId = receiverId; //admin = null, 유저는 = admin
 	receiverId = element.querySelector('.user-info > .name').textContent; // 클릭한 아이콘 이름
+	$('#chat-target').val(receiverId);
+	 
 	console.log('<<<< activeToggle >>>>>')
 	console.log('이전에 채팅하던 유저 이름 >>> ', preReceiverId);
 	console.log('클릭한 유저 이름 >>> ', receiverId);
 	
-	setChatHistory(preReceiverId); //클릭시 현재 하던 채팅내용 저장
+	setChatHistory(preReceiverId); //다른 회원 클릭시 현재 하던 채팅내용 저장
 	document.getElementById('chat-content').innerHTML = "";
+	
 	getChatHistory(receiverId); // 클릭한 유저와의 채팅창 불러오기
 	if (document.getElementById(receiverId).querySelector('.message-count-box') != null) {
 		document.getElementById(receiverId).querySelector('.message-count-box > .count').textContent = "";
@@ -329,6 +332,6 @@ function getChatHistory(name) { //activeToggle()
 
 // delete outOne from onlineList
 function deleteOnlieList(outOne) {
-	var element = document.getElementById(outOne);
-	element.parentNode.removeChild(element);
+	var userTag = $('#'+outOne+'').parents('.user-box');
+	userTag.remove();
 }
