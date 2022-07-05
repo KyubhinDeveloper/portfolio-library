@@ -67,29 +67,26 @@ function onMessage(msg) {
 	// 채팅에 유저 접속시
 	if (connectOne != null) {		
 		//관리자만 해당
-		if (loginId == 'admin' && connectOne == "admin") { //관리자 접속시
+		if (loginId == "admin" && connectOne == "admin") { //관리자 접속시
 			console.log("관리자가 접속했습니다.")
 			//접속유저 온라인 리스트 가져오기
 			getOnlineList(onlineList);
-		} else if (loginId == "admin" && connectOne != "admin") { //회원 접속시
+		} else { //회원 접속시
 			console.log("회원이 접속했습니다.")
 			//접속시 온라인 리스트에 추가
 			insertOnlineList(connectOne);
 		}
 	} 
-	
-	console.log('안 읽은 메시지 수:' + $('#admin').parents('.user-main').siblings('.message-count-box').text())
-	
-	//관리자가 접속한 이후에 보낸 메시지만 저장된다.
-	//관리자로 로그인시 다른 유저가 보냈고 자기자신에게 보낸 메시지가 아닐경우 
-	if (loginId == 'admin' && senderId != 'admin' && receiverId != senderId) { 
+		
+	//관리자가 보낸 메시지 아니면 내용 전부 세션에 저장 
+	if (senderId != 'admin' && receiverId != senderId) { 
 		addStagingMessage(senderId, time, message);
-	} else { //자신의 채팅내역 가져오기	
-		insertMessage(senderId, time, message);
-	}
+	} 
 	
+	insertMessage(senderId, time, message);
+
 	// 유저 접속 종료시
-	if (outOne != null && loginId == 'admin') {
+	if (outOne != null) {
 		console.log("유저의 접속이 끊겼습니다. >>> ", outOne);
 		deleteOnlieList(outOne);
 	}
@@ -172,7 +169,7 @@ function addStagingMessage(senderId, time, message) {
 	//안읽은 보낸 메시지 갯수 추가
 	if (document.getElementById(senderId) != null) {
 		var circle = $('#admin').parents('.user-main').siblings('.message-count-box');
-		var count = $('#admin').parents('.user-main').siblings('.message-count-box');
+		var count = $('#admin').parents('.user-main').siblings('.message-count-box').find('.count');
 		var n = count.text();
 		
 		if (n == "") {
@@ -268,7 +265,7 @@ function activeToggle(element) { //insertOnlineList()
 	$('#chat-page').css('transform','translateX(0)');
 }
 
-//다른 유저 클릭시 현재 하던 채팅내용 저장
+//다른 유저 클릭시 현재 하던 채팅내용 저장  lve2514
 function setChatHistory(name) { //activeToggle(preReceiverId)
 
 	console.log('채팅 중이던 메시지 저장: ' + name);
@@ -295,7 +292,6 @@ function setChatHistory(name) { //activeToggle(preReceiverId)
 	})
 	
 	sessionStorage.setItem(name, JSON.stringify(value));
-	var data = JSON.parse(sessionStorage.getItem(name));
 };
 
 // 클릭한 유저와의 기존 채팅창 불러오기

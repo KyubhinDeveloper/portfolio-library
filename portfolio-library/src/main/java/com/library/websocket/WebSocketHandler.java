@@ -39,6 +39,7 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		//세션에서 로그인 아이디 가져오기
 		//TextWebSocketConfig.java 에서 httpSession값을 WebSocketSession으로 복사해오도록 함.
 		String senderId = (String)session.getAttributes().get("id"); //채팅 접속자 아이디
+		log.info("채팅창 접속자 아이디: " + senderId);
 		sessionList.add(session); //접속한 세션 세션리스트에 추가
 		userSession.put(senderId, session); //세션에 로그인 아이디 mapping
 		onlineList.add(senderId); //온라인리스트에 추가
@@ -146,6 +147,8 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 	// 관리자 접속 전체알림
 	public void sendToAll(TextMessage message, String senderId) throws Exception {
 		
+		log.info("관리자 접속 전체발송");
+		
 		Map<String, Object> dataMap = new HashMap<>();
 
 		// 관리자 접속상태
@@ -173,6 +176,8 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		String receiverId = (String)dataMap.get("receiverId");
 
 		log.info("관리자 접속 전체 메시지 발송 dataMap 정보>>> " + dataMap);
+		// send a message
+		log.info("받는사람 세션 >>> " + userSession.get(receiverId));
 
 		//세션에 저장되어 있는 온라인인 사람들에게 알림전송
 		for (String sessionId : userSession.keySet()) {
