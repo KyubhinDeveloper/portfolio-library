@@ -91,6 +91,8 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		dataMap.put("onlineList", onlineList);
 
 		String receiverId = (String)dataMap.get("receiverId"); //보낸 데이터에서 받는사람 아이디 가져오기
+		log.info("받는사람: " + receiverId);
+		log.info("보내는사람: " + senderId);
 
 		log.info("받은 메시지 최종 dataMap 정보 >>> " + dataMap);
 
@@ -98,13 +100,13 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		log.info("받는사람 session 정보 >>> " + userSession.get(receiverId));
 		String msg = json.writeValueAsString(dataMap);
 
-		if (userSession.get(receiverId) != null) { //만약 접속자가 온라인일 경우
+		if (userSession.get(receiverId) != null) { //만약 받는사람이 온라인일 경우
 			userSession.get(receiverId).sendMessage(new TextMessage(msg)); // send to receiver
 			log.info("상대에게 메시지 보내기: " + msg);
 		}
 
-		// 자신이 보낸 메시지 자신에게 보내기
-		if(!senderId.equals(receiverId) && userSession.get(senderId) != null) {
+		// 보낸 사람과 받는사람이 같지 않으면 자신에게도 메시지 보내기(관리자는 위에서 보내고 자기 자신에게 한번 더 보내지지 않는다)
+		if(!senderId.equals(receiverId)) {
 			dataMap.put("receiverId", senderId);
 			msg = json.writeValueAsString(dataMap);
 			session.sendMessage(new TextMessage(msg)); // send to myself

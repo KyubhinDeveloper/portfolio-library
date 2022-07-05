@@ -316,7 +316,7 @@
                                     </p>
                                 </div>
                                 <div class="confirm">
-                                    <label for="accept_agreement_2"> <input type="checkbox" name="accept_agreement[2]" value="Y" id="accept_agreement_2" required>
+                                    <label class="d-flex" for="accept_agreement_2"> <input type="checkbox" name="accept_agreement[2]" value="Y" id="accept_agreement_2" required>
                                         위의 내용을 모두 읽었으며 동의합니다.
                                     </label>
                                 </div>

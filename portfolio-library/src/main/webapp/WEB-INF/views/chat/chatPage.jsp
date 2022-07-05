@@ -17,23 +17,25 @@
 </head>
 <body>
 	<div id="chat-list" class="connect-list-background">
-		<div class="d-flex list-title-box">
-			<div class="d-flex list-title">
-				<img src="/img/chat/chat-icon.png" alt="" />
-				<h5>온라인 목록</h5>
-			</div>
-			<div class="list-search-box">
-				<input class="search-bar" type="text" />
-				<i class="fa-solid fa-magnifying-glass"></i>
+		<div class="d-flex list-top-box">
+			<div class="d-flex top-row-box">		
+				<div class="d-flex list-title">
+					<img src="/img/chat/chat-icon.png" alt="" />
+					<h5>온라인 목록</h5>
+				</div>
+				<div id="admin-chat-disconnect" class="d-flex chat-disconnect-box">
+					<i class="fa-solid fa-right-from-bracket"></i>
+					<h5>채팅종료</h5>
+				</div>
 			</div>		
 		</div>
-		<div id="connect-user-list" class="list-main-box">
-		</div>
+		<ul id="connect-user-list" class="list-main-box">		
+		</ul>
 	</div>
 	<div id="chat-page" class="chat-background">
 		<div class="d-flex chat-title-box">
 			<c:if test="${ sessionScope.id eq 'admin' }">
-			<i class="fa-solid fa-chevron-left"></i>
+			<i class="fa-solid fa-chevron-left btn-back-list"></i>
 			</c:if>
 			<div class="d-flex chat-title">
 				<img src="/img/chat/chat-icon.png" alt="" />
@@ -41,12 +43,19 @@
 				<input id="admin-status" type="hidden" value="offline"/>
 				<i id="admin-status-icon" class="fa fa-circle offline"></i>
 			</div>
+			
 			<div id="button-disconnect" class="d-flex chat-disconnect-box">
+				<c:if test="${ sessionScope.id ne 'admin' }">
 				<i class="fa-solid fa-right-from-bracket"></i>
 				<h5>채팅종료</h5>
+				</c:if>
 			</div>
+		
 		</div>
-		<ul id="chat-content" class="chat-main-box">				
+		<ul id="chat-content" class="chat-main-box">
+			<li class="chat-date-wrap">
+				<div class="chat-date-box"></div>
+			</li>				
 		</ul>
 		<div class="chat-bottom-wrap">
 			<div class="chat-bottom-box">
@@ -60,14 +69,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
 	<script>
-		var loginId = "${ sessionScope.id }";
-		
-		if(loginId == 'admin') {
-			$('#chat-page').css('display','none');
-		} else {
-			$('#chat-list').css('display','none');
-		}
-		
+		var loginId = "${ sessionScope.id }";		
 		var now = new Date();
 		var year = now.getFullYear();
 		var month = now.getMonth() + 1; 
@@ -80,13 +82,22 @@
 		}
 		
 		var str = ""+year+"년 "+month+"월 "+date+"일 "+getTodayLabel()+"";
-		$('.now-date').text(str);
+		$('.chat-date-box').text(str);
 		
-		$('.fa-chevron-left').click(function(){
-			$('#chat-page').fadeOut(600);
-			$('#chat-list').css('display','block');
-			
-		})
+		// 채팅창 닫기
+		$("#button-disconnect").click(function(){
+			window.close();
+		});
+		
+		// 관리자 창 닫기
+		$("#admin-chat-disconnect").click(function(){
+			window.close();
+		});
+				
+		// 리스트 돌아가기
+		$(".btn-back-list").click(function(){
+			$('#chat-page').css('transform','translateX(1400px)');
+		});
 		
 	</script>
 	<script type="text/javascript" src="/js/chat/chatPage.js"></script>

@@ -8,17 +8,12 @@ if (loginId != 'admin') {
 	receiverId = 'admin';
 }
 
-//창 닫기 이벤트
-$("#button-disconnect").click(function(){
-	window.close();
-});
-
 //메시지 보내기 이벤트
 $("#button-send").click(function(){
 	send();
 });
 
-const websocket = new WebSocket("wss://"+location.host+"/ws/chat");
+const websocket = new WebSocket("ws://"+location.host+"/ws/chat");
 websocket.onmessage = onMessage;
 websocket.onopen = onOpen;
 websocket.onclose = onClose;
@@ -83,6 +78,8 @@ function onMessage(msg) {
 		}
 	} 
 	
+	console.log('안 읽은 메시지 수:' + $('#admin').parents('.user-main').siblings('.message-count-box').text())
+	
 	//관리자가 접속한 이후에 보낸 메시지만 저장된다.
 	//관리자로 로그인시 다른 유저가 보냈고 자기자신에게 보낸 메시지가 아닐경우 
 	if (loginId == 'admin' && senderId != 'admin' && receiverId != senderId) { 
@@ -127,6 +124,7 @@ function getOnlineList(onlineList) {
 
 //접속유저 온라인 리스트에 추가 
 function insertOnlineList(user) {
+	console.log('온라인 리스트 추가');
 	if (document.getElementById(user) == null) { //접속한 아이디가 온라인 리스트에 업을경우 추가
 		var connectList = $("#connect-user-list");
 		
@@ -162,7 +160,7 @@ function addStagingMessage(senderId, time, message) {
 	}
 	
 	//sessionStorage에 보낸사람 이름으로 메시지 저장
-	if (sessionStorage.getItem(senderId) != null) { //이전에 메시지를 보냈을 경우 기존 session에 추가
+	if (sessionStorage.getItem(senderId) != null) { //이전에 메시지를 보냈을 경우 기존 session에 내용만 추가
 		container = JSON.parse(sessionStorage.getItem(senderId));
 		container.push(data);
 	} else { 
@@ -173,23 +171,23 @@ function addStagingMessage(senderId, time, message) {
 	
 	//안읽은 보낸 메시지 갯수 추가
 	if (document.getElementById(senderId) != null) {
-		var circle = document.getElementById(senderId).querySelector('.message-count-box');
-		var count = document.getElementById(receiverId).querySelector('.message-count-box > .count');
-		var n = count.textContent;
+		var circle = $('#admin').parents('.user-main').siblings('.message-count-box');
+		var count = $('#admin').parents('.user-main').siblings('.message-count-box');
+		var n = count.text();
 		
 		if (n == "") {
 			n = 0
 		}
 		
 		n++;
-		circle.classList.remove('d-none');
-		count.textContent = n;
+		circle.removeClass('d-none');
+		count.text(n);
 	}
 }
 
 // 자신의 채팅 내역 가져오기
 function insertMessage(senderId, time, message) { //onMessage()
-	console.log("insertMessage()");
+	console.log("자신의 채팅내역 가져오기 " + message);
 	
 	var chatContent = $("#chat-content");
 	
@@ -252,28 +250,28 @@ function insertMessage(senderId, time, message) { //onMessage()
 // 유저 아이콘 클릭
 function activeToggle(element) { //insertOnlineList()
 	console.log("activeToggle()")
-	
+		
 	var preReceiverId = receiverId; //admin = null, 유저는 = admin
 	receiverId = element.querySelector('.user-info > .name').textContent; // 클릭한 아이콘 이름
 	console.log('<<<< activeToggle >>>>>')
-	console.log('클릭한 유저 이름 >>> ', receiverId);
 	console.log('이전에 채팅하던 유저 이름 >>> ', preReceiverId);
+	console.log('클릭한 유저 이름 >>> ', receiverId);
 	
 	setChatHistory(preReceiverId); //클릭시 현재 하던 채팅내용 저장
 	document.getElementById('chat-content').innerHTML = "";
 	getChatHistory(receiverId); // 클릭한 유저와의 채팅창 불러오기
 	if (document.getElementById(receiverId).querySelector('.message-count-box') != null) {
-
 		document.getElementById(receiverId).querySelector('.message-count-box > .count').textContent = "";
 		document.getElementById(receiverId).querySelector('.message-count-box').classList.add('d-none');
-	}
+	}	
 	
-	$('#chat-list').css('display','none');
-	$('#chat-page').fadeIn(400);
+	$('#chat-page').css('transform','translateX(0)');
 }
 
 //다른 유저 클릭시 현재 하던 채팅내용 저장
 function setChatHistory(name) { //activeToggle(preReceiverId)
+
+	console.log('채팅 중이던 메시지 저장: ' + name);
 	var value = [];
 	
 	document.querySelectorAll('.my-message-wrap').forEach(item => {
@@ -295,13 +293,16 @@ function setChatHistory(name) { //activeToggle(preReceiverId)
 		}		
 		value.push(data);
 	})
-
+	
 	sessionStorage.setItem(name, JSON.stringify(value));
+	var data = JSON.parse(sessionStorage.getItem(name));
 };
 
 // 클릭한 유저와의 기존 채팅창 불러오기
 function getChatHistory(name) { //activeToggle()
+	console.log('채팅창 불러올 대상: ' + name);
 	var data = JSON.parse(sessionStorage.getItem(name));
+	
 	let str;
 	str = `	<li class="chat-date-wrap">
 				<div class="chat-date-box">

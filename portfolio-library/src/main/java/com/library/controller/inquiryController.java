@@ -67,42 +67,41 @@ public class inquiryController {
 				timeList.add(i, time);
 				i++;
 			}
-
-			int pageCount = totalCount / rowCount;
-
-			if (totalCount % rowCount > 0) {
-
-				pageCount += 1;
-			}
-
-			// 페이지 블록에 보여줄 최대 갯수
-			int pageBlock = 10;
-
-			int startPage = ((pageNum / pageBlock) - (pageNum % pageBlock == 0 ? 1 : 0)) * pageBlock + 1;
-
-			int endPage = startPage + pageBlock - 1;
-			if (endPage > pageCount) {
-
-				endPage = pageCount;
-			}
-
-			PageDto pageDto = new PageDto();
-
-			pageDto.setCategory(category);
-			pageDto.setSearch(search);
-			pageDto.setTotalCount(totalCount);
-			pageDto.setRowCount(rowCount);
-			pageDto.setPageCount(pageCount);
-			pageDto.setPageBlock(pageBlock);
-			pageDto.setStartPage(startPage);
-			pageDto.setEndPage(endPage);
-
+			
 			model.addAttribute("inquiryList", inquiryList);
-			model.addAttribute("timeList", timeList);
-			model.addAttribute("pageDto", pageDto);
+			model.addAttribute("timeList", timeList);	
+		} //if()	
 
-		} //if()
+		int pageCount = totalCount / rowCount;
 
+		if (totalCount % rowCount > 0) {
+
+			pageCount += 1;
+		}
+
+		// 페이지 블록에 보여줄 최대 갯수
+		int pageBlock = 10;
+
+		int startPage = ((pageNum / pageBlock) - (pageNum % pageBlock == 0 ? 1 : 0)) * pageBlock + 1;
+
+		int endPage = startPage + pageBlock - 1;
+		if (endPage > pageCount) {
+
+			endPage = pageCount;
+		}
+
+		PageDto pageDto = new PageDto();
+
+		pageDto.setCategory(category);
+		pageDto.setSearch(search);
+		pageDto.setTotalCount(totalCount);
+		pageDto.setRowCount(rowCount);
+		pageDto.setPageCount(pageCount);
+		pageDto.setPageBlock(pageBlock);
+		pageDto.setStartPage(startPage);
+		pageDto.setEndPage(endPage);
+
+		model.addAttribute("pageDto", pageDto);
 		model.addAttribute("pageNum", pageNum);
 
 		return "/community/inquiryForum";

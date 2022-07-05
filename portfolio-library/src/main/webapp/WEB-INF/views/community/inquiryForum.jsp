@@ -97,17 +97,17 @@
 		                                        	<input id="inquiry-num" type="hidden" value="${ inquiry.num }"/>
 		                                            <td>${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }</td>
 		                                            <td class="title">
-		                                                <a class="subject" href="#">${ inquiry.subject }</a> 
+		                                                <a class="subject" href="javascript:void(0)">${ inquiry.subject }</a> 
 		                                                <c:if test="${ timeList[status.index] lt 1440}">
 															<img class="icon" src="/img/community/ico_new.gif" alt="">
 														</c:if>
-		                                                <c:if test="${ inquiry.secret == '비밀글' }"> 
+		                                                <c:if test="${ inquiry.secret eq '비밀글' }"> 
 	                                                		<img class="icon lock" src="/img/community/ico_lock.gif" alt="">
 	                                                	</c:if>
 		                                            </td>
 		                                            <td class="id-box">
 		                                            	<input id="inquiry-id" type="hidden" value="${ inquiry.id }"/>
-	                                            		${ inquiry.name.substring(0,1)+= "*".repeat(inquiry.name.length()-1)}
+	                                            		${ inquiry.name.substring(0,1) += "*".repeat(inquiry.name.length() - 1)}
 		                                            </td>
 		                                            <td>${ inquiry.regDate.substring(0,10)}</td>
 		                                            <td>
@@ -119,7 +119,7 @@
                                     	</c:if>           
                                     </tbody>
                                 </table>
-							<c:if test="${ pageDto.pageCount gt 0 }">
+							<c:if test="${ not empty inquiryList }">
 								<nav aria-label="Page navigation">
 									<ul class="pagination inquiry-pagination">
 										<c:if test="${ pageDto.pageCount ge 3}">
@@ -189,12 +189,13 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
-    <script>
+    <script>  
+      
     	$(".subject").click(function(){
     		
     		if($(this).parent().children('img').hasClass('lock')) {
     			
-    			let sessionId = "${id}";
+    			let sessionId = "${ sessionScope.id }";
         		let id = $(this).parent().siblings('.id-box').children('#inquiry-id').val();
         		
 			 	if(id == sessionId || sessionId == 'admin'){

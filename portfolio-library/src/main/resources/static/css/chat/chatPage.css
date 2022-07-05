@@ -39,22 +39,50 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 	outline: none;
 }
 
-.list-title-box {
+::-webkit-scrollbar {
+display: none;
+}
+
+.connect-list-background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.list-top-box {
     position: fixed;
+    flex-direction: column;
+    gap: 15px;
     background-color: #f6f7fa;
     width: 100%;
-    padding: 20px 25px;
-    justify-content: space-between;
+    padding: 15px 25px;
+}
+
+.top-row-box {
+	justify-content: space-between;
     align-items: center;
-    z-index: 60;
+}
+
+.list-top-box .chat-disconnect-box{
+    margin-right: 5px;
+}
+
+.top-row-box .fa-magnifying-glass {
+    right: 110px;
+    left: inherit;
+    top: 19px;
+    font-size: 13px;
 }
 
 .list-search-box {
     position: relative;
+    display: none;
 }
 
 .search-bar {
-    width: 210px;
+    width: 100%;
     border: 1px solid #ddd8d8;
     border-radius: 10px;
     padding: 6px 10px;
@@ -71,7 +99,12 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 }
 
 .list-main-box {
-	padding-top: 74px;
+	height: 100%;
+	padding-top: 50px;
+	padding-left: 0;
+	transition: all 0.5s;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .user-box {
@@ -95,10 +128,6 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
     font-size: 11px;
     font-weight: bold;
     margin-top: 1.5px;
-}
-
-.user-box:first-child {
-	border-top: 1px solid #e8e9eb;
 }
 
 .user-box img {
@@ -134,6 +163,8 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
     right: 0;
     bottom: 0;
     background: #f6f7fa;
+    transform: translateX(1400px);
+    transition: all 0.5s;
 }
 
 .chat-title-box {
@@ -153,6 +184,11 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 
 .chat-title, .chat-close-box {
 	align-items: center;
+}
+
+.chat-title {
+    position: relative;
+    left: -10px;
 }
 
 .chat-title>img, .list-title>img {

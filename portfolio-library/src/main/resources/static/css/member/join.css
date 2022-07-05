@@ -80,8 +80,9 @@
 }
 
 .confirm label {
+	align-items: center;
 	width: 100%;
-	gap: 10px;
+	gap: 5px;
 }
 
 .join-field-wrap {
