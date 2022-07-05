@@ -84,7 +84,8 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 	font-weight: bold;
 }
 
-.logout-box .logout-btn {
+button.logout-box, 
+button.logout-btn {
 	padding: 3px 0;
     font-size: 12px;
     width: 80px;
