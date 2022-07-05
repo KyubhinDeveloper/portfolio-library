@@ -1016,12 +1016,17 @@ div.menu-item-box ul.menu-item-dropdown {
 		border-left: 0;
 	}
 	
+    .nav div.menu-container {
+   	    padding-left: 0px;
+    }
+	
 	.menu-item-box {
 		max-width: 750px;
 		min-width: 580px;
 	}
 	
 	.menu-item {
+		width: 90px;
 		font-size: 13px;
 		padding: 8px 0px;
 	}
