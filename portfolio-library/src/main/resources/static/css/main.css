@@ -654,7 +654,7 @@ div.menu-item-box ul.menu-item-dropdown {
     }
     
     .menu-item {
-    	font-size: 15px;
+    	font-size: 13px;
         padding: 8px 10px;
     }
 
@@ -683,7 +683,7 @@ div.menu-item-box ul.menu-item-dropdown {
 }
 
 @media screen and (max-width: 576px) {
-   
+	  
     .library-adress {
         font-size: 11px;
     }
