@@ -79,6 +79,11 @@
     border-top: 1px dotted #ccc;
 }
 
+.confirm label {
+	width: 100%;
+	gap: 10px;
+}
+
 .join-field-wrap {
     width: 100%;
     text-align: center;
