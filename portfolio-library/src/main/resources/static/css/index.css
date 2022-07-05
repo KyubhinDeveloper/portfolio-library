@@ -614,6 +614,7 @@ div.menu-item-box ul.menu-item-dropdown {
 
 .user-status-top {
 	align-items: center;
+    justify-content: space-between;
 	gap: 10px;
 	padding: 0 20px 15px;
     margin-bottom: 15px;
@@ -820,7 +821,8 @@ div.menu-item-box ul.menu-item-dropdown {
 
 .more-btn {
 	font-size: 12px;
-	padding: 2px 10px;
+   	padding: 4px 0px;
+    width: 65px;
 }
 
 .notice-box {
@@ -1130,7 +1132,7 @@ div.menu-item-box ul.menu-item-dropdown {
 	}
 	
 	.myInfo-inner-login {
-		padding: 20px 20px 0;
+		padding: 20px 20px;
 	}
 	
 	div.status-main-box {
@@ -1163,6 +1165,10 @@ div.menu-item-box ul.menu-item-dropdown {
 	.status-item-group {
 		font-size: 12px;
 	    gap: 10px;
+	}
+	
+	.item-box {
+		width: 150px;
 	}
 	
 	.user-status-top .text {

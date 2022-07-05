@@ -106,18 +106,18 @@
 									<c:otherwise>
 									<div class="status-main-box">
 										<div class="status-item-group d-flex">
-											<div>
+											<div class="item-box">
 												<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> <a class="status-item" href="/myLibrary/loanBook">대출권수: <span>${ loanCount }권</span></a>
 											</div>
-											<div>
+											<div class="item-box">
 												<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> <a class="status-item" href="/myLibrary/loanBook">연체권수: <span>${ overdueCnt }권</span></a>
 											</div>
 										</div>
 										<div class="status-item-group d-flex">
-											<div>
+											<div class="item-box">
 												<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> <a class="status-item" href="/myLibrary/reservationBook">예약권수: <span>${ reservationCnt }권</span></a>
 											</div>
-											<div>
+											<div class="item-box">
 												<img class="info-icon" src="/img/main/info_icon04.png" alt="" /> <a class="status-item" href="/myLibrary/hopeBook">신청도서: <span>${ wishCount }권</span></a>
 											</div>
 										</div>

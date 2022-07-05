@@ -50,6 +50,11 @@
     font-weight: bold;
     margin-bottom: 20px;
     justify-content: space-between;
+    align-items: center;
+}
+
+.book-count-wrap>div {
+	width: 80px;
 }
 
 .popular-list-count {
