@@ -249,7 +249,7 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 					<p class="opponent-message-time">`+time+`</p>
 				</li>`
 
-		chatContent.appendChild(str);
+		chatContent.append(str);
 	}
 }
 

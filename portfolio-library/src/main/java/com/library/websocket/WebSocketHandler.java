@@ -58,8 +58,6 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 			TextMessage msgToAdmin = new TextMessage(json.writeValueAsString(data));
 			handleMessage(session, msgToAdmin); //handleTextMessage()로 전송
 		} //else
-		
-		log.info("클라이언트가 웹소켓에 접속했습니다." + session );
 	}
 		
 	// 클라이언트가 웹소켓 서버로 메시지(요청)를 전송했을 때 실행 (receiverId, message 전송됨)
@@ -124,12 +122,11 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		
 		// as admin send to all
 		if (senderId.equals("admin")) {
-			
+			log.info("관리자가 채팅에서 퇴장했습니다.");
 			TextMessage msg = new TextMessage("관리자님이 퇴장했습니다.");
 			sendToAll(msg, senderId);
-			log.info("접속끊긴 클라이언트" + session);
 		} else {
-			
+			log.info("일반유저가 채팅에서 퇴장했습니다.");
 			Map<String, Object> data = new HashMap<>();
 			data.put("message", senderId + "님이 퇴장하셨습니다.");
 			data.put("receiverId", "admin");
@@ -138,8 +135,6 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 			TextMessage msg = new TextMessage(json.writeValueAsString(data));
 			handleMessage(session, msg);
 		}
-		
-		log.info("접속끊긴 클라이언트" + session);
 	}
 	
 	// 관리자 접속 전체알림
