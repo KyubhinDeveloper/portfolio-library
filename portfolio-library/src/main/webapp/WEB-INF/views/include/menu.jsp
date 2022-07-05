@@ -38,7 +38,7 @@
 				</c:if>
 				<c:if test="${ not empty sessionScope.id and sessionScope.id ne 'admin'}">
 					<div class="my-icon-box">
-						<a class="d-block d-lg-none my-icon-sm" href="#">
+						<a class="d-block d-lg-none my-icon-sm" href="javascript:void(0)">
 							<button class="button">MY</button> 
 							<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
 						  		<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -70,7 +70,7 @@
 				</c:if>
 				<c:if test="${ not empty sessionScope.id and sessionScope.id eq 'admin'}">
 					<div class="admin-icon-box">
-						<a class="d-block d-lg-none admin-icon-sm" href="/adminPage/dashboard">
+						<a class="d-block d-lg-none admin-icon-sm" href="javascript:void(0)">
 							<button class="button">Admin</button> 
 							<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
 						  		<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -79,6 +79,19 @@
 						<a class="d-none d-lg-block admin-icon" href="/adminPage/dashboard">
 							<button class="btn button admin-btn" type="button">Admin</button>
 						</a>
+						<div class="shadow admin-hover-box hover-box">
+							<div class="admin-hover-title">
+								<h5>
+									<span class="user-name">${ sessionScope.name }</span>님
+								</h5>
+							</div>
+							<div class="admin-hover-main">
+								<a class="icon-item" href="/adminPage/dashboard">관리자 페이지</a>
+								<a class="icon-item" href="/community/noticeForum">공지사항</a>
+								<a class="icon-item" href="/community/inquiryForum">게시판 문의</a>    
+							</div>
+							<a href="/member/logout"><button class="btn admin-logout-btn">로그아웃</button></a>
+						</div>
 					</div>
 				</c:if>
 				<div class="community-icon-box">

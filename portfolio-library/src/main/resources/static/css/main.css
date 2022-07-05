@@ -355,14 +355,13 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 }
 
 .my-icon-sm>button, .admin-icon-sm>button {
-	position: absolute;
-	top: -5px;
-	left: 10px;
-	font-size: 1px;
-	color: white;
-	background-color: #4B4DFF;
-	border: none;
-	border-radius: 8px;
+    position: absolute;
+    top: -15px;
+    font-size: 10px;
+    color: white;
+    background-color: #4B4DFF;
+    border: none;
+    border-radius: 8px;
 }
 
 .my-icon-sm>button:hover, .admin-icon-sm>button:hover {
@@ -413,28 +412,30 @@ button.my-btn:hover,  button.admin-btn:hover{
 	transition: all 0.3s;
 }
 
-.my-hover-box {
+.my-hover-box, .admin-hover-box {
     top: 24px;
 }
 
-.my-hover-title {
+.my-hover-title, .admin-hover-title {
     padding: 18px 16px;
     border-bottom: 1px solid #eee;
 }
 
-.my-hover-title>h5 {
+.my-hover-title>h5,
+admin-hover-title>h5 {
     font-size: 15px;
 }
 
-.my-hover-title .user-name {
+.my-hover-title .user-name,
+.admin-hover-title .user-name {
     font-weight: bold;
 }
 
-.my-hover-main {
+.my-hover-main, .admin-hover-main {
     padding: 12px 20px;
 }
 
-.my-logout-btn {
+.my-logout-btn, .admin-logout-btn {
     font-size: 12px;
     font-weight: bold;
     width: 100%;
@@ -443,6 +444,10 @@ button.my-btn:hover,  button.admin-btn:hover{
     background-color: #f8f9fa;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+.my-logout-btn:hover, .admin-logout-btn:hover {
+	color: #4b448f;
 }
 
 .community-icon-box {
@@ -651,18 +656,18 @@ div.menu-item-box ul.menu-item-dropdown {
     .nav div.menu-container {
    	    padding-left: 0px;
     }
-
+    
     .menu-item-box {
         max-width: 750px;
         min-width: 580px;
     }
     
-    .menu-item {
-    	width: 90px;
-    	font-size: 13px;
-        padding: 8px 0px;
-    }
-
+   	.menu-item {
+	    width: 160px;
+		font-size: 15px;
+		padding: 14px 0px;
+	}	
+    
     .hamberger-box {
         padding-right: 0;
     }
@@ -688,6 +693,16 @@ div.menu-item-box ul.menu-item-dropdown {
 }
 
 @media screen and (max-width: 576px) {
+	  
+    .nav div.menu-container {
+   	    padding-left: 0px;
+    }
+    
+    .menu-item {
+    	width: 90px;
+    	font-size: 13px;
+        padding: 13px 0px;
+    } 
 	  
     .library-adress {
         font-size: 11px;

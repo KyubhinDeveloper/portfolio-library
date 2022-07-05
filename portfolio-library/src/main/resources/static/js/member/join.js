@@ -175,9 +175,7 @@ $('.email-btn').on('click', function(){
 					method: 'GET',
 					url: '/member/sendEmail/' + emailText
 				}).done(function(result){
-							
-					console.log(result);
-					
+												
 					$('.check-input').prop('disabled', false);
 					$('.check-btn').prop('disabled', false);
 					$('.check-input-tip').removeClass('success fail').text('인증메일이 발송되었습니다. 인증번호를 입력해 주세요.');

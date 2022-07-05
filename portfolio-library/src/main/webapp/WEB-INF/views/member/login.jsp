@@ -64,8 +64,9 @@
 										<input class="keep-check" type="checkbox" name="keepLogin"/>
 										<p class="login-keep-text">로그인 상태 유지</p>
 									</div>
-									<p class="login-tip"></p>
+									<a href="/member/join">회원가입</a>									
 								</div>
+								<p class="login-tip"></p>
 								<button type="button" class="btn btn-primary login-btn">로그인 하기(Login)</button>
 							</form>
 							<div class="inquiry-wrap">

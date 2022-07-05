@@ -67,7 +67,12 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 .login-box, .logout-box {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 5px;
+}
+
+.logout-box>div {
+    width: 70px;
+    text-align: center;
 }
 
 .login-box>img, .logout-box>img {
@@ -79,9 +84,10 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 	font-weight: bold;
 }
 
-.logout-box>.logout-btn {
-	padding: 2px;
-	width: 65px;
+.logout-box .logout-btn {
+	padding: 3px 0;
+    font-size: 12px;
+    width: 80px;
 }
 
 .side-menu-close {
@@ -333,9 +339,8 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 
 .my-icon-sm>button, .admin-icon-sm>button {
 	position: absolute;
-	top: -5px;
-	left: 10px;
-	font-size: 1px;
+	top: -15px;
+	font-size: 10px;
 	color: white;
 	background-color: #4B4DFF;
 	border: none;
@@ -387,32 +392,34 @@ button.my-btn:hover,  button.admin-btn:hover{
 	transition: all 0.3s;
 }
 
-.my-hover-box {
-	top: 24px;
+.my-hover-box, .admin-hover-box {
+    top: 24px;
 }
 
-.my-hover-title {
-	padding: 18px 16px;
-	border-bottom: 1px solid #eee;
+.my-hover-title, .admin-hover-title {
+    padding: 18px 16px;
+    border-bottom: 1px solid #eee;
 }
 
-.my-hover-title>h5 {
-	font-size: 15px;
+.my-hover-title>h5,
+admin-hover-title>h5 {
+    font-size: 15px;
 }
 
-.my-hover-title .user-name {
-	font-weight: bold;
+.my-hover-title .user-name,
+.admin-hover-title .user-name {
+    font-weight: bold;
 }
 
-.my-hover-main {
-	padding: 12px 20px;
+.my-hover-main, .admin-hover-main {
+    padding: 12px 20px;
 }
 
-.my-logout-btn {
+.my-logout-btn, .admin-logout-btn {
+    font-size: 12px;
+    font-weight: bold;
     width: 100%;
     padding: 10px 0;
-    font-size: 14px;
-    font-weight: bold;
     color: #4b448f;
     background-color: #f8f9fa;
     border-bottom-right-radius: 10px;
@@ -421,11 +428,6 @@ button.my-btn:hover,  button.admin-btn:hover{
 
 .my-logout-btn:hover {
 	color: #4b448f;
-}
-
-.community-icon-box {
-	position: relative;
-	top: 3px;
 }
 
 .community-hover-box {
@@ -820,8 +822,8 @@ div.menu-item-box ul.menu-item-dropdown {
 }
 
 .more-btn {
-	font-size: 12px;
-   	padding: 4px 0px;
+    font-size: 12px;
+    padding: 4px 0px;
     width: 65px;
 }
 
@@ -1018,7 +1020,7 @@ div.menu-item-box ul.menu-item-dropdown {
 		border-left: 0;
 	}
 	
-    .nav div.menu-container {
+	.nav div.menu-container {
    	    padding-left: 0px;
     }
 	
@@ -1028,10 +1030,10 @@ div.menu-item-box ul.menu-item-dropdown {
 	}
 	
 	.menu-item {
-		width: 90px;
-		font-size: 13px;
-		padding: 8px 0px;
-	}
+	    width: 160px;
+		font-size: 15px;
+		padding: 14px 0px;
+	}	
 	
 	.hamberger-box {
 		padding-right: 0;
@@ -1120,15 +1122,21 @@ div.menu-item-box ul.menu-item-dropdown {
 
 @media screen and (max-width: 576px) {
 		
+    .nav div.menu-container {
+   	    padding-left: 0px;
+    }
+		
+	.menu-item {
+		width: 90px;
+		font-size: 13px;
+	    padding: 13px 0px;
+	}	
+		
 	.info-carousel-img {
 		height: 100%;
 	}
 	.carousel-btn {
 		display: none;
-	}
-	
-	.mini-myInfo-box {
-		height: 210px;
 	}
 	
 	.myInfo-inner-login {
@@ -1174,10 +1182,6 @@ div.menu-item-box ul.menu-item-dropdown {
 	.user-status-top .text {
 		display: none;
 	} 
-	
-	.user-status-top .logout-btn {
-		font-size: 10px;
-	}
 	
 	.roomInfo-box, .bookInfo-box {
 		font-size: 13px;

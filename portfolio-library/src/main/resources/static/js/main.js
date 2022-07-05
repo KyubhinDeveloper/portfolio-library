@@ -1,10 +1,17 @@
 //메뉴 도서검색 이벤트
 $('.menu-search-box .search-btn').click(function(){
-	
-	let search = $('.menu-search-box .book-search').val();
-	
+	let search = $('.menu-search-box .book-search').val();	
 	location = "/bookCollection/searchBook?search="+ search; 
 })
+
+$(".book-search").keydown(function (key) {
+    if (key.keyCode == 13) {
+        let search = $('.menu-search-box .book-search').val();	
+       	console.log(search);
+		location.href = "/bookCollection/searchBook?search="+ search;
+    }
+});
+
 
 // community-icon 애니메이션
 $('.community-icon-box').mouseover(function () {
@@ -18,6 +25,12 @@ $('.my-icon-box').mouseover(function(){
     $('.my-hover-box').css('opacity', 1).css('visibility', 'visible');
 }).mouseout(function(){
     $('.my-hover-box').css('opacity', 0).css('visibility', 'hidden');
+})
+
+$('.admin-icon-box').mouseover(function(){
+    $('.admin-hover-box').css('opacity', 1).css('visibility', 'visible');
+}).mouseout(function(){
+    $('.admin-hover-box').css('opacity', 0).css('visibility', 'hidden');
 })
 
 // 메뉴클릭 active onoff

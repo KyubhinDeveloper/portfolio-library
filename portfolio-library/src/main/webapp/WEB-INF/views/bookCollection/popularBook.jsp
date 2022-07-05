@@ -51,7 +51,7 @@
                                 <div class="content-box">
                                     <div class="d-flex book-count-wrap">
                                     	<div>
-                                        	총 <span class="popular-list-count">20</span> 권
+                                        	총 <span class="popular-list-count">${ listCount }</span> 권
                                         </div>
                                         <select class="select-count" name="popular-list-count">
 											<option class="option" value="10" ${ listCount eq 10 ? 'selected' : '' }>10</option>
