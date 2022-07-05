@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="/css/chat/chatPage.css">
 </head>
 <body>
+	<c:if test="${ sessionScope.id eq 'admin' }">
 	<div id="chat-list" class="connect-list-background">
 		<div class="d-flex list-top-box">
 			<div class="d-flex top-row-box">		
@@ -32,6 +33,7 @@
 		<ul id="connect-user-list" class="list-main-box">		
 		</ul>
 	</div>
+	</c:if>
 	<div id="chat-page" class="chat-background">
 		<div class="d-flex chat-title-box">
 			<c:if test="${ sessionScope.id eq 'admin' }">
