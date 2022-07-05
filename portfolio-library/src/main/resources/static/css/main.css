@@ -647,6 +647,10 @@ div.menu-item-box ul.menu-item-dropdown {
         border-right: 0;
         border-left: 0;
     }
+    
+    .nav div.menu-container {
+   	    padding-left: 10px;
+    }
 
     .menu-item-box {
         max-width: 750px;
@@ -655,7 +659,7 @@ div.menu-item-box ul.menu-item-dropdown {
     
     .menu-item {
     	font-size: 13px;
-        padding: 8px 10px;
+        padding: 8px 0px;
     }
 
     .hamberger-box {
