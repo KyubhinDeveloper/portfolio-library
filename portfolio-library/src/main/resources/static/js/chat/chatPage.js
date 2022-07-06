@@ -63,6 +63,9 @@ function onMessage(msg) {
 	var connectOne = data.connectOne; 
 	var outOne = data.outOne;
 		
+	//관리자 상태 업데이트
+	updateadminStatus();	
+		
 	// 채팅에 유저 접속시
 	if (connectOne != null) {		
 		console.log('새로운 접속자가 있습니다.')
@@ -91,9 +94,6 @@ function onMessage(msg) {
 		console.log("유저의 접속이 끊겼습니다. >>> ", outOne);
 		deleteOnlieList(outOne);
 	}
-	
-	//관리자 상태 업데이트
-	updateadminStatus();
 }
 
 //관리자 상태 업데이트
