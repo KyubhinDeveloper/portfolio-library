@@ -34,19 +34,15 @@
 		</ul>
 	</div>
 	</c:if>
-	<div id="chat-page" class="chat-background" style="${sessionScope.id ne 'admin' ? 'transform:translateX(0px)' : '' }">
+	<div id="chat-page" class="chat-background" style="${sessionScope.id eq 'admin' ? 'transform:translateX(400px)' : 'width: 100%' }">
 		<div class="d-flex chat-title-box">
-			<c:if test="${ sessionScope.id eq 'admin' }">
-			<i class="fa-solid fa-chevron-left btn-back-list"></i>
-			</c:if>
 			<div class="d-flex chat-title">
 				<img src="/img/chat/chat-icon.png" alt="" />
 				<h5>규비개발자 상담 채팅</h5>
 				<input id="chat-target" type="hidden" value="admin"/>
 				<input id="admin-status" type="hidden" value="offline"/>
 				<i id="admin-status-icon" class="fa fa-circle offline"></i>
-			</div>
-			
+			</div>		
 			<div id="button-disconnect" class="d-flex chat-disconnect-box">
 				<c:if test="${ sessionScope.id ne 'admin' }">
 				<i class="fa-solid fa-right-from-bracket"></i>
@@ -97,14 +93,6 @@
 			window.close();
 		});
 				
-		// 리스트 돌아가기
-		$(".btn-back-list").click(function(){
-			$('#chat-page').css('transform','translateX(1400px)');
-			let chatTarget = $('#chat-target').val();
-			$('#'+chatTarget+'').parents('.user-main').siblings('.message-count-box').find('.count').text("");
-			$('#'+chatTarget+'').parents('.user-main').siblings('.message-count-box').addClass('d-none');
-		});
-		
 	</script>
 	<script type="text/javascript" src="/js/chat/chatPage.js"></script>
 </body>

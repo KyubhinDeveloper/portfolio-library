@@ -306,13 +306,15 @@
 		
 		//관리창 띄우기
 		$('.chat-icon-box').click(function(){
-			let id = "${ id }";
+			let id = "${ sessionScope.id }";
 			console.log(id);
 			if(id == '') {
 				location.href = "/member/login";
+			} else if(id == 'admin'){
+				window.open('/chat/chatPage',' _blank','top=150, left=20, width=800, height=650, status=no, menubar=no, toolbar=no, resizable=no');
 			} else {
 				window.open('/chat/chatPage',' _blank','top=150, left=20, width=400, height=650, status=no, menubar=no, toolbar=no, resizable=no');
-			} 
+			}
 		})
 	</script>
 </body>

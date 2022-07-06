@@ -45,6 +45,7 @@ display: none;
 
 .connect-list-background {
     position: absolute;
+    width: 400px;
     left: 0;
     top: 0;
     right: 0;
@@ -52,12 +53,11 @@ display: none;
 }
 
 .list-top-box {
-    position: fixed;
     flex-direction: column;
     gap: 15px;
     background-color: #f6f7fa;
     width: 100%;
-    padding: 15px 25px;
+    padding: 15px 20px 15px 25px;
 }
 
 .top-row-box {
@@ -100,7 +100,6 @@ display: none;
 
 .list-main-box {
 	height: 100%;
-	padding-top: 50px;
 	padding-left: 0;
 	transition: all 0.5s;
     overflow-x: hidden;
@@ -112,6 +111,10 @@ display: none;
     border-bottom: 1px solid #e8e9eb;
     cursor: pointer;
     justify-content: space-between;
+}
+
+.user-box.active {
+    background: #efefef;
 }
 
 .message-count-box {
@@ -158,13 +161,12 @@ display: none;
 
 .chat-background {
     position: absolute;
+    width: 400px;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background: #f6f7fa;
-    transform: translateX(1400px);
-    transition: all 0.5s;
 }
 
 .chat-title-box {
