@@ -13,7 +13,7 @@ $("#button-send").click(function(){
 	send();
 });
 
-const websocket = new WebSocket("ws://"+location.host+"/ws/chat");
+const websocket = new WebSocket("wss://"+location.host+"/ws/chat");
 websocket.onmessage = onMessage;
 websocket.onopen = onOpen;
 websocket.onclose = onClose;
