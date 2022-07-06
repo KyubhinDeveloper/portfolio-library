@@ -308,9 +308,9 @@ function setChatHistory(preChattingId) { //activeToggle(preReceiverId)
 	document.querySelectorAll('.my-message-wrap').forEach(item => {
 
 		var time = item.querySelector('.my-message-time').textContent;
-		var message = item.querySelector('.my-message-box.message').textContent;
+		var message = item.querySelector('.my-message-box .message').textContent;
 		var senderId;
-		var type = item.querySelector('.my-message-box.message').classList[1];
+		var type = item.querySelector('.my-message-box .message').classList[1];
 		console.log('type: ' + type);
 		if (type == 'my-message') {
 			senderId = loginId;
