@@ -286,7 +286,7 @@ function activeToggle(element) { //insertOnlineList()
 		
 		document.getElementById(preChattingId).classList.remove('active');
 		
-		setChatHistory(preChattingId); //다른 회원 클릭시 현재 하던 채팅내용 저장
+		setChatHistory(preChattingId); //다른 회원 클릭시 현재 채팅내용 저장
 		document.getElementById('chat-content').innerHTML = "";
 		getChatHistory(clickId); // 클릭한 유저와의 채팅창 불러오기	
 
@@ -308,9 +308,10 @@ function setChatHistory(preChattingId) { //activeToggle(preReceiverId)
 	document.querySelectorAll('.my-message-wrap').forEach(item => {
 
 		var time = item.querySelector('.my-message-time').textContent;
-		var message = item.querySelector('.message').textContent;
+		var message = item.querySelector('.my-message-box.message').textContent;
 		var senderId;
-		var type = item.querySelector('.message').classList[1];
+		var type = item.querySelector('.my-message-box.message').classList[1];
+		console.log('type: ' + type);
 		if (type == 'my-message') {
 			senderId = loginId;
 		} else {
