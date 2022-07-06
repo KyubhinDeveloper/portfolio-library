@@ -284,7 +284,7 @@ function activeToggle(element) { //insertOnlineList()
 
 	if (preChattingId != clickId) {
 		
-		$('#'+preChatteingId+'').parents('.user-box').removeClass('active');
+		$('#'+preChattingId+'').parents('.user-box').removeClass('active');
 		
 		setChatHistory(preChattingId); //다른 회원 클릭시 현재 채팅내용 저장
 		document.getElementById('chat-content').innerHTML = "";
