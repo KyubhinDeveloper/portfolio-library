@@ -231,7 +231,7 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 		} else {
 
 			let str;
-			str = `<li class="d-flex my-message-wrap">
+			str = `<li class="d-flex my-message-wrap message-wrap">
 						<p class="d-flex my-message-time">`+ time + `</p>
 						<div class="my-message-box">
 							<p class="message my-message">`+ message + `</p>
@@ -245,7 +245,7 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 		//상대가 보낸 메시지 출력
 		if(message != '채팅 접속') {
 			let str;	
-			str = `<li class="d-flex opponent-message-wrap">
+			str = `<li class="d-flex opponent-message-wrap message-wrap">
 						<div class="opponent-message-box">
 							<p class="message other-message">`+message+`</p>
 						</div>
@@ -284,7 +284,7 @@ function activeToggle(element) { //insertOnlineList()
 
 	if (preChattingId != clickId) {
 		
-		document.getElementById(preChattingId).classList.remove('active');
+		$('#'+preChatteingId+'').parents('.user-box').removeClass('active');
 		
 		setChatHistory(preChattingId); //다른 회원 클릭시 현재 채팅내용 저장
 		document.getElementById('chat-content').innerHTML = "";
@@ -305,7 +305,7 @@ function setChatHistory(preChattingId) { //activeToggle(preReceiverId)
 	console.log('채팅 중이던 메시지 저장: ' + preChattingId);
 	var value = [];
 	
-	document.querySelectorAll('.my-message-wrap').forEach(item => {
+	document.querySelectorAll('.message-wrap').forEach(item => {
 
 		var time = item.querySelector('.my-message-time').textContent;
 		var message = item.querySelector('.my-message-box .message').textContent;
