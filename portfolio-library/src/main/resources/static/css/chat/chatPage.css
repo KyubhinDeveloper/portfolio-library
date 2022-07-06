@@ -267,14 +267,12 @@ display: none;
     vertical-align: top;
 }
 
-.opponent-message-wrap,
-.my-message-wrap {
+.message-wrap {
 	position: relative;
     margin-bottom: 10px;
 }
 
-.opponent-message-box, 
-.my-message-box {	
+.message-box {	
 	position: relative;
 	max-width: 280px;
     padding: 14px 16px;
@@ -287,8 +285,7 @@ display: none;
     font-size: 13px;
 }
 
-.opponent-message-box:before, 
-.my-message-box:before {
+.message-box:before {
     content: "";
     position: absolute;
     left: -9px;
@@ -320,8 +317,7 @@ display: none;
     border-top-color: #cebfe1;
 }
 
-.opponent-message-time, 
-.my-message-time {
+.message-time {
     align-items: flex-end;
     font-size: 10px;
     line-height: 22px;

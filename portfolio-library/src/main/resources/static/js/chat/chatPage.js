@@ -197,32 +197,32 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 			
 			let str;
 			
-			str = `<li class="d-flex opponent-message-wrap">
-						<div class="opponent-message-box">
-							<p class="message other-message">안녕하세요. `+senderId+`님!<br>규빈개발자 도서관 상담채팅입니다!</p>
+			str = `<li class="d-flex message-wrap opponent-message-wrap">
+						<div class="message-box opponent-message-box">
+							<p class="message opponent-message">안녕하세요. `+senderId+`님!<br>규빈개발자 도서관 상담채팅입니다!</p>
 						</div>
-						<p class="d-flex opponent-message-time">`+time+`</p>
+						<p class="d-flex message-time opponent-message-time">`+time+`</p>
 					</li>`;
 					
 			chatContent.append(str);
 			
 			if(adminStatus == 'online') {
 				
-				str = `<li class="d-flex opponent-message-wrap">
-							<div class="opponent-message-box">
-								<p class="message other-message">상담사와 연결되었습니다.</p>
+				str = `<li class="d-flex message-wrap opponent-message-wrap">
+							<div class="message-box opponent-message-box">
+								<p class="message opponent-message">상담사와 연결되었습니다.</p>
 							</div>
-							<p class="opponent-message-time">`+time+`</p>
+							<p class="d-flex message-time opponent-message-time">`+time+`</p>
 						</li>`;	
 						
 				chatContent.append(str);	
 			} else {
 				
-				str = `<li class="d-flex opponent-message-wrap">
-							<div class="opponent-message-box">
-								<p class="message other-message">상담사와 연결 중입니다.<br>잠시만 기다려 주세요.</p>
+				str = `<li class="d-flex message-wrap opponent-message-wrap">
+							<div class="message-box opponent-message-box">
+								<p class="message opponent-message">상담사와 연결 중입니다.<br>잠시만 기다려 주세요.</p>
 							</div>
-							<p class="d-flex opponent-message-time">`+time+`</p>
+							<p class="d-flex message-time opponent-message-time">`+time+`</p>
 						</li>`;	
 						
 				chatContent.append(str);		
@@ -231,9 +231,9 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 		} else {
 
 			let str;
-			str = `<li class="d-flex my-message-wrap message-wrap">
-						<p class="d-flex my-message-time">`+ time + `</p>
-						<div class="my-message-box">
+			str = `<li class="d-flex message-wrap my-message-wrap">
+						<p class="d-flex message-time my-message-time">`+ time + `</p>
+						<div class="message-box my-message-box">
 							<p class="message my-message">`+ message + `</p>
 						</div>	
 					</li>`;
@@ -245,11 +245,11 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 		//상대가 보낸 메시지 출력
 		if(message != '채팅 접속') {
 			let str;	
-			str = `<li class="d-flex opponent-message-wrap message-wrap">
-						<div class="opponent-message-box">
-							<p class="message other-message">`+message+`</p>
+			str = `<li class="d-flex message-wrap opponent-message-wrap">
+						<div class="message-box opponent-message-box">
+							<p class="message opponent-message">`+message+`</p>
 						</div>
-						<p class="opponent-message-time">`+time+`</p>
+						<p class="d-flex message-time opponent-message-time">`+time+`</p>
 					</li>`
 	
 			chatContent.append(str);
@@ -307,10 +307,10 @@ function setChatHistory(preChattingId) { //activeToggle(preReceiverId)
 	
 	document.querySelectorAll('.message-wrap').forEach(item => {
 
-		var time = item.querySelector('.my-message-time').textContent;
-		var message = item.querySelector('.my-message-box .message').textContent;
+		var time = item.querySelector('.message-time').textContent;
+		var message = item.querySelector('.message-box .message').textContent;
 		var senderId;
-		var type = item.querySelector('.my-message-box .message').classList[1];
+		var type = item.querySelector('.message-box .message').classList[1];
 		console.log('type: ' + type);
 		if (type == 'my-message') {
 			senderId = loginId;
