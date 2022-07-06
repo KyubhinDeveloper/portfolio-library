@@ -21,7 +21,6 @@ websocket.onclose = onClose;
 //메시지 보내기 함수
 function send() {
 	var message = $('#chat-message').val();
-
 	if (message != "") {
 		let msg = {
 			'receiverId': receiverId,
@@ -244,15 +243,18 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 	} else {
 		console.log('상대가 보낸 메시지를 추가합니다.' + message);
 		//상대가 보낸 메시지 출력
-		let str;	
-		str = `<li class="d-flex opponent-message-wrap">
-					<div class="opponent-message-box">
-						<p class="message other-message">`+message+`</p>
-					</div>
-					<p class="opponent-message-time">`+time+`</p>
-				</li>`
-
-		chatContent.append(str);
+		if(message != '채팅 접속') {
+			let str;	
+			str = `<li class="d-flex opponent-message-wrap">
+						<div class="opponent-message-box">
+							<p class="message other-message">`+message+`</p>
+						</div>
+						<p class="opponent-message-time">`+time+`</p>
+					</li>`
+	
+			chatContent.append(str);
+		}
+		
 	}
 }
 
@@ -266,6 +268,7 @@ function activeToggle(element) { //insertOnlineList()
 
 	var preChattingId = $('#chat-target').val();
 	clickId = element.querySelector('.user-info > .name').textContent; // 클릭한 아이콘 이름
+	receiverId = clickId;
 	$('#chat-target').val(clickId);
 
 	console.log('<<<< activeToggle >>>>>')
