@@ -86,7 +86,7 @@ function onMessage(msg) {
 		console.log('내가 보낸 메시지를 세션에 저장 이벤트 발동.'); 
 		addStagingMessage(senderId, time, message);
 	} else {
-		insertMessage(senderId, time, message);
+		insertMessage(senderId, time, message, adminStatus);
 	}
 	
 	// 유저 접속 종료시
