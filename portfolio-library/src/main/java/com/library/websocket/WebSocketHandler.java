@@ -51,7 +51,7 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		} else {
 			log.info("일반회원 접속 메시지 발송 이벤트 작동 (대상은 관리자)");
 			Map<String, Object> data = new HashMap<>();
-			data.put("message", "채팅 접속");
+			data.put("message", senderId + "님이 채팅창에 접속했습니다.");
 			data.put("receiverId", "admin"); //받는사람 관리자
 			data.put("connectOne", senderId); //새로 접속한 사람 아이디 저장
 			

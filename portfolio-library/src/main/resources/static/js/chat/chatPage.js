@@ -193,7 +193,7 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 	
 	if (loginId == senderId) {
 		console.log('자신이 보낸 메시지를 채팅에 추가합니다.' + message);
-		if(message == '채팅 접속') {
+		if(message == ''+senderId+'님이 채팅창에 접속했습니다.') {
 			
 			let str;
 			
@@ -243,18 +243,15 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 	} else {
 		console.log('상대가 보낸 메시지를 추가합니다.' + message);
 		//상대가 보낸 메시지 출력
-		if(message != '채팅 접속') {
-			let str;	
-			str = `<li class="d-flex message-wrap opponent-message-wrap">
-						<div class="message-box opponent-message-box">
-							<p class="message opponent-message">`+message+`</p>
-						</div>
-						<p class="d-flex message-time opponent-message-time">`+time+`</p>
-					</li>`
-	
-			chatContent.append(str);
-		}
-		
+		let str;	
+		str = `<li class="d-flex message-wrap opponent-message-wrap">
+					<div class="message-box opponent-message-box">
+						<p class="message opponent-message">`+message+`</p>
+					</div>
+					<p class="d-flex message-time opponent-message-time">`+time+`</p>
+				</li>`
+
+		chatContent.append(str);	
 	}
 }
 
@@ -269,6 +266,7 @@ function activeToggle(element) { //insertOnlineList()
 	var preChattingId = $('#chat-target').val();
 	clickId = element.querySelector('.user-info > .name').textContent; // 클릭한 아이콘 이름
 	receiverId = clickId;
+	$('.chat-target-id').text(clickId);
 	$('#chat-target').val(clickId);
 
 	console.log('<<<< activeToggle >>>>>')

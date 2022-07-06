@@ -38,7 +38,12 @@
 		<div class="d-flex chat-title-box">
 			<div class="d-flex chat-title">
 				<img src="/img/chat/chat-icon.png" alt="" />
+				<c:if test="${ sessionScope.id ne 'admin'}">
 				<h5>규비개발자 상담 채팅</h5>
+				</c:if>
+				<c:if test="${ sessionScope.id ne 'admin'}">
+				<h5><span class="chat-target-id"></span></h5>
+				</c:if>
 				<input id="chat-target" type="hidden" value="admin"/>
 				<input id="admin-status" type="hidden" value="offline"/>
 				<i id="admin-status-icon" class="fa fa-circle offline"></i>
