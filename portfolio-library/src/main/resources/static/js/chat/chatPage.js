@@ -298,6 +298,7 @@ function activeToggle(element) { //insertOnlineList()
 	}
 	
 	$('.chat-background').css('transform','translateX(0)');
+	scrollDown();
 }
 
 $('.fa-chevron-left').click(function(){

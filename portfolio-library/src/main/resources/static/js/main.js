@@ -1,7 +1,7 @@
 //메뉴 도서검색 이벤트
 $('.menu-search-box .search-btn').click(function(){
 	let search = $('.menu-search-box .book-search').val();	
-	location = "/bookCollection/searchBook?search="+ search; 
+	location.href = "/bookCollection/searchBook?search="+ search; 
 })
 
 // 엔터로 메뉴 도서검색
