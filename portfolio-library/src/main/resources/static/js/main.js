@@ -1,13 +1,13 @@
 //메뉴 도서검색 이벤트
-$('.menu-search-box .search-btn').click(function(){
-	let search = $('.menu-search-box .book-search').val();	
+$('#btn-search').click(function(){
+	let search = $('#menu-book-search').val();	
 	location.href = "/bookCollection/searchBook?search="+ search; 
 })
 
 // 엔터로 메뉴 도서검색
-$(".menu-search-box .book-search").keypress(function(key) {
-    if (key.keyCode == 13) {
-        let search = $('.menu-search-box .book-search').val();	
+$('#menu-book-search').keydown(function(e) {
+    if (e.keyCode == 13) {
+        let search = $('#menu-book-search').val();
 		location.href = "/bookCollection/searchBook?search="+ search;
     }
 });

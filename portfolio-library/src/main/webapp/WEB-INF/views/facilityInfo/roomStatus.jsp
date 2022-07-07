@@ -19,12 +19,6 @@
 <body>
     <jsp:include page="/WEB-INF/views/include/sideMenu.jsp" />
     <div class="library-bg">
-        <div class="shadow move-top-icon">
-            <i class="fa-solid fa-arrow-up"></i>
-        </div>
-		<div class="shadow chat-icon-box">
-			<img src="/img/main/chat-icon.png" alt="" />
-		</div>
         <jsp:include page="/WEB-INF/views/include/menu.jsp" />
         <div class="library-main-bg">
             <div class="library-main-wrap">

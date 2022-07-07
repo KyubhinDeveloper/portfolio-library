@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<div class="shadow move-top-icon">
+	<i class="fa-solid fa-arrow-up"></i>
+</div>
+<div class="shadow chat-icon-box">
+	<i class="fa-solid fa-headset"></i>
+	<p>상담챗</p>
+</div>
 <nav class="navbar navbar-bg">
 	<div class="d-flex navbar-container">
 		<a href="/" class="d-flex navbar-brand library-brand"> <img class="brand-img" src="/img/main/digital-library.png" alt="">
@@ -9,12 +15,12 @@
 				<p>KYUBHIN HAN DEVELOPER LIBRARY</p>
 			</div>
 		</a>
-		<form class="d-flex menu-search-box">
-			<input class="me-2 book-search" type="text" value="${ pageDto.search }">
-			<button class="btn search-btn" type="button">
+		<div class="d-flex menu-search-box">
+			<input id="menu-book-search" class="me-2 book-search" type="text" value="${ pageDto.search }">
+			<button id="btn-search" class="btn search-btn" type="button">
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</button>
-		</form>
+		</div>
 		<div class="d-flex align-items-center">
 			<c:choose>
 				<c:when test="${ empty sessionScope.id }">

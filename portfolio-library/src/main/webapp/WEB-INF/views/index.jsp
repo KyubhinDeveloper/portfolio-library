@@ -16,13 +16,6 @@
 <body>
 	<jsp:include page="/WEB-INF/views/include/sideMenu.jsp" />
 	<div class="library-bg">
-		<div class="shadow move-top-icon">
-			<i class="fa-solid fa-arrow-up"></i>
-		</div>
-		<div class="shadow chat-icon-box">
-			<i class="fa-solid fa-headset"></i>
-			<p>상담챗</p>
-		</div>
 		<jsp:include page="/WEB-INF/views/include/menu.jsp" />
 		<div class="library-top-bg">
 			<div class="main-top-wrap">
