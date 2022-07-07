@@ -149,7 +149,7 @@ function insertOnlineList(user) {
 				</div>`
 				
 		connectList.append(str);
-		console.log(insertOnlineList());
+		console.log('insertOnlineList()');
 	}
 };
 
