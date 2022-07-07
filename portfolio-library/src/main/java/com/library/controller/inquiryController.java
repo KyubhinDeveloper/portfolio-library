@@ -65,7 +65,7 @@ public class inquiryController {
 
 			for (InquiryVo inquiryVo : inquiryList) {
 				name.append(inquiryVo.getName());
-				name.replace(1, inquiryVo.getName().length(), "*".repeat(inquiryVo.getName().length() - 1));
+				name.replace(1, inquiryVo.getName().length(), ("*").repeat(inquiryVo.getName().length() - 1));
 				time = this.timeGap(inquiryVo);
 				timeList.add(i, time);
 				nameList.add(i, name);
