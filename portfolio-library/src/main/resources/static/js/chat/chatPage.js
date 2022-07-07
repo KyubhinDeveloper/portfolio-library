@@ -172,6 +172,7 @@ function addStagingMessage(senderId, time, message) {
 	}
 	
 	sessionStorage.setItem(senderId, JSON.stringify(container));
+	console.log(senderId + '의 세션에 메시지 저장');
 	
 	//안읽은 보낸 메시지 갯수 추가
 	if ($('#'+senderId+'') != null) {
@@ -275,7 +276,10 @@ function activeToggle(element) { //insertOnlineList()
 		setChatHistory(preChattingId); //다른 회원 클릭시 현재 채팅내용 저장
 		document.getElementById('chat-content').innerHTML = "";
 		getChatHistory(clickId); // 클릭한 유저와의 채팅창 불러오기	
-
+	} else {
+		
+		document.getElementById('chat-content').innerHTML = "";
+		getChatHistory(clickId); // 클릭한 유저와의 채팅창 불러오기	
 	}
 
 	if($('#'+clickId+'').parents('.user-main').siblings('.message-count-box') != null) {
