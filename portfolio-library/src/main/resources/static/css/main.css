@@ -246,8 +246,8 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 .fa-headset {
     position: relative;
     top: 8px;
-    left: 14px;  
-    font-size: 20px;  
+    left: 15px;  
+    font-size: 20px;    
 }
 
 .chat-icon-box>p {
