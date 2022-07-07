@@ -40,14 +40,12 @@
 				<c:if test="${ sessionScope.id ne 'admin'}">
 				<img src="/img/chat/chat-icon.png" alt="" />
 				<h5>규비개발자 상담 채팅</h5>
-				<input id="chat-target" type="hidden" value="admin"/>
 				<input id="admin-status" type="hidden" value="offline"/>
 				<i id="admin-status-icon" class="fa fa-circle offline"></i>
 				</c:if>
 				<c:if test="${ sessionScope.id eq 'admin'}">
 				<div class="btn-back-list">
 					<i class="fa-solid fa-chevron-left"></i>
-					<span class="not-reading-count"></span>
 				</div>
 				<h5 class="chat-target-id">admin</h5>
 				<div></div>

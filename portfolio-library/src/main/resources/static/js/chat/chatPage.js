@@ -266,22 +266,14 @@ function activeToggle(element) { //insertOnlineList()
 		element.classList.remove('active');
 	};
 
-	var preChattingId = $('#chat-target').val();
+	var preChattingId = $('.chat-target-id').text();
 	clickId = element.querySelector('.user-info > .name').textContent; // 클릭한 아이콘 이름
 	receiverId = clickId;
 	$('.chat-target-id').text(clickId);
-	$('#chat-target').val(clickId);
 
 	console.log('<<<< activeToggle >>>>>')
 	console.log('이전에 채팅하던 유저 이름 >>> ', preChattingId);
 	console.log('클릭한 유저 이름 >>> ', clickId);
-
-	//새로운 유저를 클릭함
-	/*	if(preChattingId != admin && preChattingId != clickId) {
-			setChatHistory(preChattingId); //다른 회원 클릭시 현재 하던 채팅내용 저장
-			document.getElementById('chat-content').innerHTML = "";
-			getChatHistory(clickId); // 클릭한 유저와의 채팅창 불러오기	
-		} else if(preChattingId == admin && preChattingId != clickId) {}*/
 
 	if (preChattingId != clickId) {
 		
