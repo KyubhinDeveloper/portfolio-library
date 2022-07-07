@@ -203,6 +203,15 @@ display: none;
 	margin-left: 10px;
 }
 
+.admins-chat-title {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.chat-title>.chat-target-id {
+	margin-left: 0;
+}
+
 .online,
 .offline,
 .me {

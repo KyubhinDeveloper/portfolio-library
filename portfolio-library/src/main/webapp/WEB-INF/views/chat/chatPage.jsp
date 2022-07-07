@@ -36,17 +36,22 @@
 	</c:if>
 	<div id="chat-page" class="chat-background" style="${sessionScope.id eq 'admin' ? 'transform:translateX(400px)' : 'width: 100%' }">
 		<div class="d-flex chat-title-box">
-			<div class="d-flex chat-title">
+			<div class="d-flex chat-title ${ sessionScope.id eq 'admin' ? 'admins-chat-title' : '' }">				
+				<c:if test="${ sessionScope.id ne 'admin'}">
 				<img src="/img/chat/chat-icon.png" alt="" />
-				<c:if test="${ sessionScope.id ne 'admin'}">
 				<h5>규비개발자 상담 채팅</h5>
-				</c:if>
-				<c:if test="${ sessionScope.id ne 'admin'}">
-				<h5><span class="chat-target-id"></span></h5>
-				</c:if>
 				<input id="chat-target" type="hidden" value="admin"/>
 				<input id="admin-status" type="hidden" value="offline"/>
 				<i id="admin-status-icon" class="fa fa-circle offline"></i>
+				</c:if>
+				<c:if test="${ sessionScope.id eq 'admin'}">
+				<div class="btn-back-list">
+					<i class="fa-solid fa-chevron-left"></i>
+					<span class="not-reading-count"></span>
+				</div>
+				<h5 class="chat-target-id">admin</h5>
+				<div></div>
+				</c:if>				
 			</div>		
 			<div id="button-disconnect" class="d-flex chat-disconnect-box">
 				<c:if test="${ sessionScope.id ne 'admin' }">

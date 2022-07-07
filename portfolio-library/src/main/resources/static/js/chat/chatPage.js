@@ -13,7 +13,7 @@ $("#button-send").click(function(){
 	send();
 });
 
-const websocket = new WebSocket("wss://"+location.host+"/ws/chat");
+const websocket = new WebSocket("ws://"+location.host+"/ws/chat");
 websocket.onmessage = onMessage;
 websocket.onopen = onOpen;
 websocket.onclose = onClose;
@@ -79,12 +79,15 @@ function onMessage(msg) {
 			console.log('insertOnlineList()')
 		}
 	}  //if()
-		
+	console.log('senderId: ' + senderId);
+	console.log('receiverId: ' + receiverId);
+			
 	//관리자가 보낸 메시지 아니면 내용 전부 세션에 저장 
 	if (loginId == 'admin' && senderId != 'admin' && receiverId != senderId) {
-		console.log('내가 보낸 메시지를 세션에 저장 이벤트 발동.'); 
+		console.log('addStagingMessage()'); 
 		addStagingMessage(senderId, time, message);
 	} else {
+		console.log('insertMessage()'); 
 		insertMessage(senderId, time, message, adminStatus);
 	}
 	
@@ -146,6 +149,7 @@ function insertOnlineList(user) {
 				</div>`
 				
 		connectList.append(str);
+		console.log(insertOnlineList());
 	}
 };
 
@@ -168,7 +172,6 @@ function addStagingMessage(senderId, time, message) {
 	}
 	
 	sessionStorage.setItem(senderId, JSON.stringify(container));
-	console.log('세션에 보낸 메시지 저장.')
 	
 	//안읽은 보낸 메시지 갯수 추가
 	if ($('#'+senderId+'') != null) {
