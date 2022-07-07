@@ -12,7 +12,7 @@
 							<div>
 								<span>${ sessionScope.name }</span>님
 							</div>
-							<a href="/memeber/logout"><button class="btn button logout-btn">로그아웃</button></a>
+							<a href="/member/logout"><button class="btn button logout-btn">로그아웃</button></a>
 						</div>
 					</c:when>
 					<c:otherwise>
@@ -65,7 +65,7 @@
 					</ul>
 					<ul id='roomInfo' class="tab-contents2 ">
 						<li><a href="/facilityInfo/openHour">개관시간</a></li>
-						<li><a href="/facilityInfo/memeberInfo">이용자별안내</a></li>
+						<li><a href="/facilityInfo/memberInfo">이용자별안내</a></li>
 						<li><a href="/facilityInfo/readingRoom">열람실</a></li>
 					</ul>
 					<ul id='libraryInfo' class="tab-contents2">
