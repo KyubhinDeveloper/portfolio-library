@@ -65,8 +65,9 @@ public class inquiryController {
 			String str = "*";
 
 			for (InquiryVo inquiryVo : inquiryList) {
+				int length = (inquiryVo.getName().length() - 1);
 				name.append(inquiryVo.getName());
-				name.replace(1, inquiryVo.getName().length(), str.repeat(inquiryVo.getName().length() - 1));
+				name.replace(1, inquiryVo.getName().length(), str.repeat(length));
 				time = this.timeGap(inquiryVo);
 				timeList.add(i, time);
 				nameList.add(i, name);
