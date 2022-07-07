@@ -23,6 +23,7 @@
 		</div>
 		<div class="shadow chat-icon-box">
 			<img src="/img/main/chat-icon.png" alt="" />
+			<p>상담챗</p>
 		</div>
 		<jsp:include page="/WEB-INF/views/include/menu.jsp" />
 		<div class="library-top-bg">

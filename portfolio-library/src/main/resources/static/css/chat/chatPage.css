@@ -295,6 +295,7 @@ display: none;
     background-color: #fff;
     box-shadow: 1px 1px 2px 0 rgb(0 0 0 / 20%);
     font-size: 13px;
+    z-index: 10;
 }
 
 .message-box:before {
@@ -308,6 +309,7 @@ display: none;
     border-right: 18px solid transparent;
     border-top: 20px solid #fff;
     border-radius: 5px;
+	z-index: 0;
 }
 
 .my-message-wrap {

@@ -244,10 +244,18 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 }
 
 .chat-icon-box>img {
-    width: 30px;
+    width: 21px;
     position: relative;
-    top: 7px;
-    left: 11px;   
+    top: 8px;
+    left: 14px;   
+}
+
+.chat-icon-box>p {
+    font-size: 9px;
+    font-weight: bold;
+    position: relative;
+    top: 9px;
+    left: 12px;
 }
 
 .navbar-bg div.navbar-container {
