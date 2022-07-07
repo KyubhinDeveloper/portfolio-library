@@ -289,9 +289,11 @@ function activeToggle(element) { //insertOnlineList()
 
 $('.fa-chevron-left').click(function(){
 	console.log('목록으로 클릭');
+	let chatTarget = $('.chat-target-id').text();
 	receiverId = '';
-	$('.chat-background').css('transform','translateX(1000px)');
 	
+	setChatHistory(chatTarget); //다른 회원 클릭시 현재 채팅내용 저장
+	$('.chat-background').css('transform','translateX(1000px)');
 })
 
 //다른 유저 클릭시 현재 하던 채팅내용 저장  lve2514
