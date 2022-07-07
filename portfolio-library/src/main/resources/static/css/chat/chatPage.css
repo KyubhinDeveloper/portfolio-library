@@ -53,6 +53,7 @@ display: none;
 }
 
 .list-top-box {
+	position: fixed;
     flex-direction: column;
     gap: 15px;
     background-color: #f6f7fa;
@@ -99,7 +100,6 @@ display: none;
 }
 
 .list-main-box {
-	position: fixed;
 	height: 100%;
 	padding-top: 50px;
 	padding-left: 0;

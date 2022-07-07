@@ -8,9 +8,16 @@ if (loginId != 'admin') {
 	receiverId = 'admin';
 }
 
-//메시지 보내기 이벤트
+//발송 버튼 클릭시 메시지 전송
 $("#button-send").click(function(){
 	send();
+});
+
+// 엔터로 메시지 전송
+$('#chat-message').keypress(function(e){
+	if(e.keyCode == 13) {
+		send();
+	}
 });
 
 const websocket = new WebSocket("wss://"+location.host+"/ws/chat");

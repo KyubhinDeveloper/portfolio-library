@@ -4,10 +4,10 @@ $('.menu-search-box .search-btn').click(function(){
 	location = "/bookCollection/searchBook?search="+ search; 
 })
 
-$(".book-search").keydown(function (key) {
+// 엔터로 메뉴 도서검색
+$(".menu-search-box .book-search").keypress(function(key) {
     if (key.keyCode == 13) {
         let search = $('.menu-search-box .book-search').val();	
-       	console.log(search);
 		location.href = "/bookCollection/searchBook?search="+ search;
     }
 });
