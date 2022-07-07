@@ -260,11 +260,6 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 
 // 유저 아이콘 클릭
 function activeToggle(element) { //insertOnlineList()
-	if (!element.classList.contains('active')) {
-		element.classList.add('active');
-	} else {
-		element.classList.remove('active');
-	};
 
 	var preChattingId = $('.chat-target-id').text();
 	clickId = element.querySelector('.user-info > .name').textContent; // 클릭한 아이콘 이름
@@ -276,9 +271,7 @@ function activeToggle(element) { //insertOnlineList()
 	console.log('클릭한 유저 이름 >>> ', clickId);
 
 	if (preChattingId != clickId) {
-		
-		$('#'+preChattingId+'').parents('.user-box').removeClass('active');
-		
+				
 		setChatHistory(preChattingId); //다른 회원 클릭시 현재 채팅내용 저장
 		document.getElementById('chat-content').innerHTML = "";
 		getChatHistory(clickId); // 클릭한 유저와의 채팅창 불러오기	
@@ -290,7 +283,16 @@ function activeToggle(element) { //insertOnlineList()
 		$('#'+clickId+'').parents('.user-main').siblings('.message-count-box').find('.count').text('');
 		$('#'+clickId+'').parents('.user-main').siblings('.message-count-box').addClass('d-none');
 	}
+	
+	$('.chat-background').css('transform','translateX(0)');
 }
+
+$('.fa-chevron-left').click(function(){
+	console.log('목록으로 클릭');
+	receiverId = '';
+	$('.chat-background').css('transform','translateX(1000px)');
+	
+})
 
 //다른 유저 클릭시 현재 하던 채팅내용 저장  lve2514
 function setChatHistory(preChattingId) { //activeToggle(preReceiverId)

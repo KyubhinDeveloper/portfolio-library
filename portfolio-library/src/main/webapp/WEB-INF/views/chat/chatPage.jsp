@@ -34,7 +34,7 @@
 		</ul>
 	</div>
 	</c:if>
-	<div id="chat-page" class="chat-background" style="${sessionScope.id eq 'admin' ? 'transform:translateX(400px)' : 'width: 100%' }">
+	<div id="chat-page" class="chat-background" style="${sessionScope.id eq 'admin' ? 'transform:translateX(1000px)' : '' }">
 		<div class="d-flex chat-title-box">
 			<div class="d-flex chat-title ${ sessionScope.id eq 'admin' ? 'admins-chat-title' : '' }">				
 				<c:if test="${ sessionScope.id ne 'admin'}">

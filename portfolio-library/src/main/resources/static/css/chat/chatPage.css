@@ -45,7 +45,7 @@ display: none;
 
 .connect-list-background {
     position: absolute;
-    width: 400px;
+    width: 100%;
     left: 0;
     top: 0;
     right: 0;
@@ -161,12 +161,13 @@ display: none;
 
 .chat-background {
     position: absolute;
-    width: 400px;
+    width: 100%;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     background: #f6f7fa;
+    transition: all 0.3s;
 }
 
 .chat-title-box {
