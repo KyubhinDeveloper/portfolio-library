@@ -101,7 +101,7 @@
 		                                            </td>
 		                                            <td class="id-box">
 		                                            	<input id="inquiry-id" type="hidden" value="${ inquiry.id }"/>
-	                                            		${ inquiry.name } 
+	                                            		${ inquiry.name.substring(0,1).concat('*'.repeat(inquiry.name.length() - 1)) } 
 		                                            </td>
 		                                            <td>${ inquiry.regDate.substring(0,10)}</td>
 		                                            <td>
@@ -184,7 +184,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/main.js"></script>
     <script>  
-      	//.substring(0,1) += "*".repeat(inquiry.name.length() - 1)
+      	// += "*".repeat(inquiry.name.length() - 1)
     	$(".subject").click(function(){
     		
     		if($(this).parent().children('img').hasClass('lock')) {
