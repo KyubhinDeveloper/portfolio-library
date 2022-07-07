@@ -91,7 +91,7 @@
 		                                        	<input id="inquiry-num" type="hidden" value="${ inquiry.num }"/>
 		                                            <td>${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }</td>
 		                                            <td class="title">
-		                                                <a class="subject" href="javascript:void(0)">${ inquiry.subject }</a> 
+		                                                <a class="subject" href="#">${ inquiry.subject }</a> 
 		                                                <c:if test="${ timeList[status.index] lt 1440}">
 															<img class="icon" src="/img/community/ico_new.gif" alt="">
 														</c:if>
