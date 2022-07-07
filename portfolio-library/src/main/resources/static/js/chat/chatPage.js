@@ -96,6 +96,8 @@ function onMessage(msg) {
 		console.log("유저의 접속이 끊겼습니다. >>> ", outOne);
 		deleteOnlieList(outOne);
 	}
+	
+	scrollDown();
 }
 
 //관리자 상태 업데이트
