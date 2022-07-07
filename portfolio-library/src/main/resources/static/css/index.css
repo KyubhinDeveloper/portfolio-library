@@ -234,18 +234,18 @@ button.logout-btn {
 	z-index: 10;
 }
 
-.chat-icon-box>img {
-    width: 21px;
+.fa-headset {
     position: relative;
     top: 8px;
-    left: 14px   
+    left: 14px;  
+    font-size: 20px;    
 }
 
 .chat-icon-box>p {
     font-size: 9px;
     font-weight: bold;
     position: relative;
-    top: 9px;
+    top: 6px;
     left: 12px;
 }
 

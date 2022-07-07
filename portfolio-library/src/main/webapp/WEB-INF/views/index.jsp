@@ -10,9 +10,7 @@
 <title>규빈개발자도서관 - Kyubhin Developer Library</title>
 <link rel="icon" href="/img/main/digital-library.png" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-	integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous"
-	referrerpolicy="no-referrer" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" media="all">
 <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
@@ -22,7 +20,7 @@
 			<i class="fa-solid fa-arrow-up"></i>
 		</div>
 		<div class="shadow chat-icon-box">
-			<img src="/img/main/chat-icon.png" alt="" />
+			<i class="fa-solid fa-headset"></i>
 			<p>상담챗</p>
 		</div>
 		<jsp:include page="/WEB-INF/views/include/menu.jsp" />
@@ -298,6 +296,8 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+	<script src="https://kit.fontawesome.com/87ad453cf1.js" crossorigin="anonymous"></script>
 	<script src="/js/main.js"></script>
 	<script>
 		let latefee = '${ latefee }'.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
