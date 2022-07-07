@@ -57,17 +57,14 @@ public class inquiryController {
 		if (totalCount > 0) {
 
 			Long time;
-			StringBuffer name = new StringBuffer();
+			String name;
 			List<InquiryVo> inquiryList = inquiryService.getInquiryList(startRow, rowCount, category, search);
 			List<Object> timeList = new ArrayList<>();
 			List<Object> nameList = new ArrayList<>();
 			int i = 0;
-			String str = "*";
 
 			for (InquiryVo inquiryVo : inquiryList) {
-				int length = (inquiryVo.getName().length() - 1);
-				name.append(inquiryVo.getName());
-				name.replace(1, inquiryVo.getName().length(), str.repeat(length));
+				name = inquiryVo.getName();
 				time = this.timeGap(inquiryVo);
 				timeList.add(i, time);
 				nameList.add(i, name);

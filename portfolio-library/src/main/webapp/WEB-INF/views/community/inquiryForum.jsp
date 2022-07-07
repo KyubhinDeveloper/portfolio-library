@@ -99,9 +99,9 @@
 	                                                		<img class="icon lock" src="/img/community/ico_lock.gif" alt="">
 	                                                	</c:if>
 		                                            </td>
-		                                            <td class="id-box">
+		                                            <td>
 		                                            	<input id="inquiry-id" type="hidden" value="${ inquiry.id }"/>
-	                                            		${ nameList[status.index] } 
+	                                            		<span class="id-box">${ nameList[status.index] } </span>
 		                                            </td>
 		                                            <td>${ inquiry.regDate.substring(0,10)}</td>
 		                                            <td>
@@ -206,13 +206,15 @@
     	})
     	
     	let length = $('.id-box').length;
-      	let id = $('.id-box');
-      	console.log(length)
+      	let id;     	
+      	let str;
       	
       	for(let i = 0; i < length; i++) {
-      		let name = id.eq(i).text();
-      		let editName = name.replace(1,2,'*');
-      		console.log("editName: " + editName);
+      		id = $('.id-box').eq(i);
+      		str = '*'.repeat(id.text().length - 2);
+      		console.log(str);
+      		let editStr = id.text().substring(0,1).concat(str);
+      		id.text(editStr)
       	}
     	
     </script>
