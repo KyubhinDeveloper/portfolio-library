@@ -57,19 +57,24 @@ public class inquiryController {
 		if (totalCount > 0) {
 
 			Long time;
+			StringBuffer name = new StringBuffer();
 			List<InquiryVo> inquiryList = inquiryService.getInquiryList(startRow, rowCount, category, search);
 			List<Object> timeList = new ArrayList<>();
+			List<Object> nameList = new ArrayList<>();
 			int i = 0;
 
 			for (InquiryVo inquiryVo : inquiryList) {
-				
+				name.append(inquiryVo.getName());
+				name.replace(1, inquiryVo.getName().length(), "*".repeat(inquiryVo.getName().length() - 1));
 				time = this.timeGap(inquiryVo);
 				timeList.add(i, time);
+				nameList.add(i, name);
 				i++;
 			}
 			
 			model.addAttribute("inquiryList", inquiryList);
-			model.addAttribute("timeList", timeList);	
+			model.addAttribute("timeList", timeList);
+			model.addAttribute("nameList", nameList);	
 		} //if()	
 
 		int pageCount = totalCount / rowCount;

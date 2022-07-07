@@ -101,7 +101,7 @@
 		                                            </td>
 		                                            <td class="id-box">
 		                                            	<input id="inquiry-id" type="hidden" value="${ inquiry.id }"/>
-	                                            		${ inquiry.name.substring(0,1).concat('*'.repeat(inquiry.name.length() - 1)) } 
+	                                            		${ nameList[status.index] } 
 		                                            </td>
 		                                            <td>${ inquiry.regDate.substring(0,10)}</td>
 		                                            <td>
@@ -204,5 +204,16 @@
     			$(this).prop("href","/community/inquiryContent?num="+ num +"&pageNum=${pageNum}");
     		} 
     	})
+    	
+    	let length = $('.id-box').length;
+      	let id = $('.id-box');
+      	console.log(length)
+      	
+      	for(let i = 0; i < length; i++) {
+      		let name = id.eq(i).text();
+      		let editName = name.replace(1,2,'*');
+      		console.log("editName: " + editName);
+      	}
+    	
     </script>
 </body>
