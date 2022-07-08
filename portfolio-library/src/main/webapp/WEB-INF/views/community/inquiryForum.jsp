@@ -101,7 +101,7 @@
 		                                            </td>
 		                                            <td>
 		                                            	<input id="inquiry-id" type="hidden" value="${ inquiry.id }"/>
-	                                            		<span class="id-box">${ nameList[status.index] } </span>
+	                                            		<span class="id-box">${ inquiry.name } </span>
 		                                            </td>
 		                                            <td>${ inquiry.regDate.substring(0,10)}</td>
 		                                            <td>
@@ -208,13 +208,12 @@
     	let length = $('.id-box').length;
       	let id;     	
       	let str;
-      	
+
       	for(let i = 0; i < length; i++) {
       		id = $('.id-box').eq(i);
       		str = '*'.repeat(id.text().length - 2);
-      		console.log(str);
       		let editStr = id.text().substring(0,1).concat(str);
-      		id.text(editStr)
+      		id.text(editStr);
       	}
     	
     </script>

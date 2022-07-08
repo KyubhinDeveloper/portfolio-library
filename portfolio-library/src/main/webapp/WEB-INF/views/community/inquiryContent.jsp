@@ -62,7 +62,7 @@
                                 <div class="d-flex content-data-box">
                                     <div class="d-flex data-box">
                                         <p class="title">작성자</p>
-                                        <p class="content writer">${ inquiry.name.substring(0,1)+= "*".repeat(inquiry.name.length() - 1)}</p>
+                                        <p class="content writer">${ inquiry.name }</p>
                                     </div>
                                     <div class="d-flex date-box data-box">
                                         <p class="title">작성일</p>
@@ -138,6 +138,7 @@
     	var name = "${sessionScope.name}" //로그인 이름
     	var pageNum = "${pageNum}" 
     	
+    	//삭제버튼 클릭
     	$('.delete-btn').click(function(){
     		
     		let deleteConfirm = confirm('문의 글을 삭제하시겠습니까?')
@@ -156,6 +157,12 @@
         		
     		} //if()
     	})
+    	
+ 	    var writer = "${ inquiry.name }";
+    	var str = '*'.repeat(writer.length - 1);
+ 	    var editWriter = writer.substring(0,1).concat(str);
+ 	    $('.writer').text(editWriter);
+ 	    
     	
     </script>
    	<script src="/js/community/comment.js"></script>
