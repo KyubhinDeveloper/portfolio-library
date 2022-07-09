@@ -8,6 +8,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 @Configuration
 public class SchedulingConfig implements SchedulingConfigurer {
 	
+	// 스케줄 동시 실행가능
 	@Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
