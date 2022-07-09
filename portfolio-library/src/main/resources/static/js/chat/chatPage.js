@@ -4,6 +4,7 @@ var adminStatusContent;
 var preadminStatus;
 var adminStatus;
 
+// 로그인 아이디가 일반유저이면 발송자는 관리자로 고정
 if (loginId != 'admin') {
 	receiverId = 'admin';
 }
@@ -20,27 +21,30 @@ $('#chat-message').keypress(function(e){
 	}
 });
 
-const websocket = new WebSocket("wss://"+location.host+"/ws/chat");
-websocket.onmessage = onMessage;
-websocket.onopen = onOpen;
-websocket.onclose = onClose;
-
 //메시지 보내기 함수
 function send() {
 	var message = $('#chat-message').val();
 	if (message != "") {
+		
 		let msg = {
 			'receiverId': receiverId,
 			'message': message
 		}
 
 		if (msg != null) {
+			//웹소켓에 메시지 전송
 			websocket.send(JSON.stringify(msg));
 		}
 		
 		$('#chat-message').val('');
 	}
 }
+
+//
+const websocket = new WebSocket("ws://"+location.host+"/ws/chat");
+websocket.onmessage = onMessage;
+websocket.onopen = onOpen;
+websocket.onclose = onClose;
 
 //채팅에서 나갔을 때
 function onClose(evt) {
@@ -57,10 +61,10 @@ function onOpen(evt) {
 function onMessage(msg) {
 	console.log("onMessage()");
 	adminStatusContent = $("#admin-status");
-	preadminStatus = adminStatusContent.val(); //현재 관리자 상태정보
+	//이전 관리자 접속상태 정보
+	preadminStatus = adminStatusContent.val(); 
 
-	var data = JSON.parse(msg.data);
-		
+	var data = JSON.parse(msg.data);		
 	adminStatus = data.adminStatus;
 	var onlineList = data.onlineList; 
 	var senderId = data.senderId; 
@@ -69,43 +73,42 @@ function onMessage(msg) {
 	var connectOne = data.connectOne; 
 	var outOne = data.outOne;
 		
-	//관리자 상태 업데이트
+	//관리자 접속상태 업데이트
 	updateadminStatus();	
 		
 	// 채팅에 유저 접속시
-	if (connectOne != null) {		
+	if (connectOne != null) {	
+			
 		console.log('새로운 접속자가 있습니다.')
-		//관리자만 해당
-		if (loginId == "admin" && connectOne == "admin") { //관리자 접속시
-			//접속유저 온라인 리스트 가져오기			
+
+		if (loginId == "admin" && connectOne == "admin") { //접속유저 온라인 리스트 가져오기					
 			getOnlineList(onlineList);
 			console.log('getOnlineList()')
-		} else if(loginId == 'admin' && connectOne != 'admin'){ //회원 접속시
-			//접속시 온라인 리스트에 추가		
+		} else if(loginId == 'admin' && connectOne != 'admin'){ //회원 채팅 접속시 온라인 리스트에 추가			
 			insertOnlineList(connectOne);
 			console.log('insertOnlineList()')
 		}
 	}  //if()
-	console.log('senderId: ' + senderId);
-	console.log('receiverId: ' + receiverId);
 			
-	//관리자가 보낸 메시지 아니면 내용 전부 세션에 저장 
-	if (loginId == 'admin' && senderId != 'admin' && receiverId != senderId) {
-		console.log('addStagingMessage()'); 
+	if (loginId == 'admin' && senderId != 'admin' && receiverId != senderId) {	//관리자가 채팅중인 상대가 아닌 유저 보낸 메시지 전부 세션에 저장	
+		console.log('addStagingMessage()');		
 		addStagingMessage(senderId, time, message);
-	} else {
-		console.log('insertMessage()'); 
+	} else { // 관리자와 채팅중인 유저가 보낸 메시지 화면에 출력
+		console.log('insertMessage()'); 		
 		insertMessage(senderId, time, message, adminStatus);
 	}
 	
 	// 유저 접속 종료시
 	if (outOne != null && loginId == 'admin') {
 		console.log("유저의 접속이 끊겼습니다. >>> ", outOne);
+		// 접속리스트에서 삭제
 		deleteOnlieList(outOne);
 	}
 	
 	scrollDown();
-}
+} 
+
+
 
 //관리자 상태 업데이트
 function updateadminStatus() {
@@ -268,7 +271,7 @@ function insertMessage(senderId, time, message, adminStatus) { //onMessage()s
 	}
 }
 
-// 유저 아이콘 클릭
+// 클릭한 유저와의 채팅방 접속
 function activeToggle(element) { //insertOnlineList()
 
 	var preChattingId = $('.chat-target-id').text();
@@ -301,6 +304,7 @@ function activeToggle(element) { //insertOnlineList()
 	scrollDown();
 }
 
+// 클릭시 온라인 리스트로 돌아가기
 $('.fa-chevron-left').click(function(){
 	console.log('목록으로 클릭');
 	let chatTarget = $('.chat-target-id').text();
@@ -310,7 +314,7 @@ $('.fa-chevron-left').click(function(){
 	$('.chat-background').css('transform','translateX(1000px)');
 })
 
-//다른 유저 클릭시 현재 하던 채팅내용 저장  lve2514
+//다른 유저 클릭시 현재 하던 채팅내용 저장
 function setChatHistory(preChattingId) { //activeToggle(preReceiverId)
 
 	console.log('채팅 중이던 메시지 저장: ' + preChattingId);
