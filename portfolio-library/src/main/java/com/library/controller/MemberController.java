@@ -173,10 +173,11 @@ public class MemberController {
 	@GetMapping("/sendEmail/{email}")
 	public ResponseEntity<Integer> sendEmail(@PathVariable("email") String email) throws MessagingException {
 
+		// 회원가입을 위한 랜덤번호 생성
 		Random random = new Random();
-
 		int randomNum = random.nextInt(899999) + 100000; // 6자리 정수 생성
-
+		
+		// HTML로 보낼 메일내용 작성
 		StringBuffer emailcontent = new StringBuffer();
 
 		emailcontent.append("<!DOCTYPE html>");
@@ -199,6 +200,7 @@ public class MemberController {
 				+ "	<div style=\"border-top: 1px solid #DDD; padding: 5px;\"></div>" + " </div>");
 		emailcontent.append("</body>");
 		emailcontent.append("</html>");
+		
 		memberService.sendEmail(email, "[규빈개발자 도서관] 이메일 확인을 위한 안내 메일입니다.", emailcontent.toString());
 
 		return new ResponseEntity<Integer>(randomNum, HttpStatus.OK);

@@ -28,23 +28,30 @@ public class MemberService {
 	
 	private JavaMailSender javaMailSender;
 	
-    public MemberService(JavaMailSender javaMailSender) {
-        this.javaMailSender = javaMailSender;
-    }
-    
+	
 	public void sendEmail(String toEmail, String subject, String message) throws MessagingException {
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		//MIME message를 만들 수 있는 class이며, image와 전형적인 메일의 첨부파일과 텍스트 컨텐츠를 보낼 서비스를 제공
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "utf-8");
 		
+		//메일 보내는 사람 이메일
 		helper.setFrom("규빈개발자 도서관 <lve2514@gmail.com>");
+		//메일 받는 사람 이메일
 		helper.setTo(toEmail);
+		//보낼 메일 제목
 		helper.setSubject(subject);
+		//보낼 메일 내용(메일 내용, 메일 형식이 HTML 여부)
 		helper.setText(message, true);
 		
+		// 메일 발송
 		javaMailSender.send(mimeMessage);
 	
 	} //sendEmail()
+	
+    public MemberService(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
 	
 	public void join(MemberVo memberVo) {
 		memberMapper.join(memberVo);

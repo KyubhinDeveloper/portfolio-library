@@ -16,7 +16,6 @@ import com.library.service.BookCollectionService;
 import com.library.service.MemberService;
 import com.library.service.RoomStatusService;
 import com.library.vo.LoanBookVo;
-import com.library.vo.ReserveBookVo;
 import com.library.vo.SeatVo;
 
 import lombok.extern.java.Log;

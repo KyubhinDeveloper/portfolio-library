@@ -17,6 +17,7 @@
 </head>
 <body>
 	<c:if test="${ sessionScope.id eq 'admin' }">
+	<!-- 접속사 리스트 화면 -->
 	<div id="chat-list" class="connect-list-background">
 		<div class="d-flex list-top-box">
 			<div class="d-flex top-row-box">		
@@ -34,6 +35,7 @@
 		</ul>
 	</div>
 	</c:if>
+	<!-- 채팅창 화면 -->
 	<div id="chat-page" class="chat-background" style="${sessionScope.id eq 'admin' ? 'transform:translateX(1000px)' : '' }">
 		<div class="d-flex chat-title-box">
 			<div class="d-flex chat-title ${ sessionScope.id eq 'admin' ? 'admins-chat-title' : '' }">				

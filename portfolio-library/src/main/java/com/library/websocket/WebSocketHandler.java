@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -36,31 +35,39 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {	
 		log.info("afterConnectionEstablished() 실행");
-		//세션에서 로그인 아이디 가져오기
-		//TextWebSocketConfig.java 에서 httpSession값을 WebSocketSession으로 복사해오도록 함.
+		// 세션에서 로그인 아이디 가져오기
+		// TextWebSocketConfig.java 에서 httpSession값을 WebSocketSession으로 복사해오도록 함.
 		String senderId = (String)session.getAttributes().get("id"); //채팅 접속자 아이디
 		log.info(senderId + "님이 채팅창에 접속했습니다.");
-		sessionList.add(session); //접속한 세션 세션리스트에 추가
-		userSession.put(senderId, session); //세션에 로그인 아이디 mapping
-		onlineList.add(senderId); //온라인리스트에 추가
+		// 접속한 아이디 세션리스트에 추가
+		sessionList.add(session); 
+		// 접속한 세션에 로그인 아이디를 mapping
+		userSession.put(senderId, session); 
+		// 접속한 아이디 온라인리스트에 추가
+		onlineList.add(senderId); 
 		
-		if(senderId.equals("admin")) { //접속자가 관리자면
+		if(senderId.equals("admin")) { //채팅 접속자가 관리자일 경우
 			log.info("관리자 접속 메시지 전체 발송 이벤트 작동");
 			TextMessage msg = new TextMessage("상담사와 연결되었습니다.");
-			sendToAll(msg, "admin"); //회원 전체에게 관리자 접속 메시지 전송
+			// 회원 전체에게 관리자 접속 메시지 전송
+			sendToAll(msg, "admin"); 
+			
 		} else {
-			log.info("일반회원 접속 메시지 발송 이벤트 작동 (대상은 관리자)");
+			log.info("일반회원 접속 메시지 발송 이벤트");
 			Map<String, Object> data = new HashMap<>();
 			data.put("message", senderId + "님이 채팅창에 접속했습니다.");
-			data.put("receiverId", "admin"); //받는사람 관리자
-			data.put("connectOne", senderId); //새로 접속한 사람 아이디 저장
+			// 메시지 받는사람 관리자
+			data.put("receiverId", "admin");
+			// 새로 접속한 유저 아이디 저장
+			data.put("connectOne", senderId); 
 			
 			TextMessage msgToAdmin = new TextMessage(json.writeValueAsString(data));
-			handleMessage(session, msgToAdmin); //handleTextMessage()로 전송
+			//handleTextMessage()로 전송
+			handleMessage(session, msgToAdmin); 
 		} //else
 	}
 		
-	// 클라이언트가 웹소켓 서버로 메시지(요청)를 전송했을 때 실행 (receiverId, message 전송됨)
+	// 클라이언트가 웹소켓 서버로 메시지(요청)를 전송했을 때 실행
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		log.info("소켓에서 메시지 보내는 이벤트 작동");
@@ -97,12 +104,12 @@ public class WebSocketHandler extends org.springframework.web.socket.handler.Tex
 		// 데이터 정보 보내기
 		String msg = json.writeValueAsString(dataMap);
 
-		if (userSession.get(receiverId) != null) { //만약 받는사람이 온라인일 경우		
+		if (userSession.get(receiverId) != null) { //받는사람이 session에 접속해 있는지 체크	
 			userSession.get(receiverId).sendMessage(new TextMessage(msg)); // send to receiver
 			log.info("받는사람이 온라인이라 메시지 전송");
 		}
 
-		// 보낸 사람과 받는사람이 같지 않으면 자신에게도 메시지 보내기(관리자는 위에서 보내고 자기 자신에게 한번 더 보내지지 않는다)
+		// 보낸 사람과 받는사람이 같지 않으면 자신에게도 메시지 보내기
 		if(!senderId.equals(receiverId)) {
 			dataMap.put("receiverId", senderId);
 			msg = json.writeValueAsString(dataMap);
