@@ -40,6 +40,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
 	@Autowired
 	private MyLibraryService myLibararyService;
 	

@@ -58,10 +58,13 @@ public class BookCollectionController {
 	
 	@Autowired
 	BookCollectionService bookCollectionService;
+	
 	@Autowired
 	MyLibraryService myLibraryService;
+	
 	@Autowired
 	MemberService memberService;
+	
 	@Autowired
 	AdminService adminService;
 	

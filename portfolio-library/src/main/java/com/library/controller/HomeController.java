@@ -31,10 +31,13 @@ public class HomeController {
 
 	@Autowired
 	MyLibraryService myLibraryService;
+	
 	@Autowired
 	BookCollectionService bookCollectionService;
+	
 	@Autowired
 	NoticeService noticeService;
+	
 	@Autowired
 	AdminService adminService;
 

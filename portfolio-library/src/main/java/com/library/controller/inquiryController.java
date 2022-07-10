@@ -40,6 +40,7 @@ public class inquiryController {
 	
 	@Autowired
 	InquiryService inquiryService;
+	
 	@Autowired
 	CommentService commentService;
 	

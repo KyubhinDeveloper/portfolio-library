@@ -48,7 +48,9 @@ function getCommentList(pageNum) {
 			let parentList = result.parentList;
 			let pageNum = result.pageNum
 			
+			//댓글 리스트 구현
 			showCommentList(commentCnt, commentList, parentList, pageNum);
+			//댓글 pagination 구현
 			showCommentPage(commentCnt,pageNum)
 		}
 	})
@@ -68,63 +70,67 @@ function showCommentList(commentCnt, commentList, parentList, pageNum) {
 	str = '';
 	str += `	<h4 class="comment-count" data-page="`+pageNum+`"><i class="fa-solid fa-comments"></i>댓글 <span class="count">`+ commentCnt +`</span>개</h4>`
 	
-	for(comment of commentList){
-		
-		let name = comment.name.substring(0,1).concat('*'.repeat(comment.name.length - 1));
-		
-		str += `<div class="comment-content-box" data-cno="`+comment.cno+`" style="margin-left: `+comment.cmLevel+`0px;">
+	for (comment of commentList) {
+
+		let name = comment.name.substring(0, 1).concat('*'.repeat(comment.name.length - 1));
+
+		str += `<div class="comment-content-box" data-cno="` + comment.cno + `" style="margin-left: ` + comment.cmLevel + `0px;">
 				 	<div class="d-flex content-top">
                         <div class="d-flex writer-box">`;
-        if(comment.id == "admin"){
-			if(comment.cmLevel > 0){
-				str +=  `	<img src="/img/community/icon-comment.png" alt="" style="opacity: 0.5; margin-right: 5px;">`
+		if (comment.id == "admin") {
+			if (comment.cmLevel > 0) {
+				str += `	<img src="/img/community/icon-comment.png" alt="" style="opacity: 0.5; margin-right: 5px;">`
 			}
-			str +=  `		<h5>`+ comment.name +`</h5>`;
+			str += `		<h5>` + comment.name + `</h5>`;
 		} else {
-			if(comment.cmLevel > 0){
-				str +=  `	<img src="/img/community/icon-comment.png" alt="" style="opacity: 0.5; margin-right: 5px;">`
+			if (comment.cmLevel > 0) {
+				str += `	<img src="/img/community/icon-comment.png" alt="" style="opacity: 0.5; margin-right: 5px;">`
 			}
-			str +=  `		<h5>${ name }</h5>`;	
-		}    		
-        str += `			<p>`+ commentTime(comment.regDate) +`</p>
+			str += `		<h5>${name}</h5>`;
+		}
+		str += `			<p>` + commentTime(comment.regDate) + `</p>
                         </div>
                         <div class="comment-icon">`
-        if(id == comment.id || id == "admin"){
-        	str += `		<div class="d-flex btn-box">
+		if (id == comment.id || id == "admin") {
+			str += `		<div class="d-flex btn-box">
 		            			<button type="button" class="btn toggle-edit-btn"><i class="fa-solid fa-pencil"></i>수정</button>
 		                		<button class="btn comment-delete-btn"><i class="fa-solid fa-eraser"></i>삭제</button>
-		            		</div>` 		
-		};      
-		if(id != ""){
+		            		</div>`
+		};
+		if (id != "") {
 			str += `		<div class="icon-box">	
 	        					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
 	                                <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
 	                                <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
 	                            </svg>
 	                            답글
-	                        </div> `  
+	                        </div> `
 		}
 		str += `         </div>
 					</div>
-                    <div class="content-main">`                  
-        if(comment.cmLevel > 0){
-	
-			let parent = parentList[i].substring(0,1).concat('*'.repeat(comment.name.length - 1));
+                    <div class="content-main">`
+		if (comment.cmLevel > 0) {
+			// 댓글단 원본댓글 작성자의 이름
+			let parent = parentList[i].substring(0, 1).concat('*'.repeat(comment.name.length - 1));
 			
-			if(comment.comment == "") {
+			if (comment.comment == "") {
 				str += `<p>[삭제된 댓글입니다.]</p>`
-			} else if(parentList[i] == "관리자") {
-				str += `<p><span style="color: #aaa; margin-right: 5px">`+parentList[i]+`</span>`+ comment.comment +`</p>`	
+			} else if (parentList[i] == "관리자") {
+				str += `<p><span style="color: #aaa; margin-right: 5px">` + parentList[i] + `</span>` + comment.comment + `</p>`
 			} else {
-				str += `<p><span style="color: #aaa; margin-right: 5px">`+parent+`</span>`+ comment.comment +`</p>`   
+				str += `<p><span style="color: #aaa; margin-right: 5px">` + parent + `</span>` + comment.comment + `</p>`
 			}
-		} else {		
-			if(comment.comment == "") {
+
+		} else {
+
+			if (comment.comment == "") {
 				str += `<p>[삭제된 댓글입니다.]</p>`
-			} else {	
-				str += `<p>`+ comment.comment +`</p>`
+			} else {
+				str += `<p>` + comment.comment + `</p>`
 			}
-		}      
+
+		}
+
 		str += `    </div>                            
     				<div class="comment-comment-wrap">
                         <div class="d-flex">
@@ -137,10 +143,10 @@ function showCommentList(commentCnt, commentList, parentList, pageNum) {
                             	<p>닫기</p>
                             </div>
                         </div>
-                        <input id="cno" type="hidden" value="` + comment.cno +`"/>
-                    	<input id="cmRef" type="hidden" value="` + comment.cmRef +`"/>
-                    	<input id="cmLevel" type="hidden" value="` + comment.cmLevel +`"/>
-                    	<input id="cmStep" type="hidden" value="` + comment.cmStep +`"/>
+                        <input id="cno" type="hidden" value="` + comment.cno + `"/>
+                    	<input id="cmRef" type="hidden" value="` + comment.cmRef + `"/>
+                    	<input id="cmLevel" type="hidden" value="` + comment.cmLevel + `"/>
+                    	<input id="cmStep" type="hidden" value="` + comment.cmStep + `"/>
                         <textarea id="comment" cols="210" rows="5"></textarea>
                         <div class="d-flex justify-content-end">
                         	<button class="comment-btn cm-register-btn">등록</button>
@@ -157,28 +163,29 @@ function showCommentList(commentCnt, commentList, parentList, pageNum) {
                             	<p>닫기</p>
                             </div>
                         </div>
-                        <textarea name="content" cols="210" rows="5">`+ comment.comment +`</textarea>
+                        <textarea name="content" cols="210" rows="5">`+ comment.comment + `</textarea>
                         <div class="d-flex justify-content-end">
                         	<button class="comment-btn comment-edit-btn">수정</button>
                         </div>	
                     </div>
-            	</div>`;  		
-    		i++;
-	}                                
+            	</div>`;
+		i++;
+	}
+	                                
 	$('.comment-list-wrap').html(str);
 }
 
 //showCommentPage()
 function showCommentPage(commentCnt,pageNum) {
 	
-	if(commentCnt <= 20){
+	if(commentCnt <= 15){
 		
 		return;
 		
 	} else {
 		
 		// 한 페이지에 보여지는 댓글 총 갯수
-		var rowCount = 20;
+		var rowCount = 15;
 		// 총 댓글 페이지 갯수
 		var pageCount = Math.ceil(commentCnt / rowCount);
 		// 한 페이지 당 블록 갯수

@@ -70,14 +70,19 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
+	
 	@Autowired
 	private MemberService memberService;
+	
 	@Autowired
 	private InquiryService inquiryService;
+	
 	@Autowired
 	private NoticeService noticeService;
+	
 	@Autowired
 	private CommentService commentService;
+	
 	@Autowired
 	private BookCollectionService bookCollectionService;
 	

@@ -86,6 +86,7 @@
                 			<div class="list-btn-box">
                                 <a href="/community/inquiryForum?pageNum=${pageNum}"><button class="btn list-btn">목록보기</button></a>
                             </div>
+                            <!-- 댓글 창 부분 -->
                             <div class="comment-wrap">
                                 <div class="comment-list-wrap">
                                 </div>

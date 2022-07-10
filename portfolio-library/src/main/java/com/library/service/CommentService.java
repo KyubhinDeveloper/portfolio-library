@@ -21,28 +21,56 @@ public class CommentService {
 	@Autowired
 	CommentMapper commentMapper;
 	
-	public void insertComment(CommentVo commentVo) {
+	// getCommentNum()
+	public int getCommentNum() {
 		
-		commentMapper.insertComment(commentVo);	
-	} //insertComment()
+		int commentNum = commentMapper.getCommentNum();
+		
+		return commentNum;
+	} 
 	
-	public void insertNestedCm(CommentVo commentVo) {
-		//nestedCm == nestedComment
-			
+	// getNameByCno()
+	public String getNameByCno(int num) {
+		
+		String name = commentMapper.getNameByCno(num);
+		
+		return name;
+	} 
+	
+	// getListWithPasing()
+	public CommentDto getListWithPasing(int bno, CommentBlock block) {
+
+		List<CommentVo> commentList = commentMapper.getListWithPaging(bno, block);
+		//해당 글 댓글개수
+		int count = commentMapper.getCommentCount(bno);
+		CommentDto commentDto = new CommentDto(commentList, count);
+		
+		return commentDto;
+	} 
+	
+	// 댓글 등록할때
+	public void insertComment(CommentVo commentVo) {		
+		commentMapper.insertComment(commentVo);	
+	} 
+	
+	// 대댓글 등록할때
+	public void insertNestedCm(CommentVo commentVo) { // nestedCm == nestedComment
+		
+		//대댓글이 다른 댓글들 중간에 들어갈경우 
 		Integer result = commentMapper.checkStep(commentVo.getCmRef(), commentVo.getCmStep(), commentVo.getCmLevel());
 		
-		if(result == null) {
+		if(result == null) { // 다른 댓글이 없을경우
 			int step = commentMapper.getMaxStep(commentVo.getCmRef());
 			commentVo.setCmStep(step);
 			
-		} else {
-			commentMapper.updateStep(commentVo.getCmRef(), commentVo.getCmLevel());
+		} else { // 다른 댓글이 있을 경우
+			commentMapper.updateStep(commentVo.getCmRef(), result);
 			commentVo.setCmStep(result);
 		}
 		
 		commentVo.setCmLevel(commentVo.getCmLevel() + 1);
 		commentMapper.insertComment(commentVo);	
-	} //insertNestedCm()
+	} 
 	
 	public void updateComment(CommentVo commentVo) {
 		
@@ -73,28 +101,7 @@ public class CommentService {
 		return count;
 	} //getNestedCmCount()
 	
-	public String getNameByCno(int num) {
-		
-		String name = commentMapper.getNameByCno(num);
-		
-		return name;
-	} //getNameByCno()
-	
-	public int getCommentNum() {
-		
-		int commentNum = commentMapper.getCommentNum();
-		
-		return commentNum;
-	} //getCommentNum()
-	
-	public CommentDto getListWithPasing(int bno, CommentBlock block) {
 
-		List<CommentVo> commentList = commentMapper.getListWithPaging(bno, block);
-		int count = commentMapper.getCommentCount(bno);
-		CommentDto commentDto = new CommentDto(commentList, count);
-		
-		return commentDto;
-	} //getListWithPasing()
 	
 	public CommentVo getCommentByCno(int cno) {
 		
