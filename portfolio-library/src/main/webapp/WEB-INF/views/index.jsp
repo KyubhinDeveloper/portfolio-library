@@ -76,18 +76,18 @@
 											<div class="status-main-box">
 												<div class="status-item-group d-flex">
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> <a class="status-item" href="/myLibrary/loanBook">총 대출권수: <span>${ totalLoanCount }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> <a class="status-item" href="/adminPage/book/loanStatus">총 대출권수: <span>${ totalLoanCount }권</span></a>
 													</div>
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> <a class="status-item" href="/myLibrary/loanBook">총 연체권수: <span>${ totalOverdueCnt }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> <a class="status-item" href="/adminPage/book/ercStatus">총 연체권수: <span>${ totalOverdueCnt }권</span></a>
 													</div>
 												</div>
 												<div class="status-item-group d-flex">
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> <a class="status-item" href="/myLibrary/reservationBook">총 예약권수: <span>${ reservationCnt }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> <a class="status-item" href="/adminPage/book/reserveStatus">총 예약권수: <span>${ reservationCnt }권</span></a>
 													</div>
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon04.png" alt="" /> <a class="status-item" href="/myLibrary/hopeBook">총 신청도서: <span>${ totalWishCnt }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon04.png" alt="" /> <a class="status-item" href="/adminPage/book/hopeList">총 신청도서: <span>${ totalWishCnt }권</span></a>
 													</div>
 												</div>
 											</div>

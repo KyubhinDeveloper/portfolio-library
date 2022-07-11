@@ -313,7 +313,7 @@ public class NoticeController {
 				uploadFileList.add(fileVo);
 			} // for
 			
-			
+			log.info("uploadFileList: " + uploadFileList);
 
 			uploadFileService.insertFiles(uploadFileList);
 		}
@@ -501,7 +501,7 @@ public class NoticeController {
 		// 첨부파일 업로드할 폴더 없을 경우 폴더 생성
 		if (!fileDir.exists()) {		
 			fileDir.mkdirs();
-			log.info("fileDir.mkdirs()");
+			log.info("fileDir.mkdirs() 실행");
 		}
 		
 		// 실제 파일 이름
@@ -517,7 +517,7 @@ public class NoticeController {
 		log.info("저장할 파일: " + saveFile);
 		// 파일 업로드하기 
 		multipartFile.transferTo(saveFile);
-
+		
 		UploadFileVo uploadFile = new UploadFileVo();
 
 		uploadFile.setBno(num);
