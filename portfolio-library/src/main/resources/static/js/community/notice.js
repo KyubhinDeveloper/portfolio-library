@@ -1,6 +1,6 @@
 
 $("#summernote").summernote({
-	toolbar: [
+	toolbar: [ //원하는 toolbar 추가
 	    // [groupName, [list of button]]
 	   ['fontname', ['fontname']],
 	   ['fontsize', ['fontsize']],
@@ -19,8 +19,8 @@ $("#summernote").summernote({
 	maxHeight: null,
 	focus: true, 
 	lang: "ko-KR",
-	disableResizeEditor: true,
-	callbacks: { //이미지 첨부부분
+	disableResizeEditor: true, //반응형 설정여부
+	callbacks: { //textarea에 이미지 첨부부분
 		onImageUpload : function(files) {
 			uploadSummernoteImageFile(files[0],this);
 		},

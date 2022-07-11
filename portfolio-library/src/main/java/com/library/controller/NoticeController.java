@@ -61,29 +61,32 @@ public class NoticeController {
 	private UploadFileService uploadFileService;
 
 	@GetMapping("/noticeForum")
-	public String noticeForum(@RequestParam(defaultValue = "1") int pageNum, 
-							  @RequestParam(defaultValue = "") String category, 
-							  @RequestParam(defaultValue = "") String search, 
+	public String noticeForum(@RequestParam(defaultValue = "1") int pageNum, // pagination 번호
+							  @RequestParam(defaultValue = "") String category, // 게시판 검색 카테고리
+							  @RequestParam(defaultValue = "") String search, // 게시판 검색어
 							  Model model, HttpSession session) throws ParseException {
-
+		
+		// 게시글 총 갯수
 		int totalCount = noticeService.getTotalCount(category, search);
+		// 한 화면에 보여줄 갯수
 		int rowCount = 10;
+		// 첫 글 번호
 		int startRow = (pageNum - 1) * rowCount;
 
 		if (totalCount > 0) {
-
 			Long time;
 			List<NoticeVo> noticeList = noticeService.getNoticeList(startRow, rowCount, category, search);
 			List<Object> timeList = new ArrayList<>();
 			List<UploadFileVo> thumbnailList = new ArrayList<UploadFileVo>();
 			int i = 0;
 
-			for (NoticeVo noticeVo : noticeList) {
-
+			for (NoticeVo noticeVo : noticeList) {				
+				// 게시글 작성 시간과 현재 시간 차이 리스트에 담기
 				time = this.timeGap(i, noticeVo);
 				timeList.add(i, time);
 				UploadFileVo thumbnail = noticeVo.getThumbnail();
-
+				
+				// 썸네일 여부에 따라 리스트에 추가
 				if (thumbnail != null) {
 					thumbnailList.add(i, thumbnail);
 					i++;
@@ -95,18 +98,16 @@ public class NoticeController {
 
 			int pageCount = totalCount / rowCount;
 			if (totalCount % rowCount > 0) {
-
 				pageCount += 1;
 			}
 
 			// 페이지 블록에 보여줄 최대 갯수
 			int pageBlock = 10;
-
+			// pagination 첫 번호
 			int startPage = ((pageNum / pageBlock) - (pageNum % pageBlock == 0 ? 1 : 0)) * pageBlock + 1;
-
+			// pagination 마지막 번호
 			int endPage = startPage + pageBlock - 1;
 			if (endPage > pageCount) {
-
 				endPage = pageCount;
 			}
 
@@ -125,7 +126,6 @@ public class NoticeController {
 			model.addAttribute("thumbnailList", thumbnailList);
 			model.addAttribute("timeList", timeList);
 			model.addAttribute("pageDto", pageDto);
-
 		} // if
 
 		model.addAttribute("pageNum", pageNum);
@@ -175,25 +175,29 @@ public class NoticeController {
 	public String writeNoite(@RequestParam("thumbnailname") MultipartFile thumbnail, 
 							 @RequestParam("filename") List<MultipartFile> uploadFile, 
 							 HttpServletRequest request, NoticeVo noticeVo, HttpSession session) throws Exception {
-
+		
 		String id = (String) session.getAttribute("id");
 		String name = (String) session.getAttribute("name");
-
+		
+		// 작성할 게시글 번호 가져오기
 		int num = noticeService.getNoticeNum();
-
+		
+		// 게시글 작성 시간
 		String date = this.currentTime();
-
+		
 		noticeVo.setRegDate(date);
 		noticeVo.setId(id);
 		noticeVo.setName(name);
 		noticeVo.setNum(num);
-
+		
+		
 		if (!thumbnail.isEmpty()) {
 			
 			UploadFileVo thumbnailVo = new UploadFileVo();
 			thumbnailVo = this.uploadThumbnail(thumbnailVo, request, thumbnail, num);
 			uploadFileService.insertThumbnail(thumbnailVo);
-		}
+			
+		} // if()
 
 		List<UploadFileVo> fileList = new ArrayList<>();
 
@@ -209,7 +213,6 @@ public class NoticeController {
 				fileList.add(attachments);
 			} // for
 
-			log.info("파일리스트: " + fileList);
 			uploadFileService.insertFiles(fileList);
 		} // if
 
@@ -383,6 +386,7 @@ public class NoticeController {
 		return new ResponseEntity<Resource>(resource, headers, HttpStatus.OK);
 	} // download()
 
+	//uploadSummernoteImageFile()
 	@PostMapping(value = "/summernote", produces = "application/json")
 	@ResponseBody
 	public JsonObject uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
@@ -398,11 +402,10 @@ public class NoticeController {
 		File targetFile = new File(fileRoot + savedFileName);
 
 		try {
-
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
-			jsonObject.addProperty("url", "/summernoteImage/" + savedFileName);
-			jsonObject.addProperty("responseCode", "success");
+			jsonObject.addProperty("url", "/summernoteImage/" + savedFileName); // 파일을 저장할 url 정보
+			jsonObject.addProperty("responseCode", "success"); // 파일 저장 성공여부
 		} catch (IOException e) {
 
 			FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
@@ -410,7 +413,7 @@ public class NoticeController {
 			e.printStackTrace();
 		}
 		return jsonObject;
-	}//uploadSummernoteImageFile()
+	}
 
 	private String currentTime() {
 
@@ -420,22 +423,6 @@ public class NoticeController {
 
 		return date;
 	} // currentTime()
-
-	private String currentDate() {
-
-		LocalDateTime dateTime = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		String strDate = dateTime.format(formatter);
-		return strDate;
-	} // currentDate()
-
-	private String uuid() {
-
-		UUID uuid = UUID.randomUUID();
-		String strUuid = uuid.toString();
-
-		return strUuid;
-	} // uuid()
 
 	private Long timeGap(int i, NoticeVo noticeVo) throws ParseException {
 
@@ -452,47 +439,42 @@ public class NoticeController {
 		return time;
 	} // timeGap()
 
-	private String fileName(MultipartFile multipartFile) {
-
-		String fileName = multipartFile.getOriginalFilename();
-
-		int index = fileName.lastIndexOf("\\") + 1;
-		fileName = fileName.substring(index);
-
-		return fileName;
-	} // fileName()
-
 	private UploadFileVo uploadThumbnail(UploadFileVo thumbnailVo, HttpServletRequest request, MultipartFile thumbnail, int num) throws FileNotFoundException, IOException {
-
+		
 		ServletContext application = request.getServletContext();
+		// 썸네일 파일 업로드할 경로 
 		String thumbnailPath = application.getRealPath("/upload/thumbnail");
-		String stringDate = this.currentDate();
-
+		// 오늘 날짜
+		LocalDateTime dateTime = LocalDateTime.now();
+		String stringDate = dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+		
 		File thumbnailDir = new File(thumbnailPath, stringDate);
-
+		
+		// 썸네일 업로드할 폴더 없을 경우 폴더 생성
 		if (!thumbnailDir.exists()) {
 			thumbnailDir.mkdirs();
 		}
-
-		String thumbnailName = thumbnail.getOriginalFilename();
-
-		int index = thumbnailName.lastIndexOf("\\") + 1;
-		thumbnailName = thumbnailName.substring(index);
-
-		String stringUuid = this.uuid();
+		
+		// 실제 파일 이름
+		String originalName = thumbnail.getOriginalFilename();
+		String thumbnailName = originalName.substring(originalName.lastIndexOf("\\") + 1);
+		
+		// UUID
+		String stringUuid = UUID.randomUUID().toString();
+		// 저장할 파일이름
 		String uploadFileName = stringUuid + "_" + thumbnailName;
-
+		
+		// 섬네일 파일 생성 (섬네일 파일 이름은 중간에 "s_"로 시작하도록)
 		File thumbnailFile = new File(thumbnailDir, "s_" + uploadFileName);
-
+		
+		try (FileOutputStream fos = new FileOutputStream(thumbnailFile)) {
+			Thumbnailator.createThumbnail(thumbnail.getInputStream(), fos, 97, 130);
+		}
+		
 		thumbnailVo.setBno(num);
 		thumbnailVo.setPath(thumbnailDir.getPath().replace("\\", "/"));
 		thumbnailVo.setUuid(stringUuid);
 		thumbnailVo.setFilename(thumbnailName);
-
-		try (FileOutputStream fos = new FileOutputStream(thumbnailFile)) {
-
-			Thumbnailator.createThumbnail(thumbnail.getInputStream(), fos, 97, 130);
-		}
 
 		return thumbnailVo;
 	} // uploadThumbnail()
@@ -500,29 +482,37 @@ public class NoticeController {
 	private UploadFileVo uploadFile(HttpServletRequest request, MultipartFile multipartFile, int num) throws IllegalStateException, IOException {
 
 		ServletContext application = request.getServletContext();
+		// 첨부파일 업로드할 경로 
 		String filePath = application.getRealPath("/upload/file");
-		String stringDate = this.currentDate();
+		// 오늘 날짜
+		LocalDateTime dateTime = LocalDateTime.now();
+		String stringDate = dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 
 		File fileDir = new File(filePath, stringDate);
-
+		
+		// 첨부파일 업로드할 폴더 없을 경우 폴더 생성
 		if (!fileDir.exists()) {
-
 			fileDir.mkdirs();
 		}
-
-		String fileName = this.fileName(multipartFile);
-		String strUuid = this.uuid();
-		String uploadFileName = strUuid + "_" + fileName;
-
+		
+		// 실제 파일 이름
+		String originalName = multipartFile.getOriginalFilename();
+		String fileName = originalName.substring(originalName.lastIndexOf("\\") + 1);
+		
+		// UUID
+		String stringUuid = UUID.randomUUID().toString();
+		// 저장할 파일이름
+		String uploadFileName = stringUuid + "_" + fileName;
+		
 		File saveFile = new File(fileDir, uploadFileName);
-
+		// 파일 업로드하기 
 		multipartFile.transferTo(saveFile);
 
 		UploadFileVo uploadFile = new UploadFileVo();
 
 		uploadFile.setBno(num);
 		uploadFile.setPath(fileDir.getPath().replace("\\", "/"));
-		uploadFile.setUuid(strUuid);
+		uploadFile.setUuid(stringUuid);
 		uploadFile.setFilename(fileName);
 
 		return uploadFile;

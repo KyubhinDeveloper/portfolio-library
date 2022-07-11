@@ -16,3 +16,4 @@ public class PageDto {
 	private String category; 
 	private String search; 	
 }
+

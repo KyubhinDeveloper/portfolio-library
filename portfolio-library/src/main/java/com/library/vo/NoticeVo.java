@@ -23,3 +23,4 @@ public class NoticeVo {
 	private int views;
 	
 }
+

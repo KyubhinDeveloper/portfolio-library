@@ -26,10 +26,10 @@ public interface NoticeMapper {
 	@Select("SELECT COUNT(*) FROM notice_forum")
 	int getNoticeCount();
 	
-	int getTotalCount(@Param("category") String category, @Param("search") String search);
-	
 	@Select("SELECT * FROM notice_forum WHERE num = #{num}")
 	NoticeVo getNoticeByNum(int num);
+	
+	int getTotalCount(@Param("category") String category, @Param("search") String search);
 	
 	List<NoticeVo> getNoticeList(@Param("startRow") int startRow, 
 			 					 @Param("rowCount") int rowCount,

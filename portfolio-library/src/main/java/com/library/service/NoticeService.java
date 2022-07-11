@@ -76,7 +76,9 @@ public class NoticeService {
 		List<NoticeVo> noticelist = noticeMapper.getNoticeList(startRow, rowCount, category, search);
 
 		return noticelist;
+		
 	} //getNoticeList()
+	
 	
 	public NoticeVo getNoticeAndThumbnailByNum(int num) {
 

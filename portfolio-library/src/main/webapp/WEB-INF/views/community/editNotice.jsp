@@ -54,6 +54,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<form class="notice-edit-wrap" action="/community/editNotice?pageNum=${ pageNum }&num=${ notice.num }" method="post"
 							enctype="multipart/form-data">
 							<input type="hidden" name="_method" value="put" />
@@ -68,9 +69,11 @@
 										<input id="thumbnail-input" class="file-input" type="file" name="newThumbnail">
 									</c:if>
 									<c:if test="${ thumbnail ne null}">
-										<input type="hidden" name="oldThumbnail" value="${ thumbnail.uuid }">
+										<!-- 기존 썸네일파일 정보-->
+										<input id="oldThumbnail" type="hidden" name="oldThumbnail" value="${ thumbnail.uuid }">
 										<div class="d-flex thumbnail-box">
-											<p class="oldThumbnail">${ thumbnail.filename }</p> <i class="fa-solid fa-xmark thumbnail-delete-btn"></i>
+											<p class="oldThumbnail">${ thumbnail.filename }</p> 
+											<i class="fa-solid fa-xmark thumbnail-delete-btn"></i>
 										</div>
 									</c:if>
 								</div>
@@ -79,7 +82,8 @@
 									<div class="d-flex file-box">
 										<button class="btn file-add-btn" type="button">파일 추가하기</button>
 										<c:forEach var="attachments" items="${ attachments }">
-											<input type="hidden" name="oldFile" value="${ attachments.uuid }">
+											<!-- 기존 첨부파일 정보-->
+											<input class="oldlFile" type="hidden" name="oldFile" value="${ attachments.uuid }">
 											<div class="d-flex old-file-box">
 												<p class="oldFile">${ attachments.filename }</p> 
 												<i class="fa-solid fa-xmark oldFile-delete-btn"></i>
@@ -91,11 +95,12 @@
 							<div class="edit-main-box">
 								<textarea id="summernote" name="content">${ notice.content }</textarea>
 							</div>
-						</form>
+						</form>						
 						<div class="d-flex edit-bottom-box">
 							<a href="/community/noticeContent?num=${ notice.num }&pageNum=${ pageNum }"><button class="btn back-btn">돌아가기</button></a>
 							<button class="btn edit-btn" type="button">수정하기</button>
 						</div>
+						
 					</div>
 				</div>
 				<div class="bottom-wrap">
@@ -129,16 +134,17 @@
 	<script src="/js/main.js"></script>
 	<script src="/js/community/notice.js"></script>
 	<script>
-		//썸네일 이벤트
+		// 썸네일 이벤트
 		var thumbnailTag = `<input id="thumbnail-input" class="file-input" type="file" name="newThumbnail">`
 
-		$('.thumbnail-delete-btn').click(function() {
+		$('.thumbnail-delete-btn').click(function() { 
 			$(this).parents('.tag-box').append(thumbnailTag);
-			$(this).parent().prev().prop('name','deletedThumbnail');
+			//기존에 있던 썸네일 파일을 삭제할 경우 deletedThumbnail로 name 변경 
+			$(this).parent().siblings('#oldThumbnail').prop('name','deletedThumbnail');
 			$(this).parent().remove();
 		})
 		
-		//파일 첨부
+		// 파일 첨부
 		var fileCount = 0;
 		fileCount += $('.old-file-box').length;
 		
@@ -162,7 +168,8 @@
 		})
 		
 		$(document).on('click', '.oldFile-delete-btn', function() {
-			$(this).parent().prev().prop('name','deletedFile');
+			//기존에 있던 첨부파일을 삭제할 경우 deletedFile로 name 변경
+			$(this).parent().siblings('.oldFile').prop('name','deletedFile');
 			$(this).parent().remove();
 			fileCount--;
 		})

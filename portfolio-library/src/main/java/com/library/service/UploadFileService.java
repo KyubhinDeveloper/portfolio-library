@@ -22,7 +22,6 @@ public class UploadFileService {
 	public void insertThumbnail(UploadFileVo thumbnailVo) {
 		
 		if (thumbnailVo != null) {
-
 			uploadFileMapper.insertThumbnail(thumbnailVo);
 		}
 	} // insertThumbnail()
@@ -30,9 +29,7 @@ public class UploadFileService {
 	public void insertFiles(List<UploadFileVo> fileList) {
 
 		if (fileList.size() > 0) {
-
 			for (UploadFileVo file : fileList) {
-
 				uploadFileMapper.insertFile(file);
 			}
 		}

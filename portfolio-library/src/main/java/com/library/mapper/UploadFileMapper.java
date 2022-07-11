@@ -1,12 +1,9 @@
 package com.library.mapper;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
-import com.library.vo.QaVo;
 import com.library.vo.UploadFileVo;
 
 public interface UploadFileMapper {
@@ -28,9 +25,10 @@ public interface UploadFileMapper {
 	@Delete("DELETE FROM notice_thumbnail WHERE bno = #{num}")
 	void deleteThumbnailByNum(int num);
 	
-	@Delete("DELETE FROM notice_attachments WHERE bno = #{num}")
-	void deleteFilesByNum(int num);
-	
 	@Delete("DELETE FROM notice_attachments WHERE uuid = #{uuid}")
 	void deleteFilesByUuid(String uuid);
+	
+	@Delete("DELETE FROM notice_attachments WHERE bno = #{num}")
+	void deleteFilesByNum(int num);
+
 }

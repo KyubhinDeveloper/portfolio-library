@@ -55,6 +55,8 @@
 								</div>
 							</div>
 						</div>
+						
+						<!-- write notice view -->
 						<form class="notice-write-wrap" action="/community/writeNotice" method="post" enctype="multipart/form-data">
 							<div class="write-top-box">
 								<div class="d-flex tag-box">
@@ -84,6 +86,7 @@
 							<a href="/community/noticeForum?pageNum=${pageNum}"><button class="btn back-btn">돌아가기</button></a>
 							<button class="btn save-btn" type="button">등록하기</button>
 						</div>
+						
 					</div>
 				</div>
 				<div class="bottom-wrap">
@@ -113,22 +116,19 @@
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="/js/summernote-lite.js"></script>
- 	<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+ 	<script src="/js/summernote-ko-KR.min.js"></script>
 	<script src="/js/main.js"></script>
 	<script src="/js/community/notice.js"></script>
+	
 	<script>
   	//파일 첨부
     var fileCount = 1;
-    fileCount += $('.old-file-box').length;
-    console.log($('.old-file-box').length);
-
-    var fileTag = ` <div class="d-flex file-input-box">
-                        <input id="file-input" class="file-input" type="file" name="filename"> 
-                        <i class="fa-solid fa-xmark file-delete-btn"></i>
-                    </div>`;
+    var fileTag = `<div class="d-flex file-input-box">
+                       <input id="file-input" class="file-input" type="file" name="filename"> 
+                       <i class="fa-solid fa-xmark file-delete-btn"></i>
+                   </div>`;
 
     $('.file-add-btn').click(function() {
-    	console.log(fileCount);
     	
     	if (fileCount < 5) {
     		$(this).parent().append(fileTag);
@@ -148,8 +148,7 @@
 	
 		let subject = $('#subject-input').val();
 		
-		if(subject == ""){
-			
+		if(subject == ""){			
 			alert("제목은 필수 입력값입니다. 반드시 입력해 주세요.");	
 		} else {
 			
@@ -160,6 +159,6 @@
 			}
 		}
 	})
-    
     </script>
+    
 </body>
