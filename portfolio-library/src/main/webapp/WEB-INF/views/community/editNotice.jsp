@@ -83,7 +83,7 @@
 										<button class="btn file-add-btn" type="button">파일 추가하기</button>
 										<c:forEach var="attachments" items="${ attachments }">
 											<!-- 기존 첨부파일 정보-->
-											<input class="oldlFile" type="hidden" name="oldFile" value="${ attachments.uuid }">
+											<input class="oldFile" type="hidden" name="oldFile" value="${ attachments.uuid }">
 											<div class="d-flex old-file-box">
 												<p class="oldFile">${ attachments.filename }</p> 
 												<i class="fa-solid fa-xmark oldFile-delete-btn"></i>
@@ -176,7 +176,7 @@
 
 		//수정버튼 이벤트
 		$('.edit-btn').click(function() {
-
+			
 			let subject = $('#subject-input').val();
 
 			if (subject == "") {

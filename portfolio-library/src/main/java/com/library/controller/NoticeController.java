@@ -261,9 +261,11 @@ public class NoticeController {
 		
 		// 삭제된 기존 썸네일 처리
 		if (deletedThumbnail != null) {
+			
+			log.info("deletedThumbnail: " + deletedThumbnail);
 			UploadFileVo oldThumbnailVo = uploadFileService.getThumbnailByNum(num);
-
-			this.deleteFile(oldThumbnailVo);
+			log.info("oldThumbnailVo: " + oldThumbnailVo);
+			this.deleteThumbnail(oldThumbnailVo);
 
 			uploadFileService.deleteThumbnailByNum(num);
 		}
@@ -296,7 +298,9 @@ public class NoticeController {
 
 		// 새로운 첨부파일 입력
 		if (uploadFile != null) {
-
+			
+			log.info("새로운 첨부파일 업로드");
+			
 			List<UploadFileVo> uploadFileList = new ArrayList<>();
 
 			for (MultipartFile multipartFile : uploadFile) {
@@ -308,6 +312,8 @@ public class NoticeController {
 				UploadFileVo fileVo = this.uploadFile(request, multipartFile, num);
 				uploadFileList.add(fileVo);
 			} // for
+			
+			
 
 			uploadFileService.insertFiles(uploadFileList);
 		}
@@ -326,7 +332,7 @@ public class NoticeController {
 
 			UploadFileVo thumbnail = thumbnailVo.getThumbnail();
 
-			this.deleteFile(thumbnail);
+			this.deleteThumbnail(thumbnail);
 
 			uploadFileService.deleteThumbnailByNum(num);
 		} // if
@@ -480,7 +486,9 @@ public class NoticeController {
 	} // uploadThumbnail()
 
 	private UploadFileVo uploadFile(HttpServletRequest request, MultipartFile multipartFile, int num) throws IllegalStateException, IOException {
-
+		
+		log.info("uploadFile() 실행");
+		
 		ServletContext application = request.getServletContext();
 		// 첨부파일 업로드할 경로 
 		String filePath = application.getRealPath("/upload/file");
@@ -491,8 +499,9 @@ public class NoticeController {
 		File fileDir = new File(filePath, stringDate);
 		
 		// 첨부파일 업로드할 폴더 없을 경우 폴더 생성
-		if (!fileDir.exists()) {
+		if (!fileDir.exists()) {		
 			fileDir.mkdirs();
+			log.info("fileDir.mkdirs()");
 		}
 		
 		// 실제 파일 이름
@@ -505,6 +514,7 @@ public class NoticeController {
 		String uploadFileName = stringUuid + "_" + fileName;
 		
 		File saveFile = new File(fileDir, uploadFileName);
+		log.info("저장할 파일: " + saveFile);
 		// 파일 업로드하기 
 		multipartFile.transferTo(saveFile);
 
@@ -518,16 +528,29 @@ public class NoticeController {
 		return uploadFile;
 	} // uploadFile()
 	
+	private void deleteThumbnail(UploadFileVo thumbnailVo) {
+
+		log.info("deleteFile()");
+		String fileName = "s_" + thumbnailVo.getUuid() + "_" + thumbnailVo.getFilename();
+		log.info("fileName:" + fileName);
+		File deleteFile = new File(thumbnailVo.getPath(), fileName);
+
+		if (deleteFile.exists()) {
+			deleteFile.delete();
+		}
+	} // deleteThumbnail()
+	
 	private void deleteFile(UploadFileVo fileVo) {
-		
-		 String fileName = fileVo.getUuid() + "_" + fileVo.getFilename();
-		 File deleteFile = new File(fileVo.getPath(), fileName);
-		  
-		  if(deleteFile.exists()) {
-		  
-			  deleteFile.delete();
-		  }
-	} //deleteFile()
 
+		log.info("deleteFile()");
+		String fileName = fileVo.getUuid() + "_" + fileVo.getFilename();
+		log.info("fileName:" + fileName);
+		File deleteFile = new File(fileVo.getPath(), fileName);
 
+		if (deleteFile.exists()) {
+
+			deleteFile.delete();
+		}
+	} // deleteFile()
+	
 }
