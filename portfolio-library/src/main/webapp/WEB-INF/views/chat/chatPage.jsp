@@ -17,7 +17,7 @@
 </head>
 <body>
 	<c:if test="${ sessionScope.id eq 'admin' }">
-	<!-- 접속사 리스트 화면 -->
+	<!-- 접속회원 리스트 화면 -->
 	<div id="chat-list" class="connect-list-background">
 		<div class="d-flex list-top-box">
 			<div class="d-flex top-row-box">		
