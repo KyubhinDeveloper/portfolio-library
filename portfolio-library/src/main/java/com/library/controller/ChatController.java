@@ -36,6 +36,4 @@ public class ChatController {
 	public void exampleChat2() {
 		
 	} //chatPage()
-
-	
 }
