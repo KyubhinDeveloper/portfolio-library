@@ -52,7 +52,7 @@
   <li><a href="https://kyubiblog.tistory.com/72?category=567751">구글 SMTP 활용해서 이메일 작성하기</a></li>
   <li><a href="https://kyubiblog.tistory.com/76?category=567751">게시판 썸네일 및 첨부파일 업로드하기</a></li>
   <li><a href="https://kyubiblog.tistory.com/75?category=567751">게시판 댓글 구현하기</a></li>
-  <li><a href="#">네이버 오픈 API를 이용해 도서검색</a></li>
+  <li><a href="#">네이버 오픈 API 를 이용해 도서검색</a></li>
   <li><a href="https://kyubiblog.tistory.com/74?category=567751">Scheduler를 이용해서 함수 자동처리</a></li>
 </ul>
 
