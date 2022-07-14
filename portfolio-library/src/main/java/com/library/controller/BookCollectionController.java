@@ -104,6 +104,7 @@ public class BookCollectionController {
 			JSONParser parser = new JSONParser();
 			JSONObject obj = (JSONObject)parser.parse(responseBody);	
 			
+			//검색 결과 개수
 			Object total = obj.get("total");
 			String strTotal = String.valueOf(total);
 			int totalCount = Integer.parseInt(strTotal);
