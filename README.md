@@ -16,8 +16,8 @@
 <img width="250" height="300" src="https://user-images.githubusercontent.com/108660720/179052394-4ff777df-b22c-4b17-b087-9e8d85d79420.png" /> 
 <img width="250" height="300" src="https://user-images.githubusercontent.com/108660720/179052548-abc3ed06-e701-4e28-a864-56d96d27619a.png" /><br>
 
-<img width="380"  src="https://user-images.githubusercontent.com/108660720/179052861-99ce68e0-5e54-4230-8f5a-23b5c8323c74.png" /> 
-<img width="510"  src="https://user-images.githubusercontent.com/108660720/179053174-c1007ebd-c580-448f-aa4f-384c2e469474.png" /> 
+<img width="380" src="https://user-images.githubusercontent.com/108660720/179052861-99ce68e0-5e54-4230-8f5a-23b5c8323c74.png" /> 
+<img width="520" height="160" src="https://user-images.githubusercontent.com/108660720/179053174-c1007ebd-c580-448f-aa4f-384c2e469474.png" /> 
 </div>
 
 <h4>서비스</h4>
