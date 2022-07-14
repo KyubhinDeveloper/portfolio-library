@@ -307,8 +307,6 @@
 			} else {
 				window.open('/chat/chatPage',' _blank','top=150, left=20, width=400, height=650, status=no, menubar=no, toolbar=no, resizable=no');
 			}
-		})
-		
-		
+		})		
 	</script>
 </body>
