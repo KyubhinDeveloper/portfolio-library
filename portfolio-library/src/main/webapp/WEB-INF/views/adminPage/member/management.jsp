@@ -139,7 +139,6 @@
 									<td>${ overdueCnt[status.index] }</td>
 									<td>${ lossCount[status.index] }</td>
 									<td>
-										<button class="basic-btn" type="button">1:1문의</button>
 										<button class="basic-btn manage-btn" type="button">관리</button>
 									</td>
 								</tr>
