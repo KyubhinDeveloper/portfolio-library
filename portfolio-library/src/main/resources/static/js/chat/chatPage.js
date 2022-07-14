@@ -109,7 +109,6 @@ function onMessage(msg) {
 } 
 
 
-
 //관리자 상태 업데이트
 function updateadminStatus() {
 	if (preadminStatus != adminStatus) { //패치전 상태 새로 받아온 상태
@@ -370,12 +369,12 @@ function getChatHistory(clickId) { //activeToggle()
 
 // delete outOne from onlineList
 function deleteOnlieList(outOne) {
-	var userTag = $('#'+outOne+'').parents('.user-box');
+	var userTag = $('#' + outOne + '').parents('.user-box');
 	userTag.remove();
 }
 
- // scroll down event
- function scrollDown() {
-     var chatContent =  document.querySelector("#chat-content");
-     chatContent.scrollTop = chatContent.scrollHeight;
- };
+// scroll down event
+function scrollDown() {
+	var chatContent = document.querySelector("#chat-content");
+	chatContent.scrollTop = chatContent.scrollHeight;
+};
