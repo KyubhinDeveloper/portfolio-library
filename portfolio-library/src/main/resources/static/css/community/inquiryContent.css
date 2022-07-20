@@ -226,6 +226,13 @@ label {
 	margin-right: 3px;
 }
 
+.icon-box {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 11px;
+}
+
 .writer-box {
     align-items: center;
 }
@@ -433,7 +440,7 @@ label {
     	margin-right: 7px;
     }
     
-    .fa-eraser, .fa-pencil, .bi-chat-dots {
+    .fa-eraser, .fa-pencil {
     	display: none;
     }
    
