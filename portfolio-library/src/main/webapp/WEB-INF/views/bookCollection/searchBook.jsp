@@ -70,11 +70,11 @@
 									</div>
 									<div class="d-flex select-count-box">
 										<select class="select-count" name="list-count">
-											<option class="option" value="10" ${ rowCount == 10 ? 'selected' : '' }>10</option>
-											<option class="option" value="15" ${ rowCount == 15 ? 'selected' : '' }>15</option>
-											<option class="option" value="20" ${ rowCount == 20 ? 'selected' : '' }>20</option>
-											<option class="option" value="30" ${ rowCount == 30 ? 'selected' : '' }>30</option>
-											<option class="option" value="30" ${ rowCount == 50 ? 'selected' : '' }>50</option>
+											<option class="option" value="10" ${ pageDto.rowCount == 10 ? 'selected' : '' }>10</option>
+											<option class="option" value="15" ${ pageDto.rowCount == 15 ? 'selected' : '' }>15</option>
+											<option class="option" value="20" ${ pageDto.rowCount == 20 ? 'selected' : '' }>20</option>
+											<option class="option" value="30" ${ pageDto.rowCount == 30 ? 'selected' : '' }>30</option>
+											<option class="option" value="30" ${ pageDto.rowCount == 50 ? 'selected' : '' }>50</option>
 										</select>
 										<i class="fa-solid fa-angle-down"></i>
 									</div>
@@ -85,16 +85,25 @@
 											<div class="item-box">
 												<div class="d-flex book-img-box">
 													<input class="form-check-input mt-0 bookmark-check" type="checkbox">
-													<input class="isbn" type="hidden" value="${ book.isbn.substring(11,24) }"/> 
-													<a href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn.substring(11,24)}">
-													<img src="${ book.image }" alt=""></a>
+													<input class="isbn" type="hidden" value="${ book.isbn.split(' ')[1] }"/> 
+													<a href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn.split(' ')[1]}">
+														<img src="${ book.image }" onError="this.src='/img/bookCollection/none-book-img.jpg'" alt="book-img">
+													</a>
 												</div>
 												<div class="book-detail-box">
 													<div>
-														<a class="title" href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn.substring(11,24)}">${ book.title }</a>
+														<a class="title" href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn.split(' ')[1]}">${ book.title }</a>
 														<p>
 															<span class="author">${ book.author }</span>
-															<span class="publisher">${ book.publisher }</span>, <span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate.substring(0,4) }</span>
+															<span class="publisher">${ book.publisher }</span>,
+															<c:choose>
+															<c:when test="${ book.pubdate ne ''}">
+																<span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate.substring(0,4) }</span>
+															</c:when>
+															<c:otherwise>
+																<span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate }</span>
+															</c:otherwise>
+															</c:choose> 
 														</p>
 													</div>
 													<div class="book-btn-box">
@@ -115,7 +124,7 @@
 													</div>
 													<div class="d-flex icon-wrap">
 														<div class="d-flex icon-box book-status-icon">
-															<input class="isbn" type="hidden" value="${ book.isbn.substring(11,24) }"/>
+															<input class="isbn" type="hidden" value="${ book.isbn.split(' ')[1] }"/>
 															<i class="fa-solid fa-list-check"></i>
 															<p>소장정보</p>
 														</div>
@@ -146,7 +155,7 @@
 														</thead>
 														<tbody>
 															<tr>
-																<td class="bookNum">K${ book.isbn.substring(book.isbn.length() - 7,book.isbn.length())}</td>
+																<td class="bookNum">K${ book.isbn.split(' ')[1].substring(6) }</td>
 																<td class="loan-status">대출가능</td>
 																<td class="loan-endDay"></td>
 																<td class="book-service">
@@ -159,7 +168,7 @@
 																</c:if>
 															</tr>
 															<tr>
-																<td class="bookNum">K${ book.isbn.substring(book.isbn.length() - 7,book.isbn.length())}-1</td>
+																<td class="bookNum">K${ book.isbn.split(' ')[1].substring(6) }-1</td>
 																<td class="loan-status">대출가능</td>
 																<td class="loan-endDay"></td>
 																<td class="book-service">
@@ -172,7 +181,7 @@
 																</c:if>
 															</tr>
 															<tr>
-																<td class="bookNum"><input class="isbn" type="hidden" value="${book.isbn}"/>K${ book.isbn.substring(book.isbn.length() - 7,book.isbn.length())}-2</td>
+																<td class="bookNum">K${ book.isbn.split(' ')[1].substring(6) }-2</td>
 																<td class="loan-status">대출가능</td>
 																<td class="loan-endDay"></td>
 																<td class="book-service">
@@ -196,41 +205,41 @@
 								</div>
 							</div>
 						</c:if>
-						<c:if test="${ pageDto.pageCount gt 0 }">
-								<nav aria-label="Page navigation">
-									<ul class="pagination book-list-pagination">
-										<c:if test="${ pagNume gt pageDto.pageBlock}">
-											<li class="page-item">
-											<a class="page-link first" href="/bookCollection/searchBook?rowCount=${rowCount}&pageNum=1&search=${pageDto.search}"><b>처음</b></a></li>
-										</c:if>
-										<c:if test="${ pageDto.startPage gt pageDto.pageBlock }">
-											<li class="page-item prev">
-												<a class="page-link" href="/bookCollection/searchBook?rowCount=${rowCount}&pageNum=${pageDto.startPage - pageDto.pageBlock}&search=${pageDto.search}" aria-label="Prev"> 
-													<span aria-hidden="true">&laquo;</span>
-												</a>
-											</li>
-										</c:if>
-										<c:forEach var="i" begin="${ pageDto.startPage }" end="${ pageDto.endPage }" step="1">
-											<li class="page-item ${ pageNum == i ? 'active' : ''}">
-											<a class="page-link number" href="/bookCollection/searchBook?rowCount=${rowCount}&pageNum=${i}&search=${pageDto.search}"> ${ i } </a></li>
-										</c:forEach>
-										<c:if test="${ pageDto.endPage lt pageDto.pageCount }">
-											<li class="page-item next">
-												<a class="page-link" href="/bookCollection/searchBook?rowCount=${rowCount}&pageNum=${pageDto.startPage + pageDto.pageBlock}&search=${pageDto.search}" aria-label="Next"> 
-													<span aria-hidden="true">&raquo;</span>
-												</a>
-											</li>
-										</c:if>
-										<c:if test="${ pageDto.pageCount gt pageDto.pageBlock}">
-											<li class="page-item">
-												<a class="page-link last" href="/bookCollection/searchBook?rowCount=${rowCount}&pageNum=${pageDto.pageCount}&search=${pageDto.search}">
-													<b>마지막</b>
-												</a>
-											</li>
-										</c:if>
-									</ul>
-								</nav>
-							</c:if>
+						<c:if test="${ not empty bookList }">
+							<nav class="navigation" aria-label="Page navigation">
+								<ul class="pagination book-list-pagination">
+									<li class="page-item first">
+										<a class="page-link" href="/bookCollection/searchBook?rowCount=${ pageDto.rowCount }&pageNum=1&search=${pageDto.search}">
+											<i class="fa-solid fa-backward"></i>
+										</a>
+									</li>
+									<c:if test="${ pageDto.startPage gt pageDto.pageBlock }">
+										<li class="page-item prev">
+											<a class="page-link" href="/bookCollection/searchBook?rowCount=${ pageDto.rowCount }&pageNum=${ pageDto.startPage - pageDto.pageBlock }&search=${pageDto.search}" aria-label="Previous"> 
+												<span aria-hidden="true"><i class="fa-solid fa-angle-left"></i></span>
+											</a>
+										</li>
+									</c:if>
+									<c:forEach var="i" begin="${ pageDto.startPage }" end="${ pageDto.endPage }" step="1">
+										<li class="page-item ${ pageNum == i ? 'active' : ''}">
+											<a class="page-link number" href="/bookCollection/searchBook?rowCount=${ pageDto.rowCount }&pageNum=${ i }&search=${pageDto.search}"> ${ i } </a>
+										</li>
+									</c:forEach>
+									<c:if test="${ pageDto.endPage lt pageDto.pageCount }">
+										<li class="page-item next">
+											<a class="page-link" href="/bookCollection/searchBook?rowCount=${ pageDto.rowCount }&pageNum=${ pageDto.startPage + pageDto.pageBlock }&search=${pageDto.search}" aria-label="Next"> 
+												<span aria-hidden="true"><i class="fa-solid fa-angle-right"></i></span>
+											</a>
+										</li>
+									</c:if>
+									<li class="page-item last">
+										<a class="page-link" href="/bookCollection/searchBook?rowCount=${ pageDto.rowCount }&pageNum=${pageDto.pageCount}&search=${pageDto.search}">
+											<i class="fa-solid fa-forward"></i>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</c:if>
 					</div>
 				</div>
 				<div class="bottom-wrap">

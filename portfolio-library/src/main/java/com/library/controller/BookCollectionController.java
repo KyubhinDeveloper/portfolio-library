@@ -74,8 +74,10 @@ public class BookCollectionController {
 						     @RequestParam(defaultValue = "") String search,
 						     Model model, HttpSession session) throws ParseException {
 		
+		
 		if(!search.equals("")) {
 			
+			log.info("pageNum: " + pageNum);
 			String clientId = "V13D110SmuPrLT7qX_te";
 			String clientSecret = "3FiEveNOE4";
 			String text = null;
@@ -90,7 +92,8 @@ public class BookCollectionController {
 			if(pageNum == 1) {
 				startRow = 1;
 			} else {
-				startRow = (pageNum - 1) * rowCount;	
+				startRow = (pageNum - 1) * rowCount + 1;
+				log.info("startRow: " + startRow);
 			}
 			
 			String apiURL = "https://openapi.naver.com/v1/search/book.json?query='"+text+"'&start="+startRow+"&display="+rowCount;
@@ -108,6 +111,8 @@ public class BookCollectionController {
 			Object total = obj.get("total");
 			String strTotal = String.valueOf(total);
 			int totalCount = Integer.parseInt(strTotal);
+			log.info("totalCount: " + totalCount);
+			
 			
 			if(totalCount > 0) {
 			
@@ -139,6 +144,7 @@ public class BookCollectionController {
 					if(book != null) {
 						
 						bookList.add(book);
+						log.info("book: " + book);
 					}
 					
 					Boolean check = bookCollectionService.checkStop("", isbn.substring(isbn.length()-13, isbn.length()));
@@ -148,12 +154,13 @@ public class BookCollectionController {
 				
 				model.addAttribute("stopCheck", stopList);
 				model.addAttribute("bookList", bookList);
+				
+				log.info("addBookList()");
 			}//if()
 			
 			int pageCount = totalCount / rowCount;
 			
 			if (totalCount % rowCount > 0) {
-
 				pageCount += 1;
 			}
 			
@@ -178,8 +185,9 @@ public class BookCollectionController {
 			pageDto.setEndPage(endPage);
 			
 			model.addAttribute("pageDto", pageDto);
-			model.addAttribute("rowCount", rowCount);
 			model.addAttribute("pageNum", pageNum);
+			
+			log.info("addPageDto()");
 		}
 			
 		return "/bookCollection/searchBook";	
@@ -677,8 +685,6 @@ public class BookCollectionController {
 		bookCollectionService.deleteBookmark(id,isbn);
 	} //deleteBookmark()
 
-	
-	
 	
     private static String get(String apiUrl, Map<String, String> requestHeaders){
         HttpURLConnection con = connect(apiUrl);

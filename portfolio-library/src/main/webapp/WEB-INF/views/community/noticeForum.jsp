@@ -70,7 +70,7 @@
 								</form>
 							</div>
 							<div class="notice-list-wrap">
-							<c:if test="${ not empty noticeList  }">
+							<c:if test="${ not empty noticeList }">
 								<c:forEach items="${ noticeList }" var="notice" varStatus="status">
 									<div class="d-flex notice-box">
 										<div class="thumbnail">
@@ -113,7 +113,7 @@
 								</c:forEach>
 							</c:if>
 							</div>
-							<c:if test="${ pageDto.pageCount gt 0 }">
+							<c:if test="${ not empty noticeList }">
 								<nav aria-label="Page navigation">
 									<ul class="pagination notice-pagination">
 										<li class="page-item first">
