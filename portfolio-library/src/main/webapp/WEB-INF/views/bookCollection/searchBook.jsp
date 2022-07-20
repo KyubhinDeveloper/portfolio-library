@@ -98,12 +98,12 @@
 															<span class="author">${ book.author }</span>
 															<span class="publisher">${ book.publisher }</span>,
 															<c:choose>
-															<c:when test="${ book.pubdate ne ''}">
-																<span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate.substring(0,4) }</span>
-															</c:when>
-															<c:otherwise>
-																<span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate }</span>
-															</c:otherwise>
+																<c:when test="${ book.pubdate ne ''}">
+																	<span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate.substring(0,4) }</span>
+																</c:when>
+																<c:otherwise>
+																	<span class="pubdate" data-pubdate="${ book.pubdate }">${ book.pubdate }</span>
+																</c:otherwise>
 															</c:choose> 
 														</p>
 													</div>
