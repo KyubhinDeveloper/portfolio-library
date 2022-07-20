@@ -249,7 +249,7 @@ public class MyLibraryController {
 		int totalCount = myLibraryService.getLoanRecordCnt(id);
 		
 		if(totalCount > 0) {
-			int rowCount = 15;
+			int rowCount = 10;
 			int startRow = (pageNum - 1) * rowCount;
 			List<LoanRecordVo> loanRecordList = myLibraryService.getLoanRecordList(id,startRow,rowCount);
 			int pageCount = totalCount / rowCount;

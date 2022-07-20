@@ -65,7 +65,7 @@
 								<c:when test="${ not empty sessionScope.id }">
 									<div class="bottom-reservation-wrap">
 										<div class="d-flex reservation-text-box">
-											<p>
+											<p class="count-box">
 												총 <span class="reservation-count">${ totalCount }</span>건
 											</p>
 											<p>연체 도서가 있는 경우 예약할 수 없습니다.</p>
@@ -91,17 +91,28 @@
 												<c:forEach items="${ reserveList }" var="bookedBook" varStatus="status">
 												<tbody>
 													<tr>
-														<td>${ fn:length(reserveList) - status.index }</td>
+														<td>
+															<div class="td-title">번호</div>
+															${ totalCount - status.index }
+														</td>
 														<td class="bookedBook-text">
 															<input class="book-isbn" type="hidden" value="${ bookedBook.isbn }"/>
+															<div class="td-title">서명/저자</div>
 															<a href="#">
 																<span>${ bookedBook.title }</span>, <span>${ bookedBook.author }</span>, <span>${ bookedBook.publisher }</span>, ${ bookedBook.pubdate.substring(0,4) }
 															</a>
 														</td>
-														<td class="reservation-date">${ reserveDate[status.index] }</td>
-														<td>1</td>
+														<td class="reservation-date">
+															<div class="td-title">예약일</div>
+															${ reserveDate[status.index] }
+														</td>
+														<td>
+															<div class="td-title">예약 순위</div>
+															1
+														</td>
 														<td>
 															<input class="bookNum" type="hidden" value="${ bookedBook.bookNum }"/>
+															<div class="td-title">액션</div>
 															<button class="btn cancel-btn">
 																<i class="fa-solid fa-ban"></i>
 																<span>예약취소</span>

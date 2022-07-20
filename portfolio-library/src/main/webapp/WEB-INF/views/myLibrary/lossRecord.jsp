@@ -46,7 +46,7 @@
 									<h4>내서재/정보관리</h4>
 									<div class="d-flex mt-3 item-box">
 										<a href="/myLibrary/bookmark">내서재</a>
-										<a href="/myLibrary/lossBook">대출중인 도서</a>
+										<a href="/myLibrary/loanBook">대출중인 도서</a>
 										<a href="/myLibrary/overdueRecord">연체/제재</a> 
 										<a href="/myLibrary/loanRecord">대출기록</a>
 										<a href="/myLibrary/lossRecord" class="active">분실기록</a>
@@ -87,19 +87,30 @@
 														<th>반납여부</th>
 													</tr>
 												</thead>
-												<c:forEach items="${ lossRecordList }" var="lossRecord" varStatus="status">
 												<tbody>
+													<c:forEach items="${ lossRecordList }" var="lossRecord" varStatus="status">
 													<tr>
-														<td>${ fn:length(lossRecordList) - status.index }</td>
+														<td>
+															<div class="td-title">번호</div>
+															${ totalCount - status.index }
+														</td>
 														<td class="lossRecord-text">
 															<input class="book-isbn" type="hidden" value="${ lossRecord.isbn }"/>
+															<div class="td-title">서명/저자</div>
 															<a href="#">
 																<span>${ lossRecord.title }</span>, <span>${ lossRecord.author }</span>, <span>${ lossRecord.publisher }</span>, ${ lossRecord.pubdate.substring(0,4) }
 															</a>
 														</td>
-														<td class="loss-date">${ lossRecord.lossDate }</td>
-														<td>${ lossRecord.returnDate }</td>
+														<td class="loss-date">
+															<div class="td-title">분실일</div>
+															${ lossRecord.lossDate }
+														</td>
 														<td>
+															<div class="td-title">반납일</div>
+															${ lossRecord.returnDate }
+														</td>
+														<td>
+															<div class="td-title">반납여부</div>
 															<c:if test="${ lossRecord.status eq 0 }">
 																미반납
 															</c:if>
@@ -108,8 +119,9 @@
 															</c:if>
 														</td>
 													</tr>
+													</c:forEach>
 												</tbody>
-												</c:forEach>
+
 											</table>
 										</c:if>
 									</div>

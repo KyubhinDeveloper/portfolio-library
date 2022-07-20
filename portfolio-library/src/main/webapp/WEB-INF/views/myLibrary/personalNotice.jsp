@@ -88,8 +88,12 @@
 											<tbody>
 												<c:forEach items="${ noticeList }" var="notice" varStatus="status">
 												<tr>
-													<td>${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }</td>
+													<td>
+														<div class="td-title">번호</div>
+														${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }
+													</td>
 													<td class="notice-name">
+														<div class="td-title">제목</div>
 														<c:if test="${ notice.type eq 1 }">
 														<a href="/myLibrary/noticeContent?num=${ notice.num }">[부산대 도서관] 자료반납 알림</a>
 														</c:if>
@@ -109,8 +113,14 @@
 														<a href="/myLibrary/noticeContent?num=${ notice.num }">수동발송</a>
 														</c:if>
 													</td>
-													<td class="loss-date">${ notice.regDate }</td>
-													<td>${ notice.readDate }</td>
+													<td class="loss-date">
+														<div class="td-title">작성일</div>
+														${ notice.regDate }
+													</td>
+													<td>
+														<div class="td-title">읽은날</div>
+														${ notice.readDate }
+													</td>
 												</tr>
 												</c:forEach>
 											</tbody>
@@ -118,10 +128,9 @@
 										</c:if>
 									</div>
 									<c:if test="${ pageDto.pageCount gt 0 }">
-									<div class="pagination-box">
-										<nav class="notice-list-pagination" aria-label="Page navigation">
-											<ul class="pagination">
-												<li class="page-item">
+										<nav class="Page navigation" aria-label="Page navigation">
+											<ul class="pagination notice-list-pagination">
+												<li class="page-item first">
 													<a class="page-link" href="/myLibrary/personalNotice" aria-label="first">
 														<span aria-hidden="true">
 															<i class="fa-solid fa-backward"></i>
@@ -129,7 +138,7 @@
 													</a>
 												</li>
 												<c:if test="${ pageDto.startPage gt pageDto.pageBlock }">
-												<li class="page-item">
+												<li class="page-item prev">
 													<a class="page-link" href="/myLibrary/personalNotice?pageNum=${ pageDto.startPage - pageDto.pageBlock }" aria-label="Previous">
 														<span aria-hidden="true">
 															<i class="fa-solid fa-angle-left"></i>
@@ -138,14 +147,14 @@
 												</li>
 												</c:if>
 												<c:forEach var="i" begin="${ pageDto.startPage }" end="${ pageDto.endPage }" step="1"> 
-												<li class="page-item">
-													<a class="page-link ${ pageNum == i ? 'active' : ''}" href="/myLibrary/personalNotice?pageNum=${ i }">
+												<li class="page-item ${ pageNum == i ? 'active' : ''}">
+													<a class="page-link number" href="/myLibrary/personalNotice?pageNum=${ i }">
 														${ i }
 													</a>
 												</li>
 												</c:forEach>
 												<c:if test="${ pageDto.endPage lt pageDto.pageCount }">
-												<li class="page-item">
+												<li class="page-item next">
 													<a class="page-link" href="/myLibrary/personalNotice?pageNum=${ pageDto.startPage + pageDto.pageBlock }" aria-label="Next">
 														<span aria-hidden="true">
 															<i class="fa-solid fa-angle-right"></i>
@@ -153,7 +162,7 @@
 													</a>
 												</li>
 												</c:if>
-												<li class="page-item">
+												<li class="page-item last">
 													<a class="page-link" href="/myLibrary/personalNotice?pageNum=${ pageDto.pageCount }" aria-label="last">
 														<span aria-hidden="true">
 															<i class="fa-solid fa-forward"></i>
@@ -162,7 +171,6 @@
 												</li>
 											</ul>
 										</nav>
-									</div>
 									</c:if>
 								</c:when>
 								<c:otherwise>

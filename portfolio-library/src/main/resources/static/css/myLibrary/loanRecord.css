@@ -148,13 +148,28 @@
 .bottom-loan-wrap table {
     width: 100%;
     text-align: center;
-    border-top: 4px solid rgb(75,68,143);
     margin-bottom: 60px;
+}
+
+table {
+	position: relative;
+}
+
+table::before {
+	content: '';
+	position: absolute;
+    top: -3px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(0deg, rgba(75,68,143,1) 0%, rgba(116,107,205,1) 50%, rgba(75,68,143,1) 100%);
+  	z-index: 1;
 }
 
 thead>tr>th {
     padding: 8px;
-    font-size: 14px;
+    font-size: 13px;
     color: black;
     font-weight: 700;
     border: 1px solid #eeeef5;
@@ -162,23 +177,31 @@ thead>tr>th {
     vertical-align: middle;
 }
 
-.login-btn:hover {
-    color: white;
-}
-
 tbody>tr>td {
+	align-items: center;
     padding: 7px 5px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
-    color: #555;
+    color: black;
     border: 1px solid #eeeef5;
     background-color: #fff;
     vertical-align: middle;
 }
 
-tbody>tr>td.title {
-    text-align: left;
-    padding-left: 10px;
+
+tbody>tr>td>.td-title {
+	display: none;
+	flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    min-height: 40px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 700;
+    background: #f3f5f9;
+    border-right: 1px solid #eeeef5;
 }
 
 .loanRecord-text {
@@ -201,32 +224,98 @@ tbody>tr>td.title {
 
 .loanRecord-pagination {
     justify-content: center;
-    font-size: 15px;
-    gap: 10px;
+    font-size: 12px;
+    gap:3px;
+    flex-wrap: wrap;
 }
 
-.loanRecord-pagination li>a {
+ul.loanRecord-pagination a.page-link {
+	border: 0;
+}
+
+.first a,
+.last a,
+.prev a,
+.next a {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	color: black;
+	font-weight: 100;
+    height: 32px;
+}
+
+.number {
+	display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
-    width: 35px;
+    padding: 0;
+    width: 32px;
+    height: 32px;
     text-align: center;
-}
-
-.loanRecord-pagination a.prev, .loanRecord-pagination a.next {
-    width: 50px;
-}
-
-.prev,.number,.next {
-    color: black;
+	border-radius: 50%;
 }
 
 .page-item.active .page-link {
     background-color: #4B4DFF;
     border-color: #4B4DFF;
+    border-radius: 50%;
+    font-weight: bold;   
+}
+
+.page-item i {
+	font-size: 10px;
 }
 
 @media screen and (max-width: 576px) {
 
-    .loan-date {
-        display: none;
+    thead {
+    	display: none;
+    }
+    
+    table {
+   	    display: flex;
+    	flex-direction: column;
+    }
+    
+    table::before {
+    	display: none;
+    }
+    
+     tbody>tr {
+    	display: flex;
+    	flex-direction: column;
+    	border: 0;
+    }
+    
+
+	tbody>tr>td {
+		display: flex;
+	    gap: 10px;
+	    font-size: 12px;
+	}
+    
+    tbody>tr>td {
+    	padding: 0;
+    }
+    
+    tbody>tr>td>.td-title {
+    	display: flex;
+    }
+    
+	tr::before {
+		content: '';
+	    top: 0;
+	    left: 0;
+	    display: block;
+	    width: 100%;
+	    height: 3px;
+	    background: linear-gradient(0deg, rgba(75,68,143,1) 0%, rgba(116,107,205,1) 50%, rgba(75,68,143,1) 100%);
+   		z-index: 1;
+	}
+    
+    table, thead, tbody, tr, td, th {
+    	border:0;
     }
 }

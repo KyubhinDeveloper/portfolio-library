@@ -64,14 +64,12 @@
 							<c:choose>
 								<c:when test="${ not empty sessionScope.id }">
 									<div class="bottom-loan-wrap">
-										<div class="loan-text-box">
+										<div class="d-flex loan-text-box">
+											<p>총 <span class="loan-count">${ totalCount }</span>건</p>
 											<p>
-												총 <span class="loan-count">${ totalCount }</span>건
+												연장은 1회만 가능하며 신청일로부터 대출기간만큼 연장 가능합니다. <span>단, 예약 및 연체 도서가 있는 경우 연장할 수 없습니다.</span> <a href="/bookInfo/returnOfLoan">		
 											</p>
-											<p>
-												연장은 1회만 가능하며 신청일로부터 대출기간만큼 연장 가능합니다. <span>단, 예약 및 연체 도서가 있는 경우 연장할 수 없습니다.</span> <a href="/bookInfo/returnOfLoan"><button
-														class="btn detail-btn">자세히보기</button></a>
-											</p>
+											<button class="btn detail-btn">자세히보기</button></a>
 										</div>
 										<c:if test="${ totalCount eq 0}">
 											<div class="no-list-box">
@@ -95,34 +93,54 @@
 											<tbody>
 											<c:forEach items="${ loanBookList }" var="loanBook" varStatus="status">
 												<tr>
-													<td>${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index + 2 }</td>
+													<td>
+														<div class="td-title">번호</div>
+														${ totalCount - status.index }
+													</td>
 													<td class="loanBook-text">
 														<input class="book-isbn" type="hidden" value="${ loanBook.isbn }"/>
 														<input class="book-num" type="hidden" value="${ loanBook.bookNum }"/>
-														<a href="#">
-															<span>${ loanBook.title }</span>, <span>${ loanBook.author }</span>, <span>${ loanBook.publisher }</span>, <span>${ loanBook.pubdate.substring(0,4) }</span>
-														</a>
+														<div class="td-title">서명/저자</div>
+														<div>
+															<a href="#">
+																<span>${ loanBook.title }</span>, <span>${ loanBook.author }</span>, <span>${ loanBook.publisher }</span>, <span>${ loanBook.pubdate.substring(0,4) }</span>
+															</a>
+														</div>
 													</td>
-													<td id="loan-date" class="loan-date">${ loanBook.loanDate }</td>
-													<td id="end-date">${ loanBook.endDate }</td>
-													<td>${ loanBook.overdueDate }</td>
+													<td id="loan-date" class="loan-date">
+														<div class="td-title">대출일</div>
+														${ loanBook.loanDate }
+													</td>
+													<td id="end-date">
+														<div class="td-title">반납일</div>
+														${ loanBook.endDate }
+													</td>
+													<td>
+														<div class="td-title">연체일</div>
+														${ loanBook.overdueDate }
+													</td>
 													<td>
 														<c:choose>
 															<c:when test="${ loanBook.extension eq 0 and reserveCnt[status.index] eq 0 and overdueCnt eq 0 and lossCnt eq 0}">
+																<div class="td-title">연장하기</div>
 																<button class="btn extend-btn">
 																	<i class="fa-solid fa-clock-rotate-left"></i>연장
 																</button>
 															</c:when>
 															<c:when  test="${ loanBook.extension eq 1}">
+																<div class="td-title">연장하기</div>
 																연장불가(횟수초과)
 															</c:when>
 															<c:when test="${ reserveCnt[status.index] gt 0 }">
+																<div class="td-title">연장하기</div>
 																연장불가(예약중)
 															</c:when>
 															<c:when test="${ overdueCnt gt 0 }">
+																<div class="td-title">연장하기</div>
 																연장불가(연체중)
 															</c:when>
 															<c:when test="${ lossCnt gt 0 }">
+																<div class="td-title">연장하기</div>
 																연장불가(분실중)
 															</c:when>
 														</c:choose>

@@ -89,16 +89,29 @@
 												<c:forEach items="${ loanRecordList }" var="loanRecord" varStatus="status">
 												<tbody>
 													<tr>
-														<td>${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }</td>
+														<td>
+															<div class="td-title">번호</div>
+															${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }
+														</td>
 														<td class="loanRecord-text">
 															<input class="book-isbn" type="hidden" value="${ loanRecord.isbn }"/>
+															<div class="td-title">서명/저자</div>
 															<a href="#">
 																<span>${ loanRecord.title }</span>, ${ loanRecord.author }, ${ loanRecord.publisher }, ${ loanRecord.pubdate.substring(0,4) }
 															</a>
 														</td>
-														<td class="loan-date">${ loanRecord.loanDate }</td>
-														<td>${ loanRecord.returnDate }</td>
-														<td>${ loanRecord.type }</td>
+														<td class="loan-date">
+															<div class="td-title">대출일</div>
+															${ loanRecord.loanDate }\
+														</td>
+														<td>
+															<div class="td-title">반납일</div>
+															${ loanRecord.returnDate }
+														</td>
+														<td>
+															<div class="td-title">반납유형</div>
+															${ loanRecord.type }
+														</td>
 													</tr>
 												</tbody>
 												</c:forEach>

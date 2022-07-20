@@ -91,15 +91,25 @@
 											<c:forEach items="${ overdueList }" var="overdueBook1" varStatus="status">
 												<tbody>
 													<tr>
-														<td>${ fn:length(overdueList) - status.index }</td>
+														<td>
+															<div class="td-title">번호</div>
+															${ overdueCnt - status.index }
+														</td>
 														<td class="overdueBook-text">
 															<input class="book-isbn" type="hidden" value="${ overdueBook1.isbn }"/>
+															<div class="td-title">서명/저자</div>
 															<a href="#">
 																<span>${ overdueBook1.title }</span>, <span>${ overdueBook1.author }</span>, <span>${ overdueBook1.publisher }</span>, <span>${ overdueBook1.pubdate.substring(0,4) }</span>
 															</a>
 														</td>
-														<td>${ overdueBook1.overdueDate }</td>
-														<td>${ overdueBook1.overdueDate * 100 }원</td>
+														<td>
+															<div class="td-title">연체일</div>
+															${ overdueBook1.overdueDate }
+														</td>
+														<td>
+															<div class="td-title">연체료</div>
+															${ overdueBook1.overdueDate * 100 }원
+														</td>
 													</tr>
 												</tbody>
 											</c:forEach>
@@ -134,15 +144,25 @@
 											<c:forEach items="${ overdueRecordList }" var="overdueBook2" varStatus="status">
 												<tbody>
 													<tr>
-														<td>${ fn:length(overdueRecordList) - status.index }</td>
+														<td>
+															<div class="td-title">번호</div>
+															${ recordCnt - status.index }
+														</td>
 														<td class="overdueBook-text">
 															<input class="book-isbn" type="hidden" value="${ overdueBook2.isbn }"/>
+															<div class="td-title">서명/저자</div>
 															<a href="#">
 																<span>${ overdueBook2.title }</span>, <span>${ overdueBook2.author }</span>, <span>${ overdueBook2.publisher }</span>, <span>${ overdueBook2.pubdate.substring(0,4) }</span>
 															</a>
 														</td>
-														<td>${ overdueBook2.returnDate }</td>
-														<td>${ overdueBook2.overdueDate }</td>
+														<td>
+															<div class="td-title">납부일</div>
+															${ overdueBook2.returnDate }
+														</td>
+														<td>
+															<div class="td-title">연체일</div>
+															${ overdueBook2.overdueDate }
+														</td>
 													</tr>
 												</tbody>
 											</c:forEach>

@@ -73,7 +73,7 @@
 								</div>
 								<c:choose>
 									<c:when test="${ not empty sessionScope.id }">
-										<div class="d-flex hopeBook-count-box">
+										<div class="hopeBook-count-box">
 											<p>
 												총 <span class="hopeBook-count">${ totalCount }</span>건
 											</p>
@@ -99,14 +99,27 @@
 												<c:forEach items="${ wishList }" var="hopeBook" varStatus="status">												
 													<tbody>
 														<tr>
-															<td>${ fn:length(wishList) - status.index }</td>
-															<td class="book-name">
-																<span>${ hopeBook.title }</span>, <span>${ hopeBook.author }</span>, <span>${ hopeBook.publisher }</span>, ${ hopeBook.pubdate.substring(0,4) }
+															<td>
+																<div class="td-title">번호</div>
+																${ totalCount - status.index }
 															</td>
-															<td class="apply-date">${hopeBook.applyDate}</td>
-															<td>${hopeBook.status }</td>
+															<td class="book-name">
+																<div class="td-title">서명/저자</div>
+																<div>
+																	<span>${ hopeBook.title }</span>, <span>${ hopeBook.author }</span>, <span>${ hopeBook.publisher }</span>, ${ hopeBook.pubdate.substring(0,4) }
+																</div>
+															</td>
+															<td class="apply-date">
+																<div class="td-title">신청일</div>
+																${hopeBook.applyDate}
+															</td>
+															<td>
+																<div class="td-title">신청상태</div>
+																${hopeBook.status }
+															</td>
 															<td>
 																<input class="num" type="hidden" value="${ hopeBook.num }"/>
+																<div class="td-title">액션</div>
 																<c:choose>
 																	<c:when test="${ hopeBook.status eq '대기중' }">
 																		<button class="btn cancel-btn">
