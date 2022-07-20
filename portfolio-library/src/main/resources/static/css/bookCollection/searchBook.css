@@ -539,11 +539,7 @@ ul.book-list-pagination a.page-link {
 	.call-sign {
 		display: none;
 	}
-	
-	.book-list-pagination {
-		width: 90%;
-	}
-	
+		
     .bottom-wrap {
         padding: 10px;
     }
