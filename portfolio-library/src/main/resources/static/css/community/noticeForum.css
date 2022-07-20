@@ -185,31 +185,50 @@
 
 .notice-pagination {
     justify-content: center;
-    font-size: 15px;
+    font-size: 12px;
+    gap:3px;
+    flex-wrap: wrap;
 }
 
-.notice-pagination li>a {
+ul.notice-pagination a.page-link {
+	border: 0;
+}
+
+.first a,
+.last a,
+.prev a,
+.next a {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	color: black;
+	font-weight: 100;
+    height: 32px;
+}
+
+.number {
+	display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
-    width: 35px;
+    padding: 0;
+    width: 32px;
+    height: 32px;
     text-align: center;
-}
-
-.notice-pagination a.prev, .notice-pagination a.next {
-    width: 50px;
-}
-
-.notice-pagination a.first, .notice-pagination a.last {
-	width: 60px;
-}
-
-.prev,.number,.next {
-    color: black;
+	border-radius: 50%;
 }
 
 .page-item.active .page-link {
     background-color: #4B4DFF;
     border-color: #4B4DFF;
+    border-radius: 50%;
+    font-weight: bold;   
 }
+
+.page-item i {
+	font-size: 10px;
+}
+
 
 .write-box {
     text-align: end;
@@ -249,7 +268,11 @@
     }
     
     .notice-info-box>a {
-    	font-size: 17px;
+    	font-size: 15px;
     }
+    
+   	.notice-pagination {
+		width: 90%;
+	}
 }
 
