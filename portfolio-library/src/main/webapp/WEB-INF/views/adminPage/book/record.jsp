@@ -54,6 +54,11 @@
 						<a href="/adminPage/board/inquiry">게시판문의</a>
 					</div>
 				</div>
+				<div class="side-item-box return-box">
+					<a href="/" class="d-flex userManagement-box">
+						<i class="fa-solid fa-right-from-bracket"></i> 
+					</a>
+				</div>
 			</div>
 		</div>
 		<div class="admin-main-wrap">
