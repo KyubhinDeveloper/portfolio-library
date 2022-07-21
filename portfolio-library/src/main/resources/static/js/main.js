@@ -89,7 +89,7 @@ $('.hamberger-box').click(function(){
 
 })
 
-$('.fa-xmark').click(function(){
+$('.side-menu-close').click(function(){
     $('.library-bg').show();
     $('.side-menu-bg').removeClass('menu-show');
 })
