@@ -57,7 +57,7 @@
 						</div>
 						
 						<!-- write notice view -->
-						<form class="notice-write-wrap" action="/community/writeNotice" method="post" enctype="multipart/form-data">
+						<form class="notice-write-wrap" action="/community/writeNotice" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 							<div class="write-top-box">
 								<div class="d-flex tag-box">
 									<label for="subject-input">제목</label> 

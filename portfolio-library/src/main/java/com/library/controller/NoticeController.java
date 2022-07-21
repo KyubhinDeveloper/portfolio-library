@@ -506,6 +506,7 @@ public class NoticeController {
 		
 		// 실제 파일 이름
 		String originalName = multipartFile.getOriginalFilename();
+		log.info("originalName: " + originalName);
 		String fileName = originalName.substring(originalName.lastIndexOf("\\") + 1);
 		
 		// UUID
