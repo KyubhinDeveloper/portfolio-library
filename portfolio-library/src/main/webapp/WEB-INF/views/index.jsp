@@ -21,27 +21,37 @@
 			<div class="main-top-wrap">
 				<div id="carouselExampleIndicators" class="carousel slide info-carousel" data-bs-ride="carousel">
 					<div class="carousel-indicators">
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+						<button class="carousel-circle-btn active" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"  aria-current="true" aria-label="Slide 1"></button>
+						<button class="carousel-circle-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button class="carousel-circle-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						<button class="carousel-circle-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+						<button class="carousel-circle-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
 					</div>
 					<div class="carousel-inner info-carousel-img">
 						<div class="carousel-item active">
-							<img src="/img/main/banner/banner-1.jpg" class="d-block w-100" alt="...">
+							<a href="/community/noticeContent?pageNum=1&num=20">
+								<img src="/img/main/banner/banner-1.jpg" class="d-block w-100" alt="...">
+							</a>
 						</div>
 						<div class="carousel-item">
-							<img src="/img/main/banner/banner-2.jpg" class="d-block w-100" alt="...">
+							<a href="/community/noticeContent?pageNum=1&num=21">
+								<img src="/img/main/banner/banner-2.jpg" class="d-block w-100" alt="...">
+							</a>
 						</div>
 						<div class="carousel-item">
-							<img src="/img/main/banner/banner-3.jpg" class="d-block w-100" alt="...">
+							<a href="http://children.dasangng.co.kr/FxLibrary/index/">
+								<img src="/img/main/banner/banner-3.jpg" class="d-block w-100" alt="...">
+							</a>
 						</div>
 						<div class="carousel-item">
-							<img src="/img/main/banner/banner-4.jpg" class="d-block w-100" alt="...">
+							<a href="/community/noticeContent?pageNum=1&num=11">
+								<img src="/img/main/banner/banner-4.jpg" class="d-block w-100" alt="...">
+							</a>
 						</div>
 						<div class="carousel-item">
-							<img src="/img/main/banner/banner-5.jpg" class="d-block w-100" alt="...">
+							<a href="/community/noticeContent?pageNum=1&num=19">
+								<img src="/img/main/banner/banner-5.jpg" class="d-block w-100" alt="...">
+							</a>
 						</div>
 					</div>
 					<button class="carousel-control-prev carousel-btn carousel-left-btn" type="button" data-bs-target="#carouselExampleIndicators"

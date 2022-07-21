@@ -85,7 +85,7 @@ table,thead,tbody,tr,td,th {
 }
 
 .content-top-wrap {
-    padding: 20px 20px;
+    padding: 20px 20px 10px;
     border-bottom: 1px solid #eee;
 }
 
@@ -174,7 +174,22 @@ table,thead,tbody,tr,td,th {
         width: 100%;
     }
     
+    .content-data-box {
+   	    flex-direction: column;
+    }
+    
+    .content-top-wrap>h5 {
+   	    font-size: 16px;
+    }
+    
+    .data-box {
+    	font-size: 13px;
+	}
+    
     .content-main-wrap img {
    	    width: 331px!important;
-    } 
+    	height: 466px!important;
+    }
+    
+     
 }
