@@ -61,7 +61,13 @@ input:focus, select:focus, option:focus, textarea:focus, button:focus {
 .side-login-wrap {
 	padding: 25px 20px;
 	justify-content: space-between;
+	align-items: center;
 	border-bottom: 1px solid #eeee;
+}
+
+.btn-close-side {
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .login-box, .logout-box {

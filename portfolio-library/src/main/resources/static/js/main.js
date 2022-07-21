@@ -89,7 +89,8 @@ $('.hamberger-box').click(function(){
 
 })
 
-$('.side-menu-close').click(function(){
+$(document).on('click','.btn-close-side', function(){	
+	console.log('클릭');
     $('.library-bg').show();
     $('.side-menu-bg').removeClass('menu-show');
 })
