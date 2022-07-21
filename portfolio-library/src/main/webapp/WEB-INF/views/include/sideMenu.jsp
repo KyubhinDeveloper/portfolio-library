@@ -22,9 +22,7 @@
 						</div>
 					</c:otherwise>
 				</c:choose>
-				<div class="side-menu-close">
-					<i class="fa-solid fa-xmark"></i>
-				</div>
+				<i class="fa-solid fa-xmark btn-close-side"></i>
 			</div>
 			<div class="d-flex side-menu-main2">
 				<div class="side-menu-tab2">
@@ -90,7 +88,7 @@
 		<div class="d-none d-lg-block side-menu">
 			<div class="side-menu-top">
 				<div class="d-none d-lg-block side-menu-close">
-					<i class="fa-solid fa-xmark"></i>
+					<i class="fa-solid fa-xmark btn-close-side"></i>
 				</div>
 				<div class="d-none d-lg-flex justify-content-center">
 					<a class="d-flex navbar-brand library-brand" href="/">
