@@ -395,26 +395,48 @@ public class NoticeController {
 	//uploadSummernoteImageFile()
 	@PostMapping(value = "/summernote", produces = "application/json")
 	@ResponseBody
-	public JsonObject uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
+	public JsonObject uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
 
 		JsonObject jsonObject = new JsonObject();
 		
-		String fileRoot = "C:\\Users\\lve25\\Desktop\\libraryImg\\summernote_image\\"; // 저장될 외부 파일 경로
-		String originalFileName = multipartFile.getOriginalFilename(); // 오리지날 파일명
-		String extension = originalFileName.substring(originalFileName.lastIndexOf(".")); // 파일 확장자
+		// String fileRoot = "C:\\Users\\lve25\\Desktop\\libraryImg\\summernote_image\\"; // 저장될 외부 파일 경로
+		//String originalFileName = multipartFile.getOriginalFilename(); // 오리지날 파일명
+		//String extension = originalFileName.substring(originalFileName.lastIndexOf(".")); // 파일 확장자
+		
+		ServletContext application = request.getServletContext();
+		// 썸네일 파일 업로드할 경로 
+		String summernotePath = application.getRealPath("/upload/summernote");
+		// 오늘 날짜
+		LocalDateTime dateTime = LocalDateTime.now();
+		String stringDate = dateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+		
+		File summernoteDir = new File(summernotePath, stringDate);
+		
+		// 실제 파일 이름
+		String originalName = multipartFile.getOriginalFilename();
+		log.info("originalName: " + originalName);
+		String fileName = originalName.substring(originalName.lastIndexOf("\\") + 1);
+		
+		// 썸네일 업로드할 폴더 없을 경우 폴더 생성
+		if (!summernoteDir.exists()) {
+			summernoteDir.mkdirs();
+		}
 
-		String savedFileName = UUID.randomUUID() + extension; // 저장될 파일 명
-
-		File targetFile = new File(fileRoot + savedFileName);
-
+		// UUID
+		String stringUuid = UUID.randomUUID().toString();
+		// 저장할 파일이름
+		String uploadFileName = stringUuid + "_" + fileName;
+		
+		File saveFile = new File(summernoteDir, uploadFileName);
+		
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
-			FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
-			jsonObject.addProperty("url", "/summernoteImage/" + savedFileName); // 파일을 저장할 url 정보
+			FileUtils.copyInputStreamToFile(fileStream, saveFile); // 파일 저장
+			jsonObject.addProperty("url", "/upload/summernote/" + stringDate + "/" + uploadFileName); // 파일을 저장할 url 정보
 			jsonObject.addProperty("responseCode", "success"); // 파일 저장 성공여부
 		} catch (IOException e) {
 
-			FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+			FileUtils.deleteQuietly(saveFile); // 저장된 파일 삭제
 			jsonObject.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
