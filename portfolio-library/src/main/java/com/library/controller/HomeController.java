@@ -88,7 +88,7 @@ public class HomeController {
 		} // if()
 
 		List<BookDto> popularBookList = bookCollectionService.getPopularBookList(listCount);
-		List<NoticeVo> noticeList = noticeService.getNoticeList(0, 5, "", "");
+		List<NoticeVo> noticeList = noticeService.getNoticeList(0, 7, "", "");
 		List<Object> timeList = new ArrayList<>();
 		int i = 0;
 		Long time;
