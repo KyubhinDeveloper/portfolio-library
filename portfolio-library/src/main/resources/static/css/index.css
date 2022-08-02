@@ -791,7 +791,7 @@ div.menu-item-box ul.menu-item-dropdown {
 	padding: 20px 80px;
 }
 
-.tab-text {
+.inner-text {
 	display: block;
 	font-weight: bold;
 	font-size: 14px;
@@ -799,7 +799,7 @@ div.menu-item-box ul.menu-item-dropdown {
 	border-radius: 15px;
 }
 
-.tab-box:hover .tab-text {
+.tab-box:hover .inner-text {
 	color: black;
 	background: #d6e3f8;
 }
@@ -1198,7 +1198,7 @@ div.menu-item-box ul.menu-item-dropdown {
     	width: 67px;
 	}
 
-	.tab-box>.tab-text {
+	.tab-box>.inner-text {
 	    font-size: 13px;
 	    padding: 0;
 	}
