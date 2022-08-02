@@ -54,13 +54,13 @@
 							</a>
 						</div>
 					</div>
-					<button class="carousel-control-prev carousel-btn carousel-left-btn" type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide="prev">
-						<i class="fa-solid fa-angle-left" aria-hidden="true"></i> <span class="visually-hidden">Previous</span>
+					<button class="carousel-control-prev carousel-btn carousel-left-btn" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<i class="fa-solid fa-angle-left" aria-hidden="true"></i> 
+						<span class="visually-hidden">Previous</span>
 					</button>
-					<button class="carousel-control-next carousel-btn carousel-right-btn " type="button" data-bs-target="#carouselExampleIndicators"
-						data-bs-slide="next">
-						<i class="fa-solid fa-angle-right" aria-hidden="true"></i> <span class="visually-hidden">Next</span>
+					<button class="carousel-control-next carousel-btn carousel-right-btn " type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<i class="fa-solid fa-angle-right" aria-hidden="true"></i> 
+						<span class="visually-hidden">Next</span>
 					</button>
 				</div>
 				<div class="mini-myInfo-box">
@@ -86,51 +86,71 @@
 											<div class="status-main-box">
 												<div class="status-item-group d-flex">
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> <a class="status-item" href="/adminPage/book/loanStatus">총 대출권수: <span>${ totalLoanCount }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> 
+														<a class="status-item" href="/adminPage/book/loanStatus">총 대출권수: 
+															<span>${ totalLoanCount }권</span>
+														</a>
 													</div>
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> <a class="status-item" href="/adminPage/book/ercStatus">총 연체권수: <span>${ totalOverdueCnt }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> 
+														<a class="status-item" href="/adminPage/book/ercStatus">총 연체권수: 
+															<span>${ totalOverdueCnt }권</span>
+														</a>
 													</div>
 												</div>
 												<div class="status-item-group d-flex">
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> <a class="status-item" href="/adminPage/book/reserveStatus">총 예약권수: <span>${ reservationCnt }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> 
+														<a class="status-item" href="/adminPage/book/reserveStatus">총 예약권수: 
+															<span>${ reservationCnt }권</span>
+														</a>
 													</div>
 													<div class="item-box">
-														<img class="info-icon" src="/img/main/info_icon04.png" alt="" /> <a class="status-item" href="/adminPage/book/hopeList">총 신청도서: <span>${ totalWishCnt }권</span></a>
+														<img class="info-icon" src="/img/main/info_icon04.png" alt="" /> 
+														<a class="status-item" href="/adminPage/book/hopeList">총 신청도서: 
+															<span>${ totalWishCnt }권</span>
+														</a>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="latefee-info-box">
-											<p>
-												현재 도서관 총 미반납 연채료는 <span class="library-total-latefee"></span>원 입니다.
-											</p>
+											<p>현재 도서관 총 미반납 연채료는 <span class="library-total-latefee"></span>원 입니다.</p>
 										</div>
 									</c:when>
 									<c:otherwise>
 										<div class="status-main-box">
 											<div class="status-item-group d-flex">
 												<div class="item-box">
-													<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> <a class="status-item" href="/myLibrary/loanBook">대출권수: <span>${ loanCount }권</span></a>
+													<img class="info-icon" src="/img/main/info_icon01.png" alt="" /> 
+													<a class="status-item" href="/myLibrary/loanBook">대출권수: 
+														<span>${ loanCount }권</span>
+													</a>
 												</div>
 												<div class="item-box">
-													<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> <a class="status-item" href="/myLibrary/loanBook">연체권수: <span>${ overdueCnt }권</span></a>
+													<img class="info-icon" src="/img/main/info_icon02.png" alt="" /> 
+													<a class="status-item" href="/myLibrary/loanBook">연체권수: 
+														<span>${ overdueCnt }권</span>
+													</a>
 												</div>
 											</div>
 											<div class="status-item-group d-flex">
 												<div class="item-box">
-													<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> <a class="status-item" href="/myLibrary/reservationBook">예약권수: <span>${ reservationCnt }권</span></a>
+													<img class="info-icon" src="/img/main/info_icon03.png" alt="" /> 
+													<a class="status-item" href="/myLibrary/reservationBook">예약권수: 
+														<span>${ reservationCnt }권</span>	
+													</a>
 												</div>
 												<div class="item-box">
-													<img class="info-icon" src="/img/main/info_icon04.png" alt="" /> <a class="status-item" href="/myLibrary/hopeBook">신청도서: <span>${ wishCount }권</span></a>
+													<img class="info-icon" src="/img/main/info_icon04.png" alt="" />
+													<a class="status-item" href="/myLibrary/hopeBook">신청도서: 
+														<span>${ wishCount }권</span>
+													</a>
 												</div>
 											</div>
 										</div>
 										<div class="latefee-info-box">
-											<p>
-												현재 회원님의 미반납 누적 연채료는 <span class="user-latefee"></span>원 입니다.
-											</p>
+											<p>현재 회원님의 미반납 누적 연채료는 <span class="user-latefee"></span>원 입니다.</p>
 										</div>
 									</c:otherwise>
 								</c:choose>
@@ -150,16 +170,25 @@
 		</div>
 		<div class="tab-wrap">
 			<div class="tab-inner">
-				<a href="/libraryInfo/summary" class="tab-box"> <img src="/img/main/info.png" alt="">
-					<h4 class="info-text">도서관 정보</h4>
-				</a> <a href="/facilityInfo/memberInfo" class="tab-box"> <img src="/img/main/guid.png" alt="">
-					<h4 class="guid-text">이용안내</h4>
-				</a> <a href="/bookCollection/popularBook" class="tab-box"> <img src="/img/main/bookTalk.png" alt="">
-					<h4 class="guid-text">북토크</h4>
-				</a> <a href="/community/qaForum" class="tab-box"> <img src="/img/main/inquiry.png" alt="">
-					<h4 class="inquiry-text">문의</h4>
-				</a> <a href="/facilityInfo/readingRoom" class="tab-box"> <img src="/img/main/reading-room.png" alt="">
-					<h4 class="room-text">열람실 좌석</h4>
+				<a href="/libraryInfo/summary" class="tab-box"> 
+					<img src="/img/main/info.png" alt="">
+					<span class="tab-text">도서관 정보</span>
+				</a> 
+				<a href="/facilityInfo/memberInfo" class="tab-box"> 
+					<img src="/img/main/guid.png" alt="">
+					<span class="tab-text">이용안내</span>
+				</a> 
+				<a href="/bookCollection/popularBook" class="tab-box"> 
+					<img src="/img/main/bookTalk.png" alt="">
+					<span class="tab-text">북토크</span>
+				</a> 
+				<a href="/community/qaForum" class="tab-box"> 
+					<img src="/img/main/inquiry.png" alt="">
+					<span class="tab-text">문의</span>
+				</a> 
+				<a href="/facilityInfo/readingRoom" class="tab-box"> 
+					<img src="/img/main/reading-room.png" alt="">
+					<span class="tab-text">열람실 좌석</span>
 				</a>
 			</div>
 		</div>
@@ -287,8 +316,9 @@
 			<div class="book-chart-list">
 				<div class="d-flex">
 					<c:forEach items="${ popularBookList }" var="popularBook" varStatus="status">
-						<a href="/bookCollection/bookDetail?isbn=${ popularBook.isbn }" class="book-box"> <img class="book-img" src="${ popularBook.image }" alt="">
-							<h4 class="book-name">${ popularBook.title }</h4>
+						<a href="/bookCollection/bookDetail?isbn=${ popularBook.isbn }" class="book-box"> 
+							<img class="book-img" src="${ popularBook.image }" alt="">
+							<span class="book-name">${ popularBook.title }</span>
 						</a>
 					</c:forEach>
 				</div>
