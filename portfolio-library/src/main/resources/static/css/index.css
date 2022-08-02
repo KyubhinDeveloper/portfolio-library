@@ -791,6 +791,16 @@ div.menu-item-box ul.menu-item-dropdown {
 	padding: 20px 80px;
 }
 
+.tab-box {
+	display: inline-block;
+	text-align: center;
+}
+
+.tab-box>img {
+	width: 47px;
+	margin-bottom: 10px;
+}
+
 .inner-text {
 	display: block;
 	font-weight: bold;
@@ -802,16 +812,6 @@ div.menu-item-box ul.menu-item-dropdown {
 .tab-box:hover .inner-text {
 	color: black;
 	background: #d6e3f8;
-}
-
-.tab-box {
-	display: inline-block;
-	text-align: center;
-}
-
-.tab-box>img {
-	width: 47px;
-	margin-bottom: 10px;
 }
 
 .library-info-bg {
