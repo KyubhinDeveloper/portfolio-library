@@ -172,23 +172,23 @@
 			<div class="tab-inner">
 				<a href="/libraryInfo/summary" class="tab-box"> 
 					<img src="/img/main/info.png" alt="">
-					<h4 class="inner-text">도서관 정보</h4>
+					<span class="inner-text">도서관 정보</span>
 				</a> 
 				<a href="/facilityInfo/memberInfo" class="tab-box"> 
 					<img src="/img/main/guid.png" alt="">
-					<h4 class="inner-text">이용안내</h4n>
+					<span class="inner-text">이용안내</span>
 				</a> 
 				<a href="/bookCollection/popularBook" class="tab-box"> 
 					<img src="/img/main/bookTalk.png" alt="">
-					<h4 class="inner-text">북토크</h4>
+					<span class="inner-text">북토크</span>
 				</a> 
 				<a href="/community/qaForum" class="tab-box"> 
 					<img src="/img/main/inquiry.png" alt="">
-					<h4 class="inner-text">문의</h4>
+					<span class="inner-text">문의</span>
 				</a> 
 				<a href="/facilityInfo/readingRoom" class="tab-box"> 
 					<img src="/img/main/reading-room.png" alt="">
-					<h4 class="inner-text">열람실 좌석</h4>
+					<span class="inner-text">열람실 좌석</span>
 				</a>
 			</div>
 		</div>

@@ -1069,6 +1069,7 @@ div.menu-item-box ul.menu-item-dropdown {
 	div.menu-item-box ul.menu-item-dropdown {
 		display: none;
 	}
+	
 	.main-top-wrap {
 		display: block;
 	}
@@ -1087,12 +1088,6 @@ div.menu-item-box ul.menu-item-dropdown {
 	 	padding-bottom: 20px;
 	}
 	
-	.tab-inner {
-		padding: 20px;
-		gap: 60px;
-		flex-wrap: wrap;
-	}
-	
 	.tab-wrap {
 		position: relative;
 		width: 100%;
@@ -1109,6 +1104,13 @@ div.menu-item-box ul.menu-item-dropdown {
 		width: 97px;
 		border-radius: 20px;
 	}
+	
+	.tab-inner {
+		padding: 20px;
+		gap: 60px;
+		flex-wrap: wrap;
+	}
+	
 	.library-info-bg {
 		padding-top: 20px;
 	}
