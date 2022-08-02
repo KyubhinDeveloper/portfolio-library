@@ -248,9 +248,18 @@ label {
     color: #4b448f;
 }
 
+.bottom-box>.item {
+    align-items: center;
+}
+
 .bottom-box>.item>i {
     font-size: 15px;
     margin-right: 10px;
+}
+
+.bottom-box>.item>h5 {
+    font-size: 14px;
+    font-weight: 100;
 }
 
 @media screen and (max-width: 576px) {
