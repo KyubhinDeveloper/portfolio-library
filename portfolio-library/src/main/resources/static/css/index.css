@@ -792,13 +792,11 @@ div.menu-item-box ul.menu-item-dropdown {
 }
 
 .tab-text {
-	position: relative;
 	display: block;
 	font-weight: bold;
 	font-size: 14px;
 	padding: 2px 10px;
 	border-radius: 15px;
-	
 }
 
 .tab-box:hover .tab-text {
