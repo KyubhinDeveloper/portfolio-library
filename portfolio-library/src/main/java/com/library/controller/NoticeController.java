@@ -432,7 +432,7 @@ public class NoticeController {
 		try {
 			InputStream fileStream = multipartFile.getInputStream();
 			FileUtils.copyInputStreamToFile(fileStream, saveFile); // 파일 저장
-			jsonObject.addProperty("url", "/upload/summernote/" + stringDate + "/" + uploadFileName); // 파일을 저장할 url 정보
+			jsonObject.addProperty("url", "/upload/summernote/" + stringDate + "/" + uploadFileName); // 파일을 저장한 url 정보
 			jsonObject.addProperty("responseCode", "success"); // 파일 저장 성공여부
 		} catch (IOException e) {
 

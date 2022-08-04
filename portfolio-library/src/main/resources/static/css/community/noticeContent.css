@@ -131,6 +131,11 @@ table,thead,tbody,tr,td,th {
     margin-bottom: 10px;
 }
 
+.content-main-wrap img,
+.content-main-wrap table {
+	max-width: 100%
+}
+
 .btn-box {
     text-align: end;
     margin-bottom: 50px;
@@ -186,10 +191,4 @@ table,thead,tbody,tr,td,th {
     	font-size: 13px;
 	}
     
-    .content-main-wrap img {
-   	    width: 331px!important;
-    	height: 466px!important;
-    }
-    
-     
 }
