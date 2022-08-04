@@ -84,14 +84,16 @@ $('.move-top-icon').click(function(){
 
 //사이드 메뉴 이벤트
 $('.hamberger-box').click(function(){
-    $('body').css('overflow', 'hidden');
     $('.side-menu-bg').addClass('menu-show');
-
+    setTimeout(()=>{
+		$('body').css('overflow', 'hidden')
+	},300);
 })
 
 $(document).on('click','.btn-close-side', function(){	
-    $('body').css('overflow', 'auto');
+	  
     $('.side-menu-bg').removeClass('menu-show');
+    $('body').css('overflow', 'auto');
 })
 
 //사이드 메뉴 탭 클릭 이벤트
