@@ -70,7 +70,7 @@
 									<thead>
 										<tr>
 											<th>No.</th>
-											<th>제목</th>
+											<th class="th-title">제목</th>
 											<th>글쓴이</th>
 											<th>작성일</th>
 											<th>답변</th>
@@ -82,15 +82,22 @@
 											<c:forEach items="${ inquiryList }" var="inquiry" varStatus="status">
 												<tr>
 													<input id="inquiry-num" type="hidden" value="${ inquiry.num }" />
-													<td>${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }</td>
-													<td class="title"><a class="subject" href="#">${ inquiry.subject }</a> <c:if test="${ timeList[status.index] lt 1440}">
+													<td class="table-num">${ pageDto.totalCount - (pageNum - 1) * pageDto.rowCount - status.index }</td>
+													<td class="title">
+														<a class="subject" href="#">${ inquiry.subject }</a> 
+														<c:if test="${ timeList[status.index] lt 1440}">
 															<img class="icon" src="/img/community/ico_new.gif" alt="">
-														</c:if> <c:if test="${ inquiry.secret eq '비밀글' }">
+														</c:if> 
+														<c:if test="${ inquiry.secret eq '비밀글' }">
 															<img class="icon lock" src="/img/community/ico_lock.gif" alt="">
-														</c:if></td>
-													<td><input id="inquiry-id" type="hidden" value="${ inquiry.id }" /> <span class="id-box">${ inquiry.name } </span></td>
-													<td>${ inquiry.regDate.substring(0,10)}</td>
-													<td>${ inquiry.status }</td>
+														</c:if>
+													</td>
+													<td class="user-box">
+														<input id="inquiry-id" type="hidden" value="${ inquiry.id }" /> 
+														<span class="inquiry-name">${ inquiry.name }</span>
+													</td>
+													<td class="td-regDate"><span>${ inquiry.regDate.substring(0,10)}</span></td>
+													<td class="td-state"><span>${ inquiry.status }</span></td>
 													<td>${ inquiry.views }</td>
 												</tr>
 											</c:forEach>
@@ -168,46 +175,37 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="/js/main.js"></script>
 	<script>
-		// += "*".repeat(inquiry.name.length() - 1)
-		$(".subject").click(
-				function() {
+	// click 'subject' event
+	$(".subject").click(function() {
 
-					if ($(this).parent().children('img').hasClass('lock')) {
+		if ($(this).parent().children('img').hasClass('lock')) {
 
-						let sessionId = "${ sessionScope.id }";
-						let id = $(this).parent().siblings('.id-box').children(
-								'#inquiry-id').val();
+			let sessionId = "${ sessionScope.id }";
+			let id = $(this).parent().siblings('.user-box').children('#inquiry-id').val();
 
-						if (id == sessionId || sessionId == 'admin') {
-							let num = $(this).parent().siblings('#inquiry-num')
-									.val();
-							$(this).prop(
-									"href",
-									"/community/inquiryContent?num=" + num
-											+ "&pageNum=${pageNum}");
-						} else {
-							alert("비공개 문의내역은 작성자 본인만 확인하실 수 있습니다.");
-						}
-					} else {
+			if (id == sessionId || sessionId == 'admin') {
+				let num = $(this).parent().siblings('#inquiry-num').val();
+				$(this).prop("href", "/community/inquiryContent?num=" + num + "&pageNum=${pageNum}");
+			} else {
+				alert("비공개 문의내역은 작성자 본인만 확인하실 수 있습니다.");
+			}
+		} else {
 
-						let num = $(this).parent().siblings('#inquiry-num')
-								.val();
-						$(this).prop(
-								"href",
-								"/community/inquiryContent?num=" + num
-										+ "&pageNum=${pageNum}");
-					}
-				})
-
-		let length = $('.id-box').length;
-		let id;
-		let str;
-
-		for (let i = 0; i < length; i++) {
-			id = $('.id-box').eq(i);
-			str = '*'.repeat(id.text().length - 2);
-			let editStr = id.text().substring(0, 1).concat(str);
-			id.text(editStr);
+			let num = $(this).parent().siblings('#inquiry-num').val();
+			$(this).prop("href", "/community/inquiryContent?num=" + num + "&pageNum=${pageNum}");
 		}
+	})
+
+	let length = $('.inquiry-name').length;
+	let id;
+	let str;
+
+	for (let i = 0; i < length; i++) {
+		id = $('.inquiry-name').eq(i);
+		str = '*'.repeat(id.text().length - 2);
+		let editStr = id.text().substring(0, 1).concat(str);
+		id.text(editStr);
+	}
+	
 	</script>
 </body>
