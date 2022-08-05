@@ -86,14 +86,14 @@
 											<div class="item-box">
 												<div class="d-flex book-img-box">
 													<input class="form-check-input mt-0 bookmark-check" type="checkbox">
-													<input class="isbn" type="hidden" value="${ book.isbn.split(' ')[1] }"/> 
-													<a href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn.split(' ')[1]}">
+													<input class="isbn" type="hidden" value="${ book.isbn }"/> 
+													<a href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn}">
 														<img src="${ book.image }" onError="this.src='/img/bookCollection/none-book-img.jpg'" alt="book-img">
 													</a>
 												</div>
 												<div class="book-detail-box">
 													<div>
-														<a class="title" href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn.split(' ')[1]}">${ book.title }</a>
+														<a class="title" href="/bookCollection/bookDetail?pageNum=${ pageNum }&rowCount=${ pageDto.rowCount }&search=${ pageDto.search }&isbn=${book.isbn}">${ book.title }</a>
 														<p>
 															<span class="author">${ book.author }</span>
 															<span class="publisher">${ book.publisher }</span>,
@@ -125,7 +125,7 @@
 													</div>
 													<div class="d-flex icon-wrap">
 														<div class="d-flex icon-box book-status-icon">
-															<input class="isbn" type="hidden" value="${ book.isbn.split(' ')[1] }"/>
+															<input class="isbn" type="hidden" value="${ book.isbn }"/>
 															<i class="fa-solid fa-list-check"></i>
 															<p>소장정보</p>
 														</div>
@@ -156,7 +156,7 @@
 														</thead>
 														<tbody>
 															<tr>
-																<td class="bookNum">K${ book.isbn.split(' ')[1].substring(6) }</td>
+																<td class="bookNum">K${ book.isbn.substring(6) }</td>
 																<td class="loan-status">대출가능</td>
 																<td class="loan-endDay"></td>
 																<td class="book-service">
@@ -169,7 +169,7 @@
 																</c:if>
 															</tr>
 															<tr>
-																<td class="bookNum">K${ book.isbn.split(' ')[1].substring(6) }-1</td>
+																<td class="bookNum">K${ book.isbn.substring(6) }-1</td>
 																<td class="loan-status">대출가능</td>
 																<td class="loan-endDay"></td>
 																<td class="book-service">
@@ -182,7 +182,7 @@
 																</c:if>
 															</tr>
 															<tr>
-																<td class="bookNum">K${ book.isbn.split(' ')[1].substring(6) }-2</td>
+																<td class="bookNum">K${ book.isbn.substring(6) }-2</td>
 																<td class="loan-status">대출가능</td>
 																<td class="loan-endDay"></td>
 																<td class="book-service">

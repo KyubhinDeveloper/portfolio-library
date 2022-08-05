@@ -260,7 +260,7 @@ public class BookCollectionController {
 		book.setIsbn(isbn);
 		book.setDescription(description);
 		
-		Boolean check = bookCollectionService.checkStop("", isbn.substring(isbn.length()-17, isbn.length()).replace("</b>",""));
+		Boolean check = bookCollectionService.checkStop("", isbnVal);
 		
 		model.addAttribute("book", book);
 		model.addAttribute("check", check);

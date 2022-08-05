@@ -79,7 +79,7 @@
                                         <div class="d-flex text-box">
                                             <p class="label">ISBN</p>
                                             <p class="content isbn">
-                                                ${book.isbn.substring(book.isbn.length() - 17, book.isbn.length())}
+                                                ${ book.isbn }
                                             </p>
                                         </div>
                                         <c:if test="${ sessionScope.id eq 'admin' }">
@@ -115,7 +115,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="bookNum">K${ book.isbn.substring(book.isbn.length() - 11,book.isbn.length())}</td>
+                                            <td class="bookNum">K${ book.isbn.substring(6) }</td>
                                             <td class="loan-status">대출가능</td>
                                             <td class="loan-endDay"></td>
                                             <td class="book-service"><button class="btn loan-btn">대출하기</button></td>
@@ -124,7 +124,7 @@
                                         	</c:if>
                                         </tr>
                                         <tr>
-                                            <td class="bookNum">K${ book.isbn.substring(book.isbn.length() - 11,book.isbn.length())}-1</td>
+                                            <td class="bookNum">K${ book.isbn.substring(6) }-1</td>
                                             <td class="loan-status">대출가능</td>
                                             <td class="loan-endDay"></td>
                                             <td class="book-service"><button class="btn loan-btn">대출하기</button></td>
@@ -133,7 +133,7 @@
                                         	</c:if>
                                         </tr>
                                         <tr>
-                                            <td class="bookNum">K${ book.isbn.substring(book.isbn.length() - 11,book.isbn.length())}-2</td>
+                                            <td class="bookNum">K${ book.isbn.substring(6) }-2</td>
                                             <td class="loan-status">대출가능</td>
                                             <td class="loan-endDay"></td>
                                             <td class="book-service"><button class="btn loan-btn">대출하기</button></td>
@@ -163,7 +163,7 @@
     <script src="/js/main.js"></script>
     <script>
     	var id = "${sessionScope.id}"
-    	var isbn = "${book.isbn.substring(book.isbn.length() - 17, book.isbn.length()).replace('</b>','')}"
+    	var isbn = "${book.isbn}"
     
     </script>
     <script src="/js/bookCollection/bookDetail.js"></script>

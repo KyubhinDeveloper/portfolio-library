@@ -967,7 +967,7 @@ div.menu-item-box ul.menu-item-dropdown {
 
 .book-img {
 	margin-bottom: 15px;
-	width: 100%;
+	max-width: 100%;
 	height: 237.56px;
 }
 
