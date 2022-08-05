@@ -1,6 +1,13 @@
 # 📖 Library Web Project
-> 전반적인 웹의 기본 소양이 담겨있는 도서관 프로젝트입니다.</br>
+
+#### 🗣 소개</br>
 https://funweb-kyubhin.herokuapp.com/
+```
+도서관 웹 사이트를 제작하였습니다.
+도서관 이용고객들이 도서 예약, 대출, 열람실 등을 이용할 수 있고,
+관리자는 해당 정보들을 모두 관리할 수 있습니다.
+```
+
 
 
 <img width="760" src="https://user-images.githubusercontent.com/108660720/183016275-ff20c24f-4e83-4fa1-b2a3-12a157029173.gif">
@@ -54,3 +61,16 @@ Frontend : HTML5, CSS3, Javascript(ES6), JQuery
 
 Database : MySQL
 ```
+
+------------
+
+#### 🔗 개발 내용
+- <a href="https://kyubiblog.tistory.com/75?category=567751" target="_blank">게시판 댓글 작성 및 조회 구현</a>
+- <a href="https://kyubiblog.tistory.com/74?category=567751" target="_blank">Scheduler를 활용한 자동처리</a>
+- <a href="https://kyubiblog.tistory.com/72?category=567751" target="_blank">Google SMTP 활용한 인증메일 발송</a>
+- <a href="https://kyubiblog.tistory.com/73?category=567751" target="_blank">웹 소켓(Web Socket)을 활용한 실시간 1대1 채팅 기능 구현</a>
+- <a href="https://kyubiblog.tistory.com/76?category=567751" target="_blank">썸네일과 파일 업로드가 가능한 게시판 구현하기</a>
+- <a href="https://kyubiblog.tistory.com/76?category=567751" target="_blank">네이버 오픈 API 데이터를 이용한 도서검색</a>
+
+
+
