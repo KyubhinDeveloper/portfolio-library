@@ -132,6 +132,7 @@ $('select').on('change', function(){
 	$(this).prev().val($(this).val());
 })
 
+
 //연락처 이벤트
 $('#phone-input').on('change', function(){
 	
