@@ -151,7 +151,7 @@ label {
 
 .bottom-wrap {
     max-width: 1200px;
-    margin: 70px 0px 100px 0px;
+    margin: 50px 0px 100px 0px;
     padding: 20px;
     border: 1px solid rgb(209, 209, 209);
     border-radius: 10px;
@@ -163,6 +163,11 @@ label {
     align-items: center;
     justify-content: space-between;
 }
+
+.icon-box {
+    background: #4b448f;
+    padding: 10px;
+} 
 
 .bottom-box>.item {
     align-items: center;
@@ -192,6 +197,10 @@ label {
 .bottom-box>.item>i {
     font-size: 15px;
     margin-right: 10px;
+}
+
+.bottom-box>.item>h5 {
+	font-size: 14px;
 }
 
 @media screen and (max-width: 576px) {

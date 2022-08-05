@@ -237,6 +237,10 @@ label {
     margin-right: 10px;
 }
 
+.bottom-box>.item>h5 {
+	font-size: 14px;
+}
+
 @media screen and (max-width: 576px) {
 
     .community-tab-box {
