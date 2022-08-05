@@ -265,7 +265,7 @@
 					</div>
 					<div class="roomInfo-box">
 						<div class="title-box">
-							<p>그룹스터디룸</p>
+							<p>열람실</p>
 						</div>
 						<div class="contents-box">
 							<div class="info-box">
@@ -273,7 +273,7 @@
 									<p>월-목</p>
 								</div>
 								<div class="info-time">
-									<p>09:00 ~ 21:00</p>
+									<p>07:00 ~ 24:00</p>
 								</div>
 							</div>
 							<div class="info-box">
@@ -281,7 +281,7 @@
 									<p>금</p>
 								</div>
 								<div class="info-time">
-									<p>09:00 ~ 18:00</p>
+									<p>07:00 ~ 23:00</p>
 								</div>
 							</div>
 							<div class="info-box">
@@ -289,7 +289,7 @@
 									<p>토요일</p>
 								</div>
 								<div class="info-time">
-									<p>09:00 ~ 13:00</p>
+									<p>09:00 ~ 21:00</p>
 								</div>
 							</div>
 							<div class="info-box">
@@ -302,7 +302,7 @@
 							</div>
 						</div>
 					</div>
-					<p>※ 개관시간은 코로나19 상황에 따라 조정될 수 있습니다.</p>
+					<p>※ 이용시간은 코로나19 상황에 따라 조정될 수 있습니다.</p>
 				</div>
 			</div>
 		</div>
