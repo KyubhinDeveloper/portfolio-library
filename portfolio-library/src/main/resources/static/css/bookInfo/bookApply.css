@@ -21,8 +21,14 @@
     top: 2px;
 }
 
-.top-box>a>span {
+.top-box span {
+    position: relative;
+    top: 2px;
 	font-size: 14px;
+}
+
+.top-box>a>span {
+    font-weight: bold;
 }
 
 .top-box>a:last-child>span {

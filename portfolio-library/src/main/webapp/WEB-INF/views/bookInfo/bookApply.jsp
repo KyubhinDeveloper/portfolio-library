@@ -30,7 +30,7 @@
                             </svg>
                         </a>
                         <i class="fa-solid fa-angle-right"></i>
-                        <a><span>도서이용안내</span></a>
+                        <span>도서이용안내</span>
                         <i class="fa-solid fa-angle-right"></i>
                         <a href="/bookInfo/bookApply"><span>희망도서 신청</span></a>
                     </div>

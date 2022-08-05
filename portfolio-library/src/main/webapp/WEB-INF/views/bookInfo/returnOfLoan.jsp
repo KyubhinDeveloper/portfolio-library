@@ -30,7 +30,7 @@
                             </svg>
                         </a>
                         <i class="fa-solid fa-angle-right"></i>
-                        <a><span>도서이용안내</span></a>
+                        <span>도서이용안내</span>
                         <i class="fa-solid fa-angle-right"></i>
                         <a href="/bookInfo/returnOfLoan"><span>대출/반납</span></a>
                     </div>

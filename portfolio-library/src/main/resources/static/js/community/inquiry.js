@@ -55,6 +55,3 @@ function uploadSummernoteImageFile(file, editor) {
 	});
 }
 
-
-
-

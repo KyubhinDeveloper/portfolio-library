@@ -20,14 +20,13 @@
     top: 2px;
 }
 
-.top-box>span {
-	position: relative;
-	top: 2px;
-	font-size: 13px;
+.top-box span {
+    position: relative;
+    top: 2px;
+	font-size: 14px;
 }
 
 .top-box>a>span {
-	font-size: 13px;
     font-weight: bold;
 }
 

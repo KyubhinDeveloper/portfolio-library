@@ -34,10 +34,10 @@
                             </svg>
                         </a>
                         <i class="fa-solid fa-angle-right"></i>
-                        <h5>커뮤니티</h5>
+                        <span>커뮤니티</span>
                         <i class="fa-solid fa-angle-right"></i>
                         <a href="/community/editForum">
-                            <h5>게시판 문의</h5>
+                            <span>게시판 문의</span>
                         </a>
                     </div>
                 </div>

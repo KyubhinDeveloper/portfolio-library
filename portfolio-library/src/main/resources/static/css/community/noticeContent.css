@@ -24,14 +24,13 @@ table,thead,tbody,tr,td,th {
     top: 2px;
 }
 
-.top-box>span {
-	position: relative;
-	top: 2px;
+.top-box span {
+    position: relative;
+    top: 2px;
 	font-size: 14px;
 }
 
 .top-box>a>span {
-	font-size: 14px;
     font-weight: bold;
 }
 
