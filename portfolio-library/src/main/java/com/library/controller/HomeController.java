@@ -68,7 +68,6 @@ public class HomeController {
 				int loanCount = myLibraryService.getLoanCnt(id);
 				int overdueCnt = myLibraryService.getOverdueCnt(id); // cnt == count
 				int reservationCnt = myLibraryService.getBookedCntById(id);
-				int myNoticeCnt = myLibraryService.getMyNoticeCnt(id);
 				int wishCount = myLibraryService.getApplicationCnt(id);
 				int latefee;
 
@@ -83,7 +82,6 @@ public class HomeController {
 				model.addAttribute("reservationCnt", reservationCnt);
 				model.addAttribute("latefee", latefee);
 				model.addAttribute("wishCount", wishCount);
-				model.addAttribute("wishCount", myNoticeCnt);
 			} // else
 		} // if()
 

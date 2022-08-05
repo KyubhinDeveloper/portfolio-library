@@ -42,7 +42,7 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@Autowired
-	private MyLibraryService myLibararyService;
+	private MyLibraryService myLibraryService;
 	
 	@GetMapping("/login")
 	public void login(){
@@ -84,9 +84,11 @@ public class MemberController {
 			HttpSession session, HttpServletResponse response) {
 			
 			String name = memberService.getNameById(id);
-		
+			int myNoticeCnt = myLibraryService.getMyNoticeCnt(id);
+			
 			session.setAttribute("id", id);
 			session.setAttribute("name", name);
+			session.setAttribute("myNoticeCnt", myNoticeCnt);
 			
 			if (keepLogin) {
 				Cookie idCookie = new Cookie("id", id);
@@ -249,8 +251,8 @@ public class MemberController {
 		memberInfo.put("todayJointCnt", todayJointCnt);
 		//희망도서 정보
 		Map<String, Object> hopeBookInfo = new HashMap<>();
-		int hopeBookCnt = myLibararyService.totalApplicationCnt();
-		int todayApplicationCnt = myLibararyService.todayApplicationCnt(today);
+		int hopeBookCnt = myLibraryService.totalApplicationCnt();
+		int todayApplicationCnt = myLibraryService.todayApplicationCnt(today);
 		hopeBookInfo.put("hopeBookCnt", hopeBookCnt);
 		hopeBookInfo.put("todayApplicationCnt", todayApplicationCnt);
 		

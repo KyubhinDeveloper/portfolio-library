@@ -361,7 +361,9 @@ public class MyLibraryController {
 			
 			myLibraryService.updateReadDate(num,date);
 			PersonalNoticeVo noticeVo = myLibraryService.getNoticeVo(num);
-			
+			int myNoticeCnt = myLibraryService.getMyNoticeCnt(id);
+			log.info("안읽은 갯수: " + myNoticeCnt);
+			session.setAttribute("myNoticeCnt", myNoticeCnt);
 			
 			model.addAttribute("noticeVo", noticeVo);
 			model.addAttribute("name", name);

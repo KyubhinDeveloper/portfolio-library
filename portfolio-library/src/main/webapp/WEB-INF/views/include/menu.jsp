@@ -51,8 +51,8 @@
 							</svg>
 						</a>
 						<a class="d-none d-lg-block my-icon" href="#">
-							<c:if test="${ wishCount gt 0 }">
-							<div class="d-flex my-noticeCnt-box"><span class="count">${ wishCount }</span></div>
+							<c:if test="${ sessionScope.myNoticeCnt gt 0 }">
+							<div class="d-flex my-noticeCnt-box"><span class="count">${ sessionScope.myNoticeCnt }</span></div>
 							</c:if>
 							<button class="btn button my-btn" type="button">MY</button>
 						</a>
