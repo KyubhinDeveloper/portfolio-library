@@ -244,6 +244,11 @@ button.email-btn:hover {
     width: 70px;
 }
 
+.success-send-email {
+	color: red;
+	font-weight: bold;
+}
+
 button.check-btn:hover {
 	color: black;
 }

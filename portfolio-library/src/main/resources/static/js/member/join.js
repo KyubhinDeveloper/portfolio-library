@@ -173,7 +173,10 @@ $('.email-btn').on('click', function(){
 				emailTip.text('');
 				$.ajax ({
 					method: 'GET',
-					url: '/member/sendEmail/' + emailText
+					url: '/member/sendEmail/' + emailText,
+					beforeSend:function(){
+						$('.check-input-tip').text('처리중입니다. 잠시만 기다려주세요.');
+					}
 				}).done(function(result){
 												
 					$('.check-input').prop('disabled', false);
