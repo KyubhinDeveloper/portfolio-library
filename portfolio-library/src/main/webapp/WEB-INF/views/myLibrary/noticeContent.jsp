@@ -234,7 +234,7 @@
 									<button class="btn delete-btn">삭제하기</button>
 								</div>
 								<div class="list-btn-box">
-									<a href="/community/inquiryForum?pageNum=${pageNum}"><button class="btn list-btn">목록보기</button></a>
+									<a href="/myLibrary/personalNotice?pageNum=${pageNum}"><button class="btn list-btn">목록보기</button></a>
 								</div>
 							</div>
 						</div>

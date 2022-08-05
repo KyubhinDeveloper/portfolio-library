@@ -95,22 +95,22 @@
 													<td class="notice-name">
 														<div class="td-title">제목</div>
 														<c:if test="${ notice.type eq 1 }">
-														<a href="/myLibrary/noticeContent?num=${ notice.num }">[부산대 도서관] 자료반납 알림</a>
+														<a href="/myLibrary/noticeContent?num=${ notice.num }&pageNum=${ pageNum }">[부산대 도서관] 자료반납 알림</a>
 														</c:if>
 														<c:if test="${ notice.type eq 2 }">
-														<a href="/myLibrary/noticeContent?num=${ notice.num }">[부산대 도서관] 미반납 도서 알림</a>
+														<a href="/myLibrary/noticeContent?num=${ notice.num }&pageNum=${ pageNum }">[부산대 도서관] 미반납 도서 알림</a>
 														</c:if>
 														<c:if test="${ notice.type eq 3 }">
-														<a href="/myLibrary/noticeContent?num=${ notice.num }">[부산대 도서관] 반납예정일 알림</a>
+														<a href="/myLibrary/noticeContent?num=${ notice.num }&pageNum=${ pageNum }">[부산대 도서관] 반납예정일 알림</a>
 														</c:if>
 														<c:if test="${ notice.type eq 4 }">
-														<a href="/myLibrary/noticeContent?num=${ notice.num }">[부산대 도서관] 대출도서 예약 알림</a>
+														<a href="/myLibrary/noticeContent?num=${ notice.num }&pageNum=${ pageNum }">[부산대 도서관] 대출도서 예약 알림</a>
 														</c:if>
 														<c:if test="${ notice.type eq 5 }">
-														<a href="/myLibrary/noticeContent?num=${ notice.num }">[부산대 도서관] 예약도서 대출가능 알림</a>
+														<a href="/myLibrary/noticeContent?num=${ notice.num }&pageNum=${ pageNum }">[부산대 도서관] 예약도서 대출가능 알림</a>
 														</c:if>
 														<c:if test="${ notice.type eq 6 }">
-														<a href="/myLibrary/noticeContent?num=${ notice.num }">수동발송</a>
+														<a href="/myLibrary/noticeContent?num=${ notice.num }&pageNum=${ pageNum }">수동발송</a>
 														</c:if>
 													</td>
 													<td class="loss-date">
