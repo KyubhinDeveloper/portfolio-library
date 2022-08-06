@@ -550,7 +550,7 @@
 	                                            <input class="field-input check-input" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength='6' disabled="disabled">
 	                                            <button type="button" class="btn check-btn" disabled>확인</button>
 	                                        </div>
-	                                        <p class="check-input-tip success-send-email"></p>
+	                                        <p class="check-input-tip success-send-email"> </p>
                                         </div>	
                                     </div>
                                 </div>

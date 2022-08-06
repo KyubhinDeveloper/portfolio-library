@@ -175,7 +175,7 @@ $('.email-btn').on('click', function(){
 				$.ajax ({
 					method: 'GET',
 					url: '/member/sendEmail/' + emailText,
-					beforeSend:function(){
+					beforeSend:() => {
 						$('.check-input-tip').text('처리중입니다. 잠시만 기다려주세요.');
 					}
 				}).done(function(result){
